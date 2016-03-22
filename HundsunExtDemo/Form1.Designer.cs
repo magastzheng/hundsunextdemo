@@ -45,6 +45,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tpSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.tradingInfoPanel = new System.Windows.Forms.Panel();
+            this.buysellPanel = new System.Windows.Forms.Panel();
+            this.lblSpotBuyPrice = new System.Windows.Forms.Label();
+            this.lblSpotSellPrice = new System.Windows.Forms.Label();
+            this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
+            this.lblFuturesSellPrice = new System.Windows.Forms.Label();
+            this.lblAddCopy = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -54,7 +62,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpSplitContainer)).BeginInit();
+            this.tpSplitContainer.Panel2.SuspendLayout();
+            this.tpSplitContainer.SuspendLayout();
+            this.buysellPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -166,7 +179,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(775, 194);
+            this.tabControl1.Size = new System.Drawing.Size(716, 194);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -175,7 +188,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 168);
+            this.tabPage1.Size = new System.Drawing.Size(708, 168);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -193,15 +206,15 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Location = new System.Drawing.Point(7, 7);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 23;
-            this.dataGridView.Size = new System.Drawing.Size(761, 162);
+            this.dataGridView.Size = new System.Drawing.Size(754, 137);
             this.dataGridView.TabIndex = 0;
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Location = new System.Drawing.Point(2, 78);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -209,9 +222,93 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(992, 390);
-            this.splitContainer1.SplitterDistance = 781;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tpSplitContainer);
+            this.splitContainer1.Size = new System.Drawing.Size(992, 446);
+            this.splitContainer1.SplitterDistance = 725;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // tpSplitContainer
+            // 
+            this.tpSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tpSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.tpSplitContainer.Name = "tpSplitContainer";
+            this.tpSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // tpSplitContainer.Panel2
+            // 
+            this.tpSplitContainer.Panel2.Controls.Add(this.buysellPanel);
+            this.tpSplitContainer.Panel2.Controls.Add(this.tradingInfoPanel);
+            this.tpSplitContainer.Size = new System.Drawing.Size(263, 446);
+            this.tpSplitContainer.SplitterDistance = 78;
+            this.tpSplitContainer.TabIndex = 0;
+            // 
+            // tradingInfoPanel
+            // 
+            this.tradingInfoPanel.Location = new System.Drawing.Point(4, 4);
+            this.tradingInfoPanel.Name = "tradingInfoPanel";
+            this.tradingInfoPanel.Size = new System.Drawing.Size(252, 56);
+            this.tradingInfoPanel.TabIndex = 0;
+            // 
+            // buysellPanel
+            // 
+            this.buysellPanel.Controls.Add(this.lblAddCopy);
+            this.buysellPanel.Controls.Add(this.lblFuturesSellPrice);
+            this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
+            this.buysellPanel.Location = new System.Drawing.Point(3, 66);
+            this.buysellPanel.Name = "buysellPanel";
+            this.buysellPanel.Size = new System.Drawing.Size(252, 291);
+            this.buysellPanel.TabIndex = 1;
+            // 
+            // lblSpotBuyPrice
+            // 
+            this.lblSpotBuyPrice.AutoSize = true;
+            this.lblSpotBuyPrice.Location = new System.Drawing.Point(4, 14);
+            this.lblSpotBuyPrice.Name = "lblSpotBuyPrice";
+            this.lblSpotBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotBuyPrice.TabIndex = 0;
+            this.lblSpotBuyPrice.Text = "现货委买价";
+            // 
+            // lblSpotSellPrice
+            // 
+            this.lblSpotSellPrice.AutoSize = true;
+            this.lblSpotSellPrice.Location = new System.Drawing.Point(4, 41);
+            this.lblSpotSellPrice.Name = "lblSpotSellPrice";
+            this.lblSpotSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotSellPrice.TabIndex = 1;
+            this.lblSpotSellPrice.Text = "现货委卖价";
+            // 
+            // lblFuturesBuyPrice
+            // 
+            this.lblFuturesBuyPrice.AutoSize = true;
+            this.lblFuturesBuyPrice.Location = new System.Drawing.Point(4, 68);
+            this.lblFuturesBuyPrice.Name = "lblFuturesBuyPrice";
+            this.lblFuturesBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesBuyPrice.TabIndex = 2;
+            this.lblFuturesBuyPrice.Text = "期货委买价";
+            // 
+            // lblFuturesSellPrice
+            // 
+            this.lblFuturesSellPrice.AutoSize = true;
+            this.lblFuturesSellPrice.Location = new System.Drawing.Point(4, 93);
+            this.lblFuturesSellPrice.Name = "lblFuturesSellPrice";
+            this.lblFuturesSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesSellPrice.TabIndex = 3;
+            this.lblFuturesSellPrice.Text = "期货委卖价";
+            // 
+            // lblAddCopy
+            // 
+            this.lblAddCopy.AutoSize = true;
+            this.lblAddCopy.Location = new System.Drawing.Point(6, 120);
+            this.lblAddCopy.Name = "lblAddCopy";
+            this.lblAddCopy.Size = new System.Drawing.Size(53, 12);
+            this.lblAddCopy.TabIndex = 4;
+            this.lblAddCopy.Text = "追加份数";
             // 
             // hundsunExtDemo
             // 
@@ -235,8 +332,14 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tpSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tpSplitContainer)).EndInit();
+            this.tpSplitContainer.ResumeLayout(false);
+            this.buysellPanel.ResumeLayout(false);
+            this.buysellPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -259,6 +362,14 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer tpSplitContainer;
+        private System.Windows.Forms.Panel buysellPanel;
+        private System.Windows.Forms.Label lblAddCopy;
+        private System.Windows.Forms.Label lblFuturesSellPrice;
+        private System.Windows.Forms.Label lblFuturesBuyPrice;
+        private System.Windows.Forms.Label lblSpotSellPrice;
+        private System.Windows.Forms.Label lblSpotBuyPrice;
+        private System.Windows.Forms.Panel tradingInfoPanel;
     }
 }
 
