@@ -1,0 +1,52 @@
+﻿{
+	function:[
+		{
+			"code": 10000,
+			"param": [{
+				"name": "user_token",
+				"type": "C512"
+			}
+			]
+		},
+		{
+			"code": 10001,
+			"param": [{
+				"name": "operator_no",
+				"type": "C16",
+				"require": "Y"
+			},{
+				"name": "password",
+				"type": "C16",
+				"require": "Y"
+			},
+			{
+				"name": "mac_address",
+				"type": "C32",
+				"require": "Y"
+			},
+			{
+				"name": "ip_address",
+				"type": "C32",
+				"require": "Y"
+			},
+			{
+				"name": "hd_volserial",
+				"type": "C10",
+				"require": "N"
+			},
+			{
+				"name": "op_station",
+				"type": "C255"
+			},
+			{
+				"name": "mac_address",
+				"type": "C32"
+			},
+			{
+				"name": "user_token",
+				"type": "C40"
+			}
+			]
+		}
+	]
+}

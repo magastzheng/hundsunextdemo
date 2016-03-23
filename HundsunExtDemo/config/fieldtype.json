@@ -1,0 +1,62 @@
+﻿[
+	{
+		"name": "C1",
+		"type": "S",
+		"width": "1",
+		"scale": "4"
+	},
+	{
+		"name": "C3",
+		"type": "S",
+		"width": "3",
+		"scale": "4"
+	},
+	{
+		"name": "C8",
+		"type": "S",
+		"width": "8",
+		"scale": "4"
+	},
+	{
+		"name": "C10",
+		"type": "S",
+		"width": "10",
+		"scale": "4"
+	},
+	{
+		"name": "C16",
+		"type": "S",
+		"width": "16",
+		"scale": "4"
+	},
+	{
+		"name": "C32",
+		"type": "S",
+		"width": "32",
+		"scale": "4"
+	},
+	{
+		"name": "C64",
+		"type": "S",
+		"width": "64",
+		"scale": "4"
+	},
+	{
+		"name": "C128",
+		"type": "S",
+		"width": "128",
+		"scale": "4"
+	},
+	{
+		"name": "C255",
+		"type": "S",
+		"width": "255",
+		"scale": "4"
+	},
+	{
+		"name": "N6",
+		"type": "S",
+		"width": "6",
+		"scale": "4"
+	}
+]

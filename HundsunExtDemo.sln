@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HundsunExtDemo", "HundsunExtDemo\HundsunExtDemo.csproj", "{C91FEA1F-08F7-446B-B184-EEECF5167E5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{11D6AE0D-BF60-4A4F-AF42-CF7710DD8AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{9AFC3370-02AB-444B-9C43-411E49F49B16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{C91FEA1F-08F7-446B-B184-EEECF5167E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C91FEA1F-08F7-446B-B184-EEECF5167E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C91FEA1F-08F7-446B-B184-EEECF5167E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D6AE0D-BF60-4A4F-AF42-CF7710DD8AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D6AE0D-BF60-4A4F-AF42-CF7710DD8AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D6AE0D-BF60-4A4F-AF42-CF7710DD8AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D6AE0D-BF60-4A4F-AF42-CF7710DD8AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFC3370-02AB-444B-9C43-411E49F49B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFC3370-02AB-444B-9C43-411E49F49B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFC3370-02AB-444B-9C43-411E49F49B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFC3370-02AB-444B-9C43-411E49F49B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
