@@ -36,17 +36,366 @@
 			},
 			{
 				"name": "op_station",
-				"type": "C255"
+				"type": "C255",
+				"require": "Y"
 			},
 			{
-				"name": "mac_address",
-				"type": "C32"
+				"name": "authorization_id",
+				"type": "C64",
+				"require": "Y"
 			},
 			{
+				"name": "login_time",
+				"type": "N6",
+				"require": "N"
+			},
+			{
+				"name": "verification_code",
+				"type": "C32",
+				"require": "N"
+			}
+			],
+			"response":[{
 				"name": "user_token",
-				"type": "C40"
+				"type": "C512",
+			},
+			{
+				"name": "version_no",
+				"type": "c32"
 			}
 			]
+		},
+		{
+			"code": 10002,
+			"param": [{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			}]
+		},
+		{
+			"code": 30001,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 30002,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 30003,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 30004,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 35003,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 35011,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 35012,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 35013,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 36012,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 91001,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 91011,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 91090,
+			"param": [{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			},{
+				"name": "account_code",
+				"type": "C32",
+				"require": "N"
+			},{
+				"name": "asset_no",
+				"type": "C16",
+				"require": "N"
+			},{
+				"name": "combi_no",
+				"type": "C8",
+				"require": "N"
+			},{
+				"name": "instance_no",
+				"type": "C128",
+				"require": "N"
+			},{
+				"name": "stockholder_id",
+				"type": "C20",
+				"require": "N"
+			},{
+				"name": "report_seat",
+				"type": "C20",
+				"require": "N"
+			},{
+				"name": "market_no",
+				"type": "C3",
+				"require": "Y"
+			},{
+				"name": "stock_code",
+				"type": "C16",
+				"require": "Y"
+			},{
+				"name": "entrust_direction",
+				"type": "C3",
+				"require": "Y"
+			},{
+				"name": "futures_direction",
+				"type": "C1",
+				"require": "N"
+			},{
+				"name": "price_type",
+				"type": "C1",
+				"require": "Y"
+			},{
+				"name": "entrust_price",
+				"type": "N11.4",
+				"require": "Y"
+			},{
+				"name": "entrust_amount",
+				"type": "N16.2",
+				"require": "Y"
+			},{
+				"name": "limit_entrust_ratio",
+				"type": "N9.6",
+				"require": "N"
+			},{
+				"name": "max_cancel_ratio",
+				"type": "N9.6",
+				"require": "N"
+			},{
+				"name": "invest_type",
+				"type": "C1",
+				"require": "N"
+			},{
+				"name": "extsystem_id",
+				"type": "N8",
+				"require": "N"
+			},{
+				"name": "third_reff",
+				"type": "C256",
+				"require": "N"
+			}],
+			"response":[
+				"name": "batch_no",
+				"type": "N8"
+			]
+		},
+		{
+			"code": 91101,
+			"param": [{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			},{
+				"name": "entrust_no",
+				"type": "N8",
+				"require": "Y"
+			}],
+			"respone":[
+				{
+					"name": "entrust_no",
+					"type": "N8"
+				},{
+					"name": "market_no",
+					"type": "C3"
+				},{
+					"name": "stock_code",
+					"type": "C16"
+				},{
+					"name": "success_flag",
+					"type": "C1"
+				},{
+					"name": "fail_cause",
+					"type": "C256"
+				},{
+					"name": "withdraw_flag",
+					"type": "C1"
+				},{
+					"name": "cancel_info",
+					"type": "C256"
+				}
+			]
+		},
+		{
+			"code": 91102,
+			"param": [{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			},{
+				"name": "batch_no",
+				"type": "N8",
+				"require": "Y"
+			}],
+			"respone":[
+				{
+					"name": "entrust_no",
+					"type": "N8"
+				},{
+					"name": "market_no",
+					"type": "C3"
+				},{
+					"name": "stock_code",
+					"type": "C16"
+				},{
+					"name": "success_flag",
+					"type": "C1"
+				},{
+					"name": "fail_cause",
+					"type": "C256"
+				},{
+					"name": "withdraw_flag",
+					"type": "C1"
+				},{
+					"name": "cancel_info",
+					"type": "C256"
+				}
+			]
+		},
+		{
+			"code": 91104,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 31001,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 32001,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 33001,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 30010,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 91004,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 91105,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 31003,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 32003,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
+		},
+		{
+			"code": 34003,
+			"param": [{
+				"name": "",
+				"type": "",
+				"require": ""
+			}]
 		}
 	]
 }

@@ -66,7 +66,7 @@ namespace BLL
         {
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            //bizMessage.SetFunction((int)FunctionCode.Login);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包

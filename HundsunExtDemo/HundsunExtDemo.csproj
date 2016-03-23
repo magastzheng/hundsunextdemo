@@ -64,6 +64,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="config\fieldtype.json" />
+    <None Include="config\function.json" />
     <None Include="config\license.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
