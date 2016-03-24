@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9AFC3370-02AB-444B-9C43-411E49F49B16}</ProjectGuid>
+    <ProjectGuid>{1538DB09-6BFC-4623-9DB4-34577F335CD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>Config</RootNamespace>
+    <AssemblyName>Config</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,16 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuySellItem.cs" />
-    <Compile Include="BuySellOption.cs" />
-    <Compile Include="EntrustParam.cs" />
-    <Compile Include="FieldItem.cs" />
-    <Compile Include="FunctionCode.cs" />
-    <Compile Include="FunctionParamItem.cs" />
-    <Compile Include="PackageType.cs" />
-    <Compile Include="PackFieldType.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="BuySellConfig.cs" />
+    <Compile Include="FileUtil.cs" />
+    <Compile Include="FunctionConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeEnv.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9afc3370-02ab-444b-9c43-411e49f49b16}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
