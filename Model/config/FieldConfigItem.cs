@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class FieldItem
+    public class FieldConfigItem
     {
         public string Name { get; set; }
         public string Type { get; set; }

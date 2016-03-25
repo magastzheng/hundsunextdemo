@@ -39,7 +39,7 @@ namespace HSUnitTest
 
             try
             {
-                var FieldTypes = JsonConvert.DeserializeObject<List<FieldItem>>(content);
+                var FieldTypes = JsonConvert.DeserializeObject<List<FieldConfigItem>>(content);
                 Console.WriteLine(FieldTypes.Count);
             }
             catch

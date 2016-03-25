@@ -42,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuySellItem.cs" />
-    <Compile Include="BuySellOption.cs" />
+    <Compile Include="config\BuySellItem.cs" />
+    <Compile Include="config\BuySellOption.cs" />
+    <Compile Include="config\FunctionItem.cs" />
     <Compile Include="EntrustParam.cs" />
-    <Compile Include="FieldItem.cs" />
+    <Compile Include="config\FieldConfigItem.cs" />
+    <Compile Include="FieldRequireType.cs" />
     <Compile Include="FunctionCode.cs" />
-    <Compile Include="FunctionParamItem.cs" />
+    <Compile Include="config\FunctionConfigItem.cs" />
     <Compile Include="PackageType.cs" />
     <Compile Include="PackFieldType.cs" />
     <Compile Include="User.cs" />

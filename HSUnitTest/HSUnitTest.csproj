@@ -53,6 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BuySellConfigTest.cs" />
+    <Compile Include="ConfigManagerTest.cs" />
+    <Compile Include="FunctionConfigTest.cs" />
     <Compile Include="JsonUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -642,6 +642,7 @@
             this.tabControlDetailTrading.ResumeLayout(false);
             this.ResumeLayout(false);
 
+            InitializeCombobox();
         }
 
         #endregion

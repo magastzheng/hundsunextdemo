@@ -17,6 +17,37 @@ namespace Model
         //退出登录
         Logout = 10002,
 
+        //组合查询
+        QueryPortfolio = 30003,
+
+        //组合持仓查询
+        QueryHolding = 35001,
+
+        //沪深交易所资金查询
+        QueryMoney = 35004,
+
+        //可用期货保证金查询
+        QueryFutureMargin = 35005,
+
+        //当日委托查询
+        QueryEntrust = 35006,
+
+        //当日成交查询
+        QueryDeal = 35007,
+
+        //期权可用保证金查询
+        QueryOptionMargin = 35008,
+
+        //策略 实例篮子委托
+        EntrustInstanceBasket = 71005,
+
+        //策略 实例委托查询
+        QueryEntrustInstance = 71006,
+
+        //策略 实例成交查询
+        QueryDealInstance = 71007,
+        
+
         //沪深竞价系统委托
         Entrust = 91001,
 
@@ -37,26 +68,5 @@ namespace Model
 
         //撤销篮子委托
         RevocationBasket = 91102,
-
-        //组合查询
-        QueryPortfolio = 30003,
-
-        //组合持仓查询
-        QueryHolding = 35001,
-
-        //沪深交易所资金查询
-        QueryMoney = 35004,
-
-        //可用期货保证金查询
-        QueryFutureMargin = 35005,
-
-        //当日委托查询
-        QueryEntrust = 35006,
-
-        //当日成交查询
-        QueryDial = 35007,
-
-        //期权可用保证金查询
-        QueryOptionMargin = 35008,
     }
 }

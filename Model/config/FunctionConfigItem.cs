@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class FunctionParamItem
+    public class FunctionConfigParamItem
     {
         public string Name { get; set; }
         public string Type { get; set; }
         public string Require { get; set; }
     }
 
-    public class FunctionResponseItem
+    public class FunctionConfigResponseItem
     {
         public string Name { get; set; }
         public string Type { get; set; }
     }
 
-    public class FunctionItem {
+    public class FunctionConfigItem {
         public int Code { get; set; }
-        public List<FunctionParamItem> Param { get; set; }
-        public List<FunctionResponseItem> Response { get; set; }
-    }
-
-    public class Functions {
-        public List<FunctionItem> Function { get; set; }
+        public string Name_en { get; set; }
+        public string Name_zh { get; set; }
+        public List<FunctionConfigParamItem> Param { get; set; }
+        public List<FunctionConfigResponseItem> Response { get; set; }
     }
 }
