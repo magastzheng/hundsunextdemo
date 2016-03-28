@@ -1,4 +1,5 @@
-﻿namespace HundsunExtDemo
+﻿using System;
+namespace HundsunExtDemo
 {
     partial class hundsunExtDemo
     {
@@ -42,29 +43,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabTradingCommand = new System.Windows.Forms.TabControl();
             this.tabPageCommandTrading = new System.Windows.Forms.TabPage();
+            this.splitContainerTradingCommand = new System.Windows.Forms.SplitContainer();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.tabPageEntrustFlowParent = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tpSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.buysellPanel = new System.Windows.Forms.Panel();
-            this.lblFuturesSellPrice = new System.Windows.Forms.Label();
-            this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
-            this.lblSpotSellPrice = new System.Windows.Forms.Label();
-            this.lblSpotBuyPrice = new System.Windows.Forms.Label();
-            this.tradingInfoPanel = new System.Windows.Forms.Panel();
-            this.comboBoxSpotBuy = new System.Windows.Forms.ComboBox();
-            this.comboBoxSpotSell = new System.Windows.Forms.ComboBox();
-            this.comboBoxFutureBuy = new System.Windows.Forms.ComboBox();
-            this.comboBoxFutureSell = new System.Windows.Forms.ComboBox();
-            this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
-            this.selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add = new System.Windows.Forms.DataGridViewImageColumn();
-            this.copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minus = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnCalculate = new System.Windows.Forms.Button();
-            this.btnEntrust = new System.Windows.Forms.Button();
-            this.tabPageDialFlowParent = new System.Windows.Forms.TabPage();
             this.tc_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_commandtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_executetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,11 +59,32 @@
             this.tc_entrustedamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_dialamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_commandmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.splitContainerTradingCommand = new System.Windows.Forms.SplitContainer();
             this.tabControlDetailTrading = new System.Windows.Forms.TabControl();
             this.tabPageCommandSecu = new System.Windows.Forms.TabPage();
             this.tabPageEntrustFlow = new System.Windows.Forms.TabPage();
             this.tabPageDialFlow = new System.Windows.Forms.TabPage();
+            this.tabPageEntrustFlowParent = new System.Windows.Forms.TabPage();
+            this.tabPageDialFlowParent = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tpSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.buysellPanel = new System.Windows.Forms.Panel();
+            this.btnEntrust = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
+            this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
+            this.selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.comboBoxFutureSell = new System.Windows.Forms.ComboBox();
+            this.comboBoxFutureBuy = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpotSell = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpotBuy = new System.Windows.Forms.ComboBox();
+            this.lblFuturesSellPrice = new System.Windows.Forms.Label();
+            this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
+            this.lblSpotSellPrice = new System.Windows.Forms.Label();
+            this.lblSpotBuyPrice = new System.Windows.Forms.Label();
+            this.tradingInfoPanel = new System.Windows.Forms.Panel();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -91,7 +92,12 @@
             this.menuStrip.SuspendLayout();
             this.tabTradingCommand.SuspendLayout();
             this.tabPageCommandTrading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).BeginInit();
+            this.splitContainerTradingCommand.Panel1.SuspendLayout();
+            this.splitContainerTradingCommand.Panel2.SuspendLayout();
+            this.splitContainerTradingCommand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.tabControlDetailTrading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,11 +107,6 @@
             this.tpSplitContainer.SuspendLayout();
             this.buysellPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).BeginInit();
-            this.splitContainerTradingCommand.Panel1.SuspendLayout();
-            this.splitContainerTradingCommand.Panel2.SuspendLayout();
-            this.splitContainerTradingCommand.SuspendLayout();
-            this.tabControlDetailTrading.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -114,7 +115,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.toolStrip);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1000, 23);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1000, 48);
             this.toolStripContainer1.Location = new System.Drawing.Point(2, 2);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(1000, 73);
@@ -177,7 +178,6 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sysToolStripMenuItem,
             this.viewToolStripMenuItem,
@@ -236,8 +236,28 @@
             this.tabPageCommandTrading.Text = "指令交易";
             this.tabPageCommandTrading.UseVisualStyleBackColor = true;
             // 
+            // splitContainerTradingCommand
+            // 
+            this.splitContainerTradingCommand.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTradingCommand.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerTradingCommand.Name = "splitContainerTradingCommand";
+            this.splitContainerTradingCommand.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerTradingCommand.Panel1
+            // 
+            this.splitContainerTradingCommand.Panel1.Controls.Add(this.dataGridView);
+            // 
+            // splitContainerTradingCommand.Panel2
+            // 
+            this.splitContainerTradingCommand.Panel2.Controls.Add(this.tabControlDetailTrading);
+            this.splitContainerTradingCommand.Size = new System.Drawing.Size(684, 409);
+            this.splitContainerTradingCommand.SplitterDistance = 216;
+            this.splitContainerTradingCommand.TabIndex = 1;
+            // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tc_commandno,
@@ -260,218 +280,6 @@
             this.dataGridView.Size = new System.Drawing.Size(674, 171);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.VirtualMode = true;
-            // 
-            // tabPageEntrustFlowParent
-            // 
-            this.tabPageEntrustFlowParent.Location = new System.Drawing.Point(4, 22);
-            this.tabPageEntrustFlowParent.Name = "tabPageEntrustFlowParent";
-            this.tabPageEntrustFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(690, 415);
-            this.tabPageEntrustFlowParent.TabIndex = 1;
-            this.tabPageEntrustFlowParent.Text = "委托流水";
-            this.tabPageEntrustFlowParent.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 78);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tabTradingCommand);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tpSplitContainer);
-            this.splitContainer1.Size = new System.Drawing.Size(992, 446);
-            this.splitContainer1.SplitterDistance = 705;
-            this.splitContainer1.TabIndex = 2;
-            // 
-            // tpSplitContainer
-            // 
-            this.tpSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tpSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tpSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.tpSplitContainer.Name = "tpSplitContainer";
-            this.tpSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // tpSplitContainer.Panel2
-            // 
-            this.tpSplitContainer.Panel2.Controls.Add(this.buysellPanel);
-            this.tpSplitContainer.Panel2.Controls.Add(this.tradingInfoPanel);
-            this.tpSplitContainer.Size = new System.Drawing.Size(283, 446);
-            this.tpSplitContainer.SplitterDistance = 52;
-            this.tpSplitContainer.TabIndex = 0;
-            // 
-            // buysellPanel
-            // 
-            this.buysellPanel.Controls.Add(this.btnEntrust);
-            this.buysellPanel.Controls.Add(this.btnCalculate);
-            this.buysellPanel.Controls.Add(this.dataGridViewBuySell);
-            this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
-            this.buysellPanel.Controls.Add(this.comboBoxFutureBuy);
-            this.buysellPanel.Controls.Add(this.comboBoxSpotSell);
-            this.buysellPanel.Controls.Add(this.comboBoxSpotBuy);
-            this.buysellPanel.Controls.Add(this.lblFuturesSellPrice);
-            this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
-            this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
-            this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
-            this.buysellPanel.Location = new System.Drawing.Point(4, 59);
-            this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(272, 324);
-            this.buysellPanel.TabIndex = 1;
-            // 
-            // lblFuturesSellPrice
-            // 
-            this.lblFuturesSellPrice.AutoSize = true;
-            this.lblFuturesSellPrice.Location = new System.Drawing.Point(4, 93);
-            this.lblFuturesSellPrice.Name = "lblFuturesSellPrice";
-            this.lblFuturesSellPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblFuturesSellPrice.TabIndex = 3;
-            this.lblFuturesSellPrice.Text = "期货委卖价";
-            // 
-            // lblFuturesBuyPrice
-            // 
-            this.lblFuturesBuyPrice.AutoSize = true;
-            this.lblFuturesBuyPrice.Location = new System.Drawing.Point(4, 68);
-            this.lblFuturesBuyPrice.Name = "lblFuturesBuyPrice";
-            this.lblFuturesBuyPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblFuturesBuyPrice.TabIndex = 2;
-            this.lblFuturesBuyPrice.Text = "期货委买价";
-            // 
-            // lblSpotSellPrice
-            // 
-            this.lblSpotSellPrice.AutoSize = true;
-            this.lblSpotSellPrice.Location = new System.Drawing.Point(4, 41);
-            this.lblSpotSellPrice.Name = "lblSpotSellPrice";
-            this.lblSpotSellPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblSpotSellPrice.TabIndex = 1;
-            this.lblSpotSellPrice.Text = "现货委卖价";
-            // 
-            // lblSpotBuyPrice
-            // 
-            this.lblSpotBuyPrice.AutoSize = true;
-            this.lblSpotBuyPrice.Location = new System.Drawing.Point(4, 14);
-            this.lblSpotBuyPrice.Name = "lblSpotBuyPrice";
-            this.lblSpotBuyPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblSpotBuyPrice.TabIndex = 0;
-            this.lblSpotBuyPrice.Text = "现货委买价";
-            // 
-            // tradingInfoPanel
-            // 
-            this.tradingInfoPanel.Location = new System.Drawing.Point(4, 4);
-            this.tradingInfoPanel.Name = "tradingInfoPanel";
-            this.tradingInfoPanel.Size = new System.Drawing.Size(272, 56);
-            this.tradingInfoPanel.TabIndex = 0;
-            // 
-            // comboBoxSpotBuy
-            // 
-            this.comboBoxSpotBuy.FormattingEnabled = true;
-            this.comboBoxSpotBuy.Location = new System.Drawing.Point(102, 12);
-            this.comboBoxSpotBuy.Name = "comboBoxSpotBuy";
-            this.comboBoxSpotBuy.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxSpotBuy.TabIndex = 5;
-            // 
-            // comboBoxSpotSell
-            // 
-            this.comboBoxSpotSell.FormattingEnabled = true;
-            this.comboBoxSpotSell.Location = new System.Drawing.Point(102, 41);
-            this.comboBoxSpotSell.Name = "comboBoxSpotSell";
-            this.comboBoxSpotSell.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxSpotSell.TabIndex = 6;
-            // 
-            // comboBoxFutureBuy
-            // 
-            this.comboBoxFutureBuy.FormattingEnabled = true;
-            this.comboBoxFutureBuy.Location = new System.Drawing.Point(102, 67);
-            this.comboBoxFutureBuy.Name = "comboBoxFutureBuy";
-            this.comboBoxFutureBuy.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxFutureBuy.TabIndex = 7;
-            // 
-            // comboBoxFutureSell
-            // 
-            this.comboBoxFutureSell.FormattingEnabled = true;
-            this.comboBoxFutureSell.Location = new System.Drawing.Point(102, 93);
-            this.comboBoxFutureSell.Name = "comboBoxFutureSell";
-            this.comboBoxFutureSell.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxFutureSell.TabIndex = 8;
-            // 
-            // dataGridViewBuySell
-            // 
-            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBuySell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selection,
-            this.commandno,
-            this.add,
-            this.copies,
-            this.minus});
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(6, 119);
-            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
-            this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(263, 149);
-            this.dataGridViewBuySell.TabIndex = 9;
-            // 
-            // selection
-            // 
-            this.selection.HeaderText = "选择";
-            this.selection.Name = "selection";
-            this.selection.Width = 50;
-            // 
-            // commandno
-            // 
-            this.commandno.HeaderText = "指令序号";
-            this.commandno.Name = "commandno";
-            this.commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.commandno.Width = 60;
-            // 
-            // add
-            // 
-            this.add.HeaderText = "增加";
-            this.add.Name = "add";
-            this.add.Width = 40;
-            // 
-            // copies
-            // 
-            this.copies.HeaderText = "份数";
-            this.copies.Name = "copies";
-            this.copies.Width = 60;
-            // 
-            // minus
-            // 
-            this.minus.HeaderText = "减少";
-            this.minus.Name = "minus";
-            this.minus.Width = 40;
-            // 
-            // btnCalculate
-            // 
-            this.btnCalculate.Location = new System.Drawing.Point(25, 287);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
-            this.btnCalculate.TabIndex = 10;
-            this.btnCalculate.Text = "计算";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            // 
-            // btnEntrust
-            // 
-            this.btnEntrust.Location = new System.Drawing.Point(148, 287);
-            this.btnEntrust.Name = "btnEntrust";
-            this.btnEntrust.Size = new System.Drawing.Size(75, 23);
-            this.btnEntrust.TabIndex = 11;
-            this.btnEntrust.Text = "委托";
-            this.btnEntrust.UseVisualStyleBackColor = true;
-            // 
-            // tabPageDialFlowParent
-            // 
-            this.tabPageDialFlowParent.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDialFlowParent.Name = "tabPageDialFlowParent";
-            this.tabPageDialFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDialFlowParent.Size = new System.Drawing.Size(690, 415);
-            this.tabPageDialFlowParent.TabIndex = 2;
-            this.tabPageDialFlowParent.Text = "成交流水";
-            this.tabPageDialFlowParent.UseVisualStyleBackColor = true;
             // 
             // tc_commandno
             // 
@@ -543,24 +351,6 @@
             this.tc_commandmoney.HeaderText = "指令金额";
             this.tc_commandmoney.Name = "tc_commandmoney";
             // 
-            // splitContainerTradingCommand
-            // 
-            this.splitContainerTradingCommand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerTradingCommand.Location = new System.Drawing.Point(3, 3);
-            this.splitContainerTradingCommand.Name = "splitContainerTradingCommand";
-            this.splitContainerTradingCommand.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerTradingCommand.Panel1
-            // 
-            this.splitContainerTradingCommand.Panel1.Controls.Add(this.dataGridView);
-            // 
-            // splitContainerTradingCommand.Panel2
-            // 
-            this.splitContainerTradingCommand.Panel2.Controls.Add(this.tabControlDetailTrading);
-            this.splitContainerTradingCommand.Size = new System.Drawing.Size(684, 409);
-            this.splitContainerTradingCommand.SplitterDistance = 216;
-            this.splitContainerTradingCommand.TabIndex = 1;
-            // 
             // tabControlDetailTrading
             // 
             this.tabControlDetailTrading.Controls.Add(this.tabPageCommandSecu);
@@ -602,16 +392,233 @@
             this.tabPageDialFlow.Text = "成交流水";
             this.tabPageDialFlow.UseVisualStyleBackColor = true;
             // 
+            // tabPageEntrustFlowParent
+            // 
+            this.tabPageEntrustFlowParent.Location = new System.Drawing.Point(4, 22);
+            this.tabPageEntrustFlowParent.Name = "tabPageEntrustFlowParent";
+            this.tabPageEntrustFlowParent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(690, 415);
+            this.tabPageEntrustFlowParent.TabIndex = 1;
+            this.tabPageEntrustFlowParent.Text = "委托流水";
+            this.tabPageEntrustFlowParent.UseVisualStyleBackColor = true;
+            // 
+            // tabPageDialFlowParent
+            // 
+            this.tabPageDialFlowParent.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDialFlowParent.Name = "tabPageDialFlowParent";
+            this.tabPageDialFlowParent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDialFlowParent.Size = new System.Drawing.Size(690, 415);
+            this.tabPageDialFlowParent.TabIndex = 2;
+            this.tabPageDialFlowParent.Text = "成交流水";
+            this.tabPageDialFlowParent.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Location = new System.Drawing.Point(2, 78);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tabTradingCommand);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tpSplitContainer);
+            this.splitContainer1.Size = new System.Drawing.Size(992, 446);
+            this.splitContainer1.SplitterDistance = 705;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // tpSplitContainer
+            // 
+            this.tpSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tpSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.tpSplitContainer.Name = "tpSplitContainer";
+            this.tpSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // tpSplitContainer.Panel2
+            // 
+            this.tpSplitContainer.Panel2.Controls.Add(this.buysellPanel);
+            this.tpSplitContainer.Panel2.Controls.Add(this.tradingInfoPanel);
+            this.tpSplitContainer.Size = new System.Drawing.Size(283, 446);
+            this.tpSplitContainer.SplitterDistance = 52;
+            this.tpSplitContainer.TabIndex = 0;
+            // 
+            // buysellPanel
+            // 
+            this.buysellPanel.Controls.Add(this.btnEntrust);
+            this.buysellPanel.Controls.Add(this.btnCalculate);
+            this.buysellPanel.Controls.Add(this.dataGridViewBuySell);
+            this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
+            this.buysellPanel.Controls.Add(this.comboBoxFutureBuy);
+            this.buysellPanel.Controls.Add(this.comboBoxSpotSell);
+            this.buysellPanel.Controls.Add(this.comboBoxSpotBuy);
+            this.buysellPanel.Controls.Add(this.lblFuturesSellPrice);
+            this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
+            this.buysellPanel.Location = new System.Drawing.Point(4, 59);
+            this.buysellPanel.Name = "buysellPanel";
+            this.buysellPanel.Size = new System.Drawing.Size(272, 324);
+            this.buysellPanel.TabIndex = 1;
+            // 
+            // btnEntrust
+            // 
+            this.btnEntrust.Location = new System.Drawing.Point(148, 287);
+            this.btnEntrust.Name = "btnEntrust";
+            this.btnEntrust.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrust.TabIndex = 11;
+            this.btnEntrust.Text = "委托";
+            this.btnEntrust.UseVisualStyleBackColor = true;
+            // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(25, 287);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculate.TabIndex = 10;
+            this.btnCalculate.Text = "计算";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewBuySell
+            // 
+            this.dataGridViewBuySell.AllowUserToAddRows = false;
+            this.dataGridViewBuySell.AllowUserToDeleteRows = false;
+            this.dataGridViewBuySell.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBuySell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selection,
+            this.commandno,
+            this.add,
+            this.copies,
+            this.minus});
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(6, 119);
+            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
+            this.dataGridViewBuySell.RowTemplate.Height = 23;
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(263, 149);
+            this.dataGridViewBuySell.TabIndex = 9;
+            this.dataGridViewBuySell.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBuySell_CellContentClick);
+            // 
+            // selection
+            // 
+            this.selection.HeaderText = "选择";
+            this.selection.Name = "selection";
+            // 
+            // commandno
+            // 
+            this.commandno.HeaderText = "指令序号";
+            this.commandno.Name = "commandno";
+            this.commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // add
+            // 
+            this.add.HeaderText = "增加";
+            this.add.Name = "add";
+            // 
+            // copies
+            // 
+            this.copies.HeaderText = "份数";
+            this.copies.Name = "copies";
+            // 
+            // minus
+            // 
+            this.minus.HeaderText = "减少";
+            this.minus.Name = "minus";
+            // 
+            // comboBoxFutureSell
+            // 
+            this.comboBoxFutureSell.FormattingEnabled = true;
+            this.comboBoxFutureSell.Location = new System.Drawing.Point(102, 93);
+            this.comboBoxFutureSell.Name = "comboBoxFutureSell";
+            this.comboBoxFutureSell.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxFutureSell.TabIndex = 8;
+            this.comboBoxFutureSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // comboBoxFutureBuy
+            // 
+            this.comboBoxFutureBuy.FormattingEnabled = true;
+            this.comboBoxFutureBuy.Location = new System.Drawing.Point(102, 67);
+            this.comboBoxFutureBuy.Name = "comboBoxFutureBuy";
+            this.comboBoxFutureBuy.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxFutureBuy.TabIndex = 7;
+            this.comboBoxFutureBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // comboBoxSpotSell
+            // 
+            this.comboBoxSpotSell.FormattingEnabled = true;
+            this.comboBoxSpotSell.Location = new System.Drawing.Point(102, 41);
+            this.comboBoxSpotSell.Name = "comboBoxSpotSell";
+            this.comboBoxSpotSell.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSpotSell.TabIndex = 6;
+            this.comboBoxSpotSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // comboBoxSpotBuy
+            // 
+            this.comboBoxSpotBuy.FormattingEnabled = true;
+            this.comboBoxSpotBuy.Location = new System.Drawing.Point(102, 12);
+            this.comboBoxSpotBuy.Name = "comboBoxSpotBuy";
+            this.comboBoxSpotBuy.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSpotBuy.TabIndex = 5;
+            this.comboBoxSpotBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // lblFuturesSellPrice
+            // 
+            this.lblFuturesSellPrice.AutoSize = true;
+            this.lblFuturesSellPrice.Location = new System.Drawing.Point(4, 93);
+            this.lblFuturesSellPrice.Name = "lblFuturesSellPrice";
+            this.lblFuturesSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesSellPrice.TabIndex = 3;
+            this.lblFuturesSellPrice.Text = "期货委卖价";
+            // 
+            // lblFuturesBuyPrice
+            // 
+            this.lblFuturesBuyPrice.AutoSize = true;
+            this.lblFuturesBuyPrice.Location = new System.Drawing.Point(4, 68);
+            this.lblFuturesBuyPrice.Name = "lblFuturesBuyPrice";
+            this.lblFuturesBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesBuyPrice.TabIndex = 2;
+            this.lblFuturesBuyPrice.Text = "期货委买价";
+            // 
+            // lblSpotSellPrice
+            // 
+            this.lblSpotSellPrice.AutoSize = true;
+            this.lblSpotSellPrice.Location = new System.Drawing.Point(4, 41);
+            this.lblSpotSellPrice.Name = "lblSpotSellPrice";
+            this.lblSpotSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotSellPrice.TabIndex = 1;
+            this.lblSpotSellPrice.Text = "现货委卖价";
+            // 
+            // lblSpotBuyPrice
+            // 
+            this.lblSpotBuyPrice.AutoSize = true;
+            this.lblSpotBuyPrice.Location = new System.Drawing.Point(4, 14);
+            this.lblSpotBuyPrice.Name = "lblSpotBuyPrice";
+            this.lblSpotBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotBuyPrice.TabIndex = 0;
+            this.lblSpotBuyPrice.Text = "现货委买价";
+            // 
+            // tradingInfoPanel
+            // 
+            this.tradingInfoPanel.Location = new System.Drawing.Point(4, 4);
+            this.tradingInfoPanel.Name = "tradingInfoPanel";
+            this.tradingInfoPanel.Size = new System.Drawing.Size(272, 56);
+            this.tradingInfoPanel.TabIndex = 0;
+            // 
             // hundsunExtDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1001, 536);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStripContainer1);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "hundsunExtDemo";
             this.Text = "HundsunExtDemo";
+            this.Load += new System.EventHandler(this.HundsunExtDemo_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -624,7 +631,12 @@
             this.menuStrip.PerformLayout();
             this.tabTradingCommand.ResumeLayout(false);
             this.tabPageCommandTrading.ResumeLayout(false);
+            this.splitContainerTradingCommand.Panel1.ResumeLayout(false);
+            this.splitContainerTradingCommand.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).EndInit();
+            this.splitContainerTradingCommand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.tabControlDetailTrading.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -635,14 +647,8 @@
             this.buysellPanel.ResumeLayout(false);
             this.buysellPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
-            this.splitContainerTradingCommand.Panel1.ResumeLayout(false);
-            this.splitContainerTradingCommand.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).EndInit();
-            this.splitContainerTradingCommand.ResumeLayout(false);
-            this.tabControlDetailTrading.ResumeLayout(false);
             this.ResumeLayout(false);
 
-            InitializeCombobox();
         }
 
         #endregion

@@ -24,6 +24,12 @@ namespace HundsunExtDemo
 
         }
 
+        private void HundsunExtDemo_Load(object sender, EventArgs e)
+        {
+            InitializeCombobox();
+        }
+
+        #region combobox
         private void InitializeCombobox()
         {
             var spotBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotBuy;
@@ -47,6 +53,41 @@ namespace HundsunExtDemo
             }
             
             comboBox.SelectedIndex = 0;
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox == null)
+                return;
+
+            BuySellItem selectedItem = comboBox.SelectedItem as BuySellItem;
+            if (selectedItem == null)
+                return;
+
+            Console.WriteLine("Selected: " + comboBox.Name + " " + selectedItem.Id);
+            switch (comboBox.Name)
+            { 
+                case "comboBoxSpotBuy":
+                    
+                    break;
+                case "comboBoxSpotSell":
+                    break;
+                case "comboBoxFutureBuy":
+                    break;
+                case "comboBoxFutureSell":
+                    break;
+            }
+            if (sender is ComboBox)
+            {
+                Console.WriteLine("Event: ", sender.ToString());
+            }
+        }
+        #endregion
+
+        private void dataGridViewBuySell_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
