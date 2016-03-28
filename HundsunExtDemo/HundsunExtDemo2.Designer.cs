@@ -46,20 +46,6 @@ namespace HundsunExtDemo
             this.tabPageCommandTrading = new System.Windows.Forms.TabPage();
             this.splitContainerTradingCommand = new System.Windows.Forms.SplitContainer();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.tc_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_commandtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_executetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_commandnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_targetnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_baisprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_longmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_bearmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_longratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_bearratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_commandamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_entrustedamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_dealamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_commandmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlDetailTrading = new System.Windows.Forms.TabControl();
             this.tabPageCommandSecu = new System.Windows.Forms.TabPage();
             this.tabPageEntrustFlow = new System.Windows.Forms.TabPage();
@@ -113,6 +99,32 @@ namespace HundsunExtDemo
             this.df_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.df_entrustno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.df_dealno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_selected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_executetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_targetnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_baisprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_longmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_bearmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_longratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_bearratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_entrustedamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dealamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_exposure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_startdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_enddate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_starttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_endtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dispatchtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_executeperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dispatchperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_instanceid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_monitorunit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -315,6 +327,7 @@ namespace HundsunExtDemo
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tc_selected,
             this.tc_commandno,
             this.tc_commandtype,
             this.tc_executetype,
@@ -328,7 +341,18 @@ namespace HundsunExtDemo
             this.tc_commandamount,
             this.tc_entrustedamount,
             this.tc_dealamount,
-            this.tc_commandmoney});
+            this.tc_commandmoney,
+            this.tc_exposure,
+            this.tc_startdate,
+            this.tc_enddate,
+            this.tc_starttime,
+            this.tc_endtime,
+            this.tc_dispatchtime,
+            this.tc_executeperson,
+            this.tc_dispatchperson,
+            this.tc_instanceid,
+            this.tc_instanceno,
+            this.tc_monitorunit});
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
@@ -336,76 +360,6 @@ namespace HundsunExtDemo
             this.dataGridView.Size = new System.Drawing.Size(755, 197);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.VirtualMode = true;
-            // 
-            // tc_commandno
-            // 
-            this.tc_commandno.HeaderText = "指令序号";
-            this.tc_commandno.Name = "tc_commandno";
-            // 
-            // tc_commandtype
-            // 
-            this.tc_commandtype.HeaderText = "指令类型";
-            this.tc_commandtype.Name = "tc_commandtype";
-            // 
-            // tc_executetype
-            // 
-            this.tc_executetype.HeaderText = "执行类型";
-            this.tc_executetype.Name = "tc_executetype";
-            // 
-            // tc_commandnum
-            // 
-            this.tc_commandnum.HeaderText = "指令份数";
-            this.tc_commandnum.Name = "tc_commandnum";
-            // 
-            // tc_targetnum
-            // 
-            this.tc_targetnum.HeaderText = "目标份数";
-            this.tc_targetnum.Name = "tc_targetnum";
-            // 
-            // tc_baisprice
-            // 
-            this.tc_baisprice.HeaderText = "基差|价差";
-            this.tc_baisprice.Name = "tc_baisprice";
-            // 
-            // tc_longmorethan
-            // 
-            this.tc_longmorethan.HeaderText = "多头委比";
-            this.tc_longmorethan.Name = "tc_longmorethan";
-            // 
-            // tc_bearmorethan
-            // 
-            this.tc_bearmorethan.HeaderText = "空头委比";
-            this.tc_bearmorethan.Name = "tc_bearmorethan";
-            // 
-            // tc_longratio
-            // 
-            this.tc_longratio.HeaderText = "多头成比";
-            this.tc_longratio.Name = "tc_longratio";
-            // 
-            // tc_bearratio
-            // 
-            this.tc_bearratio.HeaderText = "空头成比";
-            this.tc_bearratio.Name = "tc_bearratio";
-            // 
-            // tc_commandamount
-            // 
-            this.tc_commandamount.HeaderText = "指令数量";
-            this.tc_commandamount.Name = "tc_commandamount";
-            // 
-            // tc_entrustedamount
-            // 
-            this.tc_entrustedamount.HeaderText = "已委托数量";
-            this.tc_entrustedamount.Name = "tc_entrustedamount";
-            // 
-            // tc_dealamount
-            // 
-            this.tc_dealamount.HeaderText = "已成数量";
-            this.tc_dealamount.Name = "tc_dealamount";
-            // 
-            // tc_commandmoney
-            // 
-            this.tc_commandmoney.HeaderText = "指令金额";
-            this.tc_commandmoney.Name = "tc_commandmoney";
             // 
             // tabControlDetailTrading
             // 
@@ -879,6 +833,136 @@ namespace HundsunExtDemo
             this.df_dealno.Name = "df_dealno";
             this.df_dealno.Width = 80;
             // 
+            // tc_selected
+            // 
+            this.tc_selected.HeaderText = "选中";
+            this.tc_selected.Name = "tc_selected";
+            // 
+            // tc_commandno
+            // 
+            this.tc_commandno.HeaderText = "指令序号";
+            this.tc_commandno.Name = "tc_commandno";
+            // 
+            // tc_commandtype
+            // 
+            this.tc_commandtype.HeaderText = "指令类型";
+            this.tc_commandtype.Name = "tc_commandtype";
+            // 
+            // tc_executetype
+            // 
+            this.tc_executetype.HeaderText = "执行类型";
+            this.tc_executetype.Name = "tc_executetype";
+            // 
+            // tc_commandnum
+            // 
+            this.tc_commandnum.HeaderText = "指令份数";
+            this.tc_commandnum.Name = "tc_commandnum";
+            // 
+            // tc_targetnum
+            // 
+            this.tc_targetnum.HeaderText = "目标份数";
+            this.tc_targetnum.Name = "tc_targetnum";
+            // 
+            // tc_baisprice
+            // 
+            this.tc_baisprice.HeaderText = "基差|价差";
+            this.tc_baisprice.Name = "tc_baisprice";
+            // 
+            // tc_longmorethan
+            // 
+            this.tc_longmorethan.HeaderText = "多头委比";
+            this.tc_longmorethan.Name = "tc_longmorethan";
+            // 
+            // tc_bearmorethan
+            // 
+            this.tc_bearmorethan.HeaderText = "空头委比";
+            this.tc_bearmorethan.Name = "tc_bearmorethan";
+            // 
+            // tc_longratio
+            // 
+            this.tc_longratio.HeaderText = "多头成比";
+            this.tc_longratio.Name = "tc_longratio";
+            // 
+            // tc_bearratio
+            // 
+            this.tc_bearratio.HeaderText = "空头成比";
+            this.tc_bearratio.Name = "tc_bearratio";
+            // 
+            // tc_commandamount
+            // 
+            this.tc_commandamount.HeaderText = "指令数量";
+            this.tc_commandamount.Name = "tc_commandamount";
+            // 
+            // tc_entrustedamount
+            // 
+            this.tc_entrustedamount.HeaderText = "已委托数量";
+            this.tc_entrustedamount.Name = "tc_entrustedamount";
+            // 
+            // tc_dealamount
+            // 
+            this.tc_dealamount.HeaderText = "已成数量";
+            this.tc_dealamount.Name = "tc_dealamount";
+            // 
+            // tc_commandmoney
+            // 
+            this.tc_commandmoney.HeaderText = "指令金额";
+            this.tc_commandmoney.Name = "tc_commandmoney";
+            // 
+            // tc_exposure
+            // 
+            this.tc_exposure.HeaderText = "裸敞口";
+            this.tc_exposure.Name = "tc_exposure";
+            // 
+            // tc_startdate
+            // 
+            this.tc_startdate.HeaderText = "开始日期";
+            this.tc_startdate.Name = "tc_startdate";
+            // 
+            // tc_enddate
+            // 
+            this.tc_enddate.HeaderText = "结束日期";
+            this.tc_enddate.Name = "tc_enddate";
+            // 
+            // tc_starttime
+            // 
+            this.tc_starttime.HeaderText = "开始时间";
+            this.tc_starttime.Name = "tc_starttime";
+            // 
+            // tc_endtime
+            // 
+            this.tc_endtime.HeaderText = "结束时间";
+            this.tc_endtime.Name = "tc_endtime";
+            // 
+            // tc_dispatchtime
+            // 
+            this.tc_dispatchtime.HeaderText = "分发时间";
+            this.tc_dispatchtime.Name = "tc_dispatchtime";
+            // 
+            // tc_executeperson
+            // 
+            this.tc_executeperson.HeaderText = "下达人";
+            this.tc_executeperson.Name = "tc_executeperson";
+            // 
+            // tc_dispatchperson
+            // 
+            this.tc_dispatchperson.HeaderText = "分发人";
+            this.tc_dispatchperson.Name = "tc_dispatchperson";
+            // 
+            // tc_instanceid
+            // 
+            this.tc_instanceid.HeaderText = "实例号";
+            this.tc_instanceid.Name = "tc_instanceid";
+            // 
+            // tc_instanceno
+            // 
+            this.tc_instanceno.HeaderText = "实例编号";
+            this.tc_instanceno.Name = "tc_instanceno";
+            // 
+            // tc_monitorunit
+            // 
+            this.tc_monitorunit.HeaderText = "监控单元";
+            this.tc_monitorunit.Name = "tc_monitorunit";
+            // 
             // HundsunExtDemo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -942,20 +1026,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.TabPage tabPageCommandTrading;
         private System.Windows.Forms.SplitContainer splitContainerTradingCommand;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandtype;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_executetype;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandnum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_targetnum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_baisprice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longmorethan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearmorethan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longratio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearratio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandamount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_entrustedamount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dealamount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandmoney;
         private System.Windows.Forms.TabControl tabControlDetailTrading;
         private System.Windows.Forms.TabPage tabPageCommandSecu;
         private System.Windows.Forms.TabPage tabPageEntrustFlow;
@@ -1009,5 +1079,31 @@ namespace HundsunExtDemo
         private System.Windows.Forms.DataGridViewTextBoxColumn df_instanceno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_entrustno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_dealno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_executetype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_targetnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_baisprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longmorethan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearmorethan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longratio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearratio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_entrustedamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dealamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandmoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_exposure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_startdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_enddate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_starttime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_endtime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dispatchtime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_executeperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dispatchperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_monitorunit;
     }
 }
