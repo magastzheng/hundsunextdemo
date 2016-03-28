@@ -16,7 +16,7 @@ namespace HundsunExtDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hundsunExtDemo());
+            Application.Run(new HundsunExtDemo2());
         }
     }
 }

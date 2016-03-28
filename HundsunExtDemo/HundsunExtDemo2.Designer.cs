@@ -1,7 +1,6 @@
-﻿using System;
-namespace HundsunExtDemo
+﻿namespace HundsunExtDemo
 {
-    partial class hundsunExtDemo
+    partial class HundsunExtDemo2
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +28,8 @@ namespace HundsunExtDemo
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hundsunExtDemo));
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HundsunExtDemo2));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -41,6 +40,7 @@ namespace HundsunExtDemo
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.tabTradingCommand = new System.Windows.Forms.TabControl();
             this.tabPageCommandTrading = new System.Windows.Forms.TabPage();
             this.splitContainerTradingCommand = new System.Windows.Forms.SplitContainer();
@@ -65,8 +65,8 @@ namespace HundsunExtDemo
             this.tabPageDialFlow = new System.Windows.Forms.TabPage();
             this.tabPageEntrustFlowParent = new System.Windows.Forms.TabPage();
             this.tabPageDialFlowParent = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tpSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.splitContainerMarket = new System.Windows.Forms.SplitContainer();
+            this.splitContainerTrading = new System.Windows.Forms.SplitContainer();
             this.buysellPanel = new System.Windows.Forms.Panel();
             this.btnEntrust = new System.Windows.Forms.Button();
             this.btnCalculate = new System.Windows.Forms.Button();
@@ -84,12 +84,14 @@ namespace HundsunExtDemo
             this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
             this.lblSpotSellPrice = new System.Windows.Forms.Label();
             this.lblSpotBuyPrice = new System.Windows.Forms.Label();
-            this.tradingInfoPanel = new System.Windows.Forms.Panel();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
+            this.tableLayoutPanelTrading = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
+            this.splitContainerMain.Panel1.SuspendLayout();
+            this.splitContainerMain.Panel2.SuspendLayout();
+            this.splitContainerMain.SuspendLayout();
             this.tabTradingCommand.SuspendLayout();
             this.tabPageCommandTrading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).BeginInit();
@@ -98,46 +100,47 @@ namespace HundsunExtDemo
             this.splitContainerTradingCommand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tabControlDetailTrading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tpSplitContainer)).BeginInit();
-            this.tpSplitContainer.Panel2.SuspendLayout();
-            this.tpSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMarket)).BeginInit();
+            this.splitContainerMarket.Panel2.SuspendLayout();
+            this.splitContainerMarket.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).BeginInit();
+            this.splitContainerTrading.Panel2.SuspendLayout();
+            this.splitContainerTrading.SuspendLayout();
             this.buysellPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
+            this.tableLayoutPanelTrading.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStripContainer1
+            // tableLayoutPanel1
             // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.toolStrip);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1000, 48);
-            this.toolStripContainer1.Location = new System.Drawing.Point(2, 2);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1000, 73);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.toolStrip, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.menuStrip, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.splitContainerMain, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 467);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // toolStrip
             // 
-            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4});
-            this.toolStrip.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip.Location = new System.Drawing.Point(0, 32);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(104, 25);
-            this.toolStrip.TabIndex = 1;
+            this.toolStrip.Size = new System.Drawing.Size(992, 32);
+            this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
             // toolStripButton1
@@ -146,7 +149,7 @@ namespace HundsunExtDemo
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 29);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
@@ -155,7 +158,7 @@ namespace HundsunExtDemo
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 29);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
@@ -164,7 +167,7 @@ namespace HundsunExtDemo
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 29);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripButton4
@@ -173,11 +176,12 @@ namespace HundsunExtDemo
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 29);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // menuStrip
             // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sysToolStripMenuItem,
             this.viewToolStripMenuItem,
@@ -185,44 +189,63 @@ namespace HundsunExtDemo
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1000, 25);
-            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Size = new System.Drawing.Size(992, 32);
+            this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
             // sysToolStripMenuItem
             // 
             this.sysToolStripMenuItem.Name = "sysToolStripMenuItem";
-            this.sysToolStripMenuItem.Size = new System.Drawing.Size(38, 21);
+            this.sysToolStripMenuItem.Size = new System.Drawing.Size(38, 28);
             this.sysToolStripMenuItem.Text = "sys";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
             this.viewToolStripMenuItem.Text = "view";
             // 
             // toolToolStripMenuItem
             // 
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
-            this.toolToolStripMenuItem.Size = new System.Drawing.Size(43, 21);
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(43, 28);
             this.toolToolStripMenuItem.Text = "tool";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
             this.helpToolStripMenuItem.Text = "help";
+            // 
+            // splitContainerMain
+            // 
+            this.splitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMain.Location = new System.Drawing.Point(3, 67);
+            this.splitContainerMain.Name = "splitContainerMain";
+            // 
+            // splitContainerMain.Panel1
+            // 
+            this.splitContainerMain.Panel1.Controls.Add(this.tabTradingCommand);
+            // 
+            // splitContainerMain.Panel2
+            // 
+            this.splitContainerMain.Panel2.Controls.Add(this.splitContainerMarket);
+            this.splitContainerMain.Size = new System.Drawing.Size(986, 348);
+            this.splitContainerMain.SplitterDistance = 738;
+            this.splitContainerMain.TabIndex = 3;
             // 
             // tabTradingCommand
             // 
             this.tabTradingCommand.Controls.Add(this.tabPageCommandTrading);
             this.tabTradingCommand.Controls.Add(this.tabPageEntrustFlowParent);
             this.tabTradingCommand.Controls.Add(this.tabPageDialFlowParent);
-            this.tabTradingCommand.Location = new System.Drawing.Point(3, 3);
+            this.tabTradingCommand.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabTradingCommand.Location = new System.Drawing.Point(0, 0);
             this.tabTradingCommand.Name = "tabTradingCommand";
             this.tabTradingCommand.SelectedIndex = 0;
-            this.tabTradingCommand.Size = new System.Drawing.Size(698, 441);
-            this.tabTradingCommand.TabIndex = 1;
+            this.tabTradingCommand.Size = new System.Drawing.Size(734, 344);
+            this.tabTradingCommand.TabIndex = 2;
             this.tabTradingCommand.Tag = "";
             // 
             // tabPageCommandTrading
@@ -231,7 +254,7 @@ namespace HundsunExtDemo
             this.tabPageCommandTrading.Location = new System.Drawing.Point(4, 22);
             this.tabPageCommandTrading.Name = "tabPageCommandTrading";
             this.tabPageCommandTrading.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCommandTrading.Size = new System.Drawing.Size(690, 415);
+            this.tabPageCommandTrading.Size = new System.Drawing.Size(726, 318);
             this.tabPageCommandTrading.TabIndex = 0;
             this.tabPageCommandTrading.Text = "指令交易";
             this.tabPageCommandTrading.UseVisualStyleBackColor = true;
@@ -250,8 +273,8 @@ namespace HundsunExtDemo
             // splitContainerTradingCommand.Panel2
             // 
             this.splitContainerTradingCommand.Panel2.Controls.Add(this.tabControlDetailTrading);
-            this.splitContainerTradingCommand.Size = new System.Drawing.Size(684, 409);
-            this.splitContainerTradingCommand.SplitterDistance = 216;
+            this.splitContainerTradingCommand.Size = new System.Drawing.Size(720, 312);
+            this.splitContainerTradingCommand.SplitterDistance = 164;
             this.splitContainerTradingCommand.TabIndex = 1;
             // 
             // dataGridView
@@ -274,10 +297,11 @@ namespace HundsunExtDemo
             this.tc_entrustedamount,
             this.tc_dialamount,
             this.tc_commandmoney});
-            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 23;
-            this.dataGridView.Size = new System.Drawing.Size(674, 171);
+            this.dataGridView.Size = new System.Drawing.Size(720, 164);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.VirtualMode = true;
             // 
@@ -356,10 +380,11 @@ namespace HundsunExtDemo
             this.tabControlDetailTrading.Controls.Add(this.tabPageCommandSecu);
             this.tabControlDetailTrading.Controls.Add(this.tabPageEntrustFlow);
             this.tabControlDetailTrading.Controls.Add(this.tabPageDialFlow);
-            this.tabControlDetailTrading.Location = new System.Drawing.Point(4, 4);
+            this.tabControlDetailTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlDetailTrading.Location = new System.Drawing.Point(0, 0);
             this.tabControlDetailTrading.Name = "tabControlDetailTrading";
             this.tabControlDetailTrading.SelectedIndex = 0;
-            this.tabControlDetailTrading.Size = new System.Drawing.Size(677, 182);
+            this.tabControlDetailTrading.Size = new System.Drawing.Size(720, 144);
             this.tabControlDetailTrading.TabIndex = 0;
             // 
             // tabPageCommandSecu
@@ -367,7 +392,7 @@ namespace HundsunExtDemo
             this.tabPageCommandSecu.Location = new System.Drawing.Point(4, 22);
             this.tabPageCommandSecu.Name = "tabPageCommandSecu";
             this.tabPageCommandSecu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCommandSecu.Size = new System.Drawing.Size(669, 156);
+            this.tabPageCommandSecu.Size = new System.Drawing.Size(712, 118);
             this.tabPageCommandSecu.TabIndex = 0;
             this.tabPageCommandSecu.Text = "指令证券";
             this.tabPageCommandSecu.UseVisualStyleBackColor = true;
@@ -377,7 +402,7 @@ namespace HundsunExtDemo
             this.tabPageEntrustFlow.Location = new System.Drawing.Point(4, 22);
             this.tabPageEntrustFlow.Name = "tabPageEntrustFlow";
             this.tabPageEntrustFlow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEntrustFlow.Size = new System.Drawing.Size(669, 156);
+            this.tabPageEntrustFlow.Size = new System.Drawing.Size(710, 118);
             this.tabPageEntrustFlow.TabIndex = 1;
             this.tabPageEntrustFlow.Text = "委托流水";
             this.tabPageEntrustFlow.UseVisualStyleBackColor = true;
@@ -387,7 +412,7 @@ namespace HundsunExtDemo
             this.tabPageDialFlow.Location = new System.Drawing.Point(4, 22);
             this.tabPageDialFlow.Name = "tabPageDialFlow";
             this.tabPageDialFlow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDialFlow.Size = new System.Drawing.Size(669, 156);
+            this.tabPageDialFlow.Size = new System.Drawing.Size(710, 118);
             this.tabPageDialFlow.TabIndex = 2;
             this.tabPageDialFlow.Text = "成交流水";
             this.tabPageDialFlow.UseVisualStyleBackColor = true;
@@ -397,7 +422,7 @@ namespace HundsunExtDemo
             this.tabPageEntrustFlowParent.Location = new System.Drawing.Point(4, 22);
             this.tabPageEntrustFlowParent.Name = "tabPageEntrustFlowParent";
             this.tabPageEntrustFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(690, 415);
+            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(730, 322);
             this.tabPageEntrustFlowParent.TabIndex = 1;
             this.tabPageEntrustFlowParent.Text = "委托流水";
             this.tabPageEntrustFlowParent.UseVisualStyleBackColor = true;
@@ -407,50 +432,45 @@ namespace HundsunExtDemo
             this.tabPageDialFlowParent.Location = new System.Drawing.Point(4, 22);
             this.tabPageDialFlowParent.Name = "tabPageDialFlowParent";
             this.tabPageDialFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDialFlowParent.Size = new System.Drawing.Size(690, 415);
+            this.tabPageDialFlowParent.Size = new System.Drawing.Size(730, 322);
             this.tabPageDialFlowParent.TabIndex = 2;
             this.tabPageDialFlowParent.Text = "成交流水";
             this.tabPageDialFlowParent.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // splitContainerMarket
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 78);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainerMarket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainerMarket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMarket.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMarket.Name = "splitContainerMarket";
+            this.splitContainerMarket.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitContainerMarket.Panel2
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tabTradingCommand);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            this.splitContainerMarket.Panel2.Controls.Add(this.splitContainerTrading);
+            this.splitContainerMarket.Size = new System.Drawing.Size(244, 348);
+            this.splitContainerMarket.SplitterDistance = 80;
+            this.splitContainerMarket.TabIndex = 0;
             // 
-            // splitContainer1.Panel2
+            // splitContainerTrading
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tpSplitContainer);
-            this.splitContainer1.Size = new System.Drawing.Size(992, 446);
-            this.splitContainer1.SplitterDistance = 705;
-            this.splitContainer1.TabIndex = 2;
+            this.splitContainerTrading.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainerTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTrading.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerTrading.Name = "splitContainerTrading";
+            this.splitContainerTrading.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // tpSplitContainer
+            // splitContainerTrading.Panel2
             // 
-            this.tpSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tpSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tpSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.tpSplitContainer.Name = "tpSplitContainer";
-            this.tpSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // tpSplitContainer.Panel2
-            // 
-            this.tpSplitContainer.Panel2.Controls.Add(this.buysellPanel);
-            this.tpSplitContainer.Panel2.Controls.Add(this.tradingInfoPanel);
-            this.tpSplitContainer.Size = new System.Drawing.Size(283, 446);
-            this.tpSplitContainer.SplitterDistance = 52;
-            this.tpSplitContainer.TabIndex = 0;
+            this.splitContainerTrading.Panel2.Controls.Add(this.tableLayoutPanelTrading);
+            this.splitContainerTrading.Size = new System.Drawing.Size(244, 264);
+            this.splitContainerTrading.SplitterDistance = 81;
+            this.splitContainerTrading.TabIndex = 0;
             // 
             // buysellPanel
             // 
             this.buysellPanel.Controls.Add(this.btnEntrust);
             this.buysellPanel.Controls.Add(this.btnCalculate);
-            this.buysellPanel.Controls.Add(this.dataGridViewBuySell);
             this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
             this.buysellPanel.Controls.Add(this.comboBoxFutureBuy);
             this.buysellPanel.Controls.Add(this.comboBoxSpotSell);
@@ -459,10 +479,11 @@ namespace HundsunExtDemo
             this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
             this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
             this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
-            this.buysellPanel.Location = new System.Drawing.Point(4, 59);
+            this.buysellPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buysellPanel.Location = new System.Drawing.Point(3, 3);
             this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(272, 324);
-            this.buysellPanel.TabIndex = 1;
+            this.buysellPanel.Size = new System.Drawing.Size(234, 114);
+            this.buysellPanel.TabIndex = 2;
             // 
             // btnEntrust
             // 
@@ -494,12 +515,12 @@ namespace HundsunExtDemo
             this.add,
             this.copies,
             this.minus});
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(6, 119);
+            this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 123);
             this.dataGridViewBuySell.Name = "dataGridViewBuySell";
             this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(263, 149);
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(234, 58);
             this.dataGridViewBuySell.TabIndex = 9;
-            this.dataGridViewBuySell.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBuySell_CellContentClick);
             // 
             // selection
             // 
@@ -535,7 +556,6 @@ namespace HundsunExtDemo
             this.comboBoxFutureSell.Name = "comboBoxFutureSell";
             this.comboBoxFutureSell.Size = new System.Drawing.Size(121, 20);
             this.comboBoxFutureSell.TabIndex = 8;
-            this.comboBoxFutureSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // comboBoxFutureBuy
             // 
@@ -544,7 +564,6 @@ namespace HundsunExtDemo
             this.comboBoxFutureBuy.Name = "comboBoxFutureBuy";
             this.comboBoxFutureBuy.Size = new System.Drawing.Size(121, 20);
             this.comboBoxFutureBuy.TabIndex = 7;
-            this.comboBoxFutureBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // comboBoxSpotSell
             // 
@@ -553,7 +572,6 @@ namespace HundsunExtDemo
             this.comboBoxSpotSell.Name = "comboBoxSpotSell";
             this.comboBoxSpotSell.Size = new System.Drawing.Size(121, 20);
             this.comboBoxSpotSell.TabIndex = 6;
-            this.comboBoxSpotSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // comboBoxSpotBuy
             // 
@@ -562,7 +580,6 @@ namespace HundsunExtDemo
             this.comboBoxSpotBuy.Name = "comboBoxSpotBuy";
             this.comboBoxSpotBuy.Size = new System.Drawing.Size(121, 20);
             this.comboBoxSpotBuy.TabIndex = 5;
-            this.comboBoxSpotBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // lblFuturesSellPrice
             // 
@@ -600,35 +617,39 @@ namespace HundsunExtDemo
             this.lblSpotBuyPrice.TabIndex = 0;
             this.lblSpotBuyPrice.Text = "现货委买价";
             // 
-            // tradingInfoPanel
+            // tableLayoutPanelTrading
             // 
-            this.tradingInfoPanel.Location = new System.Drawing.Point(4, 4);
-            this.tradingInfoPanel.Name = "tradingInfoPanel";
-            this.tradingInfoPanel.Size = new System.Drawing.Size(272, 56);
-            this.tradingInfoPanel.TabIndex = 0;
+            this.tableLayoutPanelTrading.ColumnCount = 1;
+            this.tableLayoutPanelTrading.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTrading.Controls.Add(this.dataGridViewBuySell, 0, 1);
+            this.tableLayoutPanelTrading.Controls.Add(this.buysellPanel, 0, 0);
+            this.tableLayoutPanelTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelTrading.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelTrading.Name = "tableLayoutPanelTrading";
+            this.tableLayoutPanelTrading.RowCount = 2;
+            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelTrading.Size = new System.Drawing.Size(240, 175);
+            this.tableLayoutPanelTrading.TabIndex = 0;
             // 
-            // hundsunExtDemo
+            // HundsunExtDemo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1001, 536);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.toolStripContainer1);
-            this.MainMenuStrip = this.menuStrip;
-            this.Name = "hundsunExtDemo";
-            this.Text = "HundsunExtDemo";
-            this.Load += new System.EventHandler(this.HundsunExtDemo_Load);
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.ContentPanel.PerformLayout();
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(992, 467);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "HundsunExtDemo2";
+            this.Text = "HundsunExtDemo2";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.splitContainerMain.Panel1.ResumeLayout(false);
+            this.splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
+            this.splitContainerMain.ResumeLayout(false);
             this.tabTradingCommand.ResumeLayout(false);
             this.tabPageCommandTrading.ResumeLayout(false);
             this.splitContainerTradingCommand.Panel1.ResumeLayout(false);
@@ -637,59 +658,38 @@ namespace HundsunExtDemo
             this.splitContainerTradingCommand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tabControlDetailTrading.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.tpSplitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tpSplitContainer)).EndInit();
-            this.tpSplitContainer.ResumeLayout(false);
+            this.splitContainerMarket.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMarket)).EndInit();
+            this.splitContainerMarket.ResumeLayout(false);
+            this.splitContainerTrading.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).EndInit();
+            this.splitContainerTrading.ResumeLayout(false);
             this.buysellPanel.ResumeLayout(false);
             this.buysellPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
+            this.tableLayoutPanelTrading.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem sysToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.TabControl tabTradingCommand;
         private System.Windows.Forms.TabPage tabPageCommandTrading;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.TabPage tabPageEntrustFlowParent;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.SplitContainer tpSplitContainer;
-        private System.Windows.Forms.Panel buysellPanel;
-        private System.Windows.Forms.Label lblFuturesSellPrice;
-        private System.Windows.Forms.Label lblFuturesBuyPrice;
-        private System.Windows.Forms.Label lblSpotSellPrice;
-        private System.Windows.Forms.Label lblSpotBuyPrice;
-        private System.Windows.Forms.Panel tradingInfoPanel;
-        private System.Windows.Forms.DataGridView dataGridViewBuySell;
-        private System.Windows.Forms.ComboBox comboBoxFutureSell;
-        private System.Windows.Forms.ComboBox comboBoxFutureBuy;
-        private System.Windows.Forms.ComboBox comboBoxSpotSell;
-        private System.Windows.Forms.ComboBox comboBoxSpotBuy;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selection;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commandno;
-        private System.Windows.Forms.DataGridViewImageColumn add;
-        private System.Windows.Forms.DataGridViewTextBoxColumn copies;
-        private System.Windows.Forms.DataGridViewImageColumn minus;
-        private System.Windows.Forms.Button btnEntrust;
-        private System.Windows.Forms.Button btnCalculate;
-        private System.Windows.Forms.TabPage tabPageDialFlowParent;
         private System.Windows.Forms.SplitContainer splitContainerTradingCommand;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandno;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandtype;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_executetype;
@@ -708,6 +708,27 @@ namespace HundsunExtDemo
         private System.Windows.Forms.TabPage tabPageCommandSecu;
         private System.Windows.Forms.TabPage tabPageEntrustFlow;
         private System.Windows.Forms.TabPage tabPageDialFlow;
+        private System.Windows.Forms.TabPage tabPageEntrustFlowParent;
+        private System.Windows.Forms.TabPage tabPageDialFlowParent;
+        private System.Windows.Forms.SplitContainer splitContainerMarket;
+        private System.Windows.Forms.SplitContainer splitContainerTrading;
+        private System.Windows.Forms.Panel buysellPanel;
+        private System.Windows.Forms.Button btnEntrust;
+        private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.DataGridView dataGridViewBuySell;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commandno;
+        private System.Windows.Forms.DataGridViewImageColumn add;
+        private System.Windows.Forms.DataGridViewTextBoxColumn copies;
+        private System.Windows.Forms.DataGridViewImageColumn minus;
+        private System.Windows.Forms.ComboBox comboBoxFutureSell;
+        private System.Windows.Forms.ComboBox comboBoxFutureBuy;
+        private System.Windows.Forms.ComboBox comboBoxSpotSell;
+        private System.Windows.Forms.ComboBox comboBoxSpotBuy;
+        private System.Windows.Forms.Label lblFuturesSellPrice;
+        private System.Windows.Forms.Label lblFuturesBuyPrice;
+        private System.Windows.Forms.Label lblSpotSellPrice;
+        private System.Windows.Forms.Label lblSpotBuyPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTrading;
     }
 }
-
