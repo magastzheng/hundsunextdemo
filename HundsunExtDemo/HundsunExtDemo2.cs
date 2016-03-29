@@ -263,8 +263,14 @@ namespace HundsunExtDemo
                 this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_selection"].Value = dataItem.Selected;
                 this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_commandno"].Value = dataItem.CommandNo;
                 this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_copies"].Value = 0;
-                //this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_add"].Value = "+";
-                //this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_minus"].Value = "-";
+
+                Image plusImg = Image.FromFile(@"img\plus.png");
+                Bitmap plusBt = new Bitmap(plusImg, new Size(20, 20));
+                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_add"].Value = plusBt;
+
+                Image minusImg = Image.FromFile(@"img\minus.png");
+                Bitmap minusBt = new Bitmap(minusImg, new Size(20, 20));
+                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_minus"].Value = minusBt;
             }
         }
 
@@ -345,6 +351,35 @@ namespace HundsunExtDemo
                 e.Handled = true;
             }
         }
+        #endregion
+
+        #region 增减委托份数
+
+        private void DataGridViewBuySell_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv == null)
+                return;
+            int copiesIndex = dgv.Columns["bs_copies"].Index;
+            if (e.ColumnIndex == dgv.Columns["bs_add"].Index)
+            {
+                int oldValue = (int)dgv.Rows[e.RowIndex].Cells["bs_copies"].Value;
+                dgv.Rows[e.RowIndex].Cells["bs_copies"].Value = oldValue + 1;
+            }
+            else if (e.ColumnIndex == dgv.Columns["bs_minus"].Index)
+            {
+                int oldValue = (int)dgv.Rows[e.RowIndex].Cells["bs_copies"].Value;
+                if (oldValue > 0)
+                {
+                    dgv.Rows[e.RowIndex].Cells["bs_copies"].Value = oldValue - 1;
+                }
+            }
+            else
+            { 
+                //do nothing
+            }
+        }
+
         #endregion
     }
 }

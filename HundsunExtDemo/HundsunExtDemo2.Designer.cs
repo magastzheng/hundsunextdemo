@@ -77,7 +77,6 @@ namespace HundsunExtDemo
             this.df_dealno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainerMarket = new System.Windows.Forms.SplitContainer();
             this.splitContainerTrading = new System.Windows.Forms.SplitContainer();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buysellPanel = new System.Windows.Forms.Panel();
             this.btnEntrust = new System.Windows.Forms.Button();
             this.btnCalculate = new System.Windows.Forms.Button();
@@ -127,6 +126,7 @@ namespace HundsunExtDemo
             this.bs_add = new System.Windows.Forms.DataGridViewImageColumn();
             this.bs_copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bs_minus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tableLayoutPanelTrading = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelMain.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -150,12 +150,12 @@ namespace HundsunExtDemo
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).BeginInit();
             this.splitContainerTrading.Panel2.SuspendLayout();
             this.splitContainerTrading.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.buysellPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
             this.panelEntrust.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).BeginInit();
+            this.tableLayoutPanelTrading.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -594,24 +594,14 @@ namespace HundsunExtDemo
             // 
             // splitContainerTrading.Panel2
             // 
-            this.splitContainerTrading.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainerTrading.Panel2.Controls.Add(this.tableLayoutPanelTrading);
             this.splitContainerTrading.Size = new System.Drawing.Size(256, 386);
             this.splitContainerTrading.SplitterDistance = 54;
             this.splitContainerTrading.TabIndex = 0;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.buysellPanel);
-            this.flowLayoutPanel1.Controls.Add(this.dataGridViewBuySell);
-            this.flowLayoutPanel1.Controls.Add(this.panelEntrust);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(252, 324);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
             // buysellPanel
             // 
+            this.buysellPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buysellPanel.Controls.Add(this.btnEntrust);
             this.buysellPanel.Controls.Add(this.btnCalculate);
             this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
@@ -622,9 +612,10 @@ namespace HundsunExtDemo
             this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
             this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
             this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
+            this.buysellPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buysellPanel.Location = new System.Drawing.Point(3, 3);
             this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(246, 123);
+            this.buysellPanel.Size = new System.Drawing.Size(246, 119);
             this.buysellPanel.TabIndex = 2;
             // 
             // btnEntrust
@@ -721,6 +712,7 @@ namespace HundsunExtDemo
             this.dataGridViewBuySell.AllowUserToAddRows = false;
             this.dataGridViewBuySell.AllowUserToDeleteRows = false;
             this.dataGridViewBuySell.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBuySell.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBuySell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bs_selection,
@@ -728,21 +720,25 @@ namespace HundsunExtDemo
             this.bs_add,
             this.bs_copies,
             this.bs_minus});
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 132);
+            this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 128);
             this.dataGridViewBuySell.Name = "dataGridViewBuySell";
             this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(246, 145);
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(246, 148);
             this.dataGridViewBuySell.TabIndex = 9;
             this.dataGridViewBuySell.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGridViewBuySell_CellParsing);
             this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
+            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewBuySell_CellMouseClick);
             // 
             // panelEntrust
             // 
+            this.panelEntrust.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelEntrust.Controls.Add(this.btnEntrusting);
             this.panelEntrust.Controls.Add(this.btnCalc);
-            this.panelEntrust.Location = new System.Drawing.Point(3, 283);
+            this.panelEntrust.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEntrust.Location = new System.Drawing.Point(3, 282);
             this.panelEntrust.Name = "panelEntrust";
-            this.panelEntrust.Size = new System.Drawing.Size(246, 40);
+            this.panelEntrust.Size = new System.Drawing.Size(246, 39);
             this.panelEntrust.TabIndex = 10;
             // 
             // btnEntrusting
@@ -1005,6 +1001,23 @@ namespace HundsunExtDemo
             this.bs_minus.HeaderText = "减少";
             this.bs_minus.Name = "bs_minus";
             // 
+            // tableLayoutPanelTrading
+            // 
+            this.tableLayoutPanelTrading.ColumnCount = 1;
+            this.tableLayoutPanelTrading.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelTrading.Controls.Add(this.panelEntrust, 0, 2);
+            this.tableLayoutPanelTrading.Controls.Add(this.dataGridViewBuySell, 0, 1);
+            this.tableLayoutPanelTrading.Controls.Add(this.buysellPanel, 0, 0);
+            this.tableLayoutPanelTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelTrading.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelTrading.Name = "tableLayoutPanelTrading";
+            this.tableLayoutPanelTrading.RowCount = 3;
+            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.88889F));
+            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.83951F));
+            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.58025F));
+            this.tableLayoutPanelTrading.Size = new System.Drawing.Size(252, 324);
+            this.tableLayoutPanelTrading.TabIndex = 0;
+            // 
             // HundsunExtDemo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1040,7 +1053,6 @@ namespace HundsunExtDemo
             this.splitContainerTrading.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).EndInit();
             this.splitContainerTrading.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.buysellPanel.ResumeLayout(false);
             this.buysellPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
@@ -1048,6 +1060,7 @@ namespace HundsunExtDemo
             this.statusStripMain.ResumeLayout(false);
             this.statusStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).EndInit();
+            this.tableLayoutPanelTrading.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1116,7 +1129,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.DataGridViewTextBoxColumn df_instanceno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_entrustno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_dealno;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelOrg;
         private System.Windows.Forms.DataGridView dataGridViewCmdTrading;
@@ -1151,5 +1163,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.DataGridViewImageColumn bs_add;
         private System.Windows.Forms.DataGridViewTextBoxColumn bs_copies;
         private System.Windows.Forms.DataGridViewImageColumn bs_minus;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTrading;
     }
 }
