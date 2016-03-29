@@ -54,6 +54,7 @@
     <Compile Include="PackFieldType.cs" />
     <Compile Include="UICommandSecurityItem.cs" />
     <Compile Include="UIDealFlowItem.cs" />
+    <Compile Include="UIEntrustItem.cs" />
     <Compile Include="UITradingCommandItem.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -30,7 +30,7 @@ namespace HundsunExtDemo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HundsunExtDemo2));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -45,61 +45,8 @@ namespace HundsunExtDemo
             this.tabTradingCommand = new System.Windows.Forms.TabControl();
             this.tabPageCommandTrading = new System.Windows.Forms.TabPage();
             this.splitContainerTradingCommand = new System.Windows.Forms.SplitContainer();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.tabControlDetailTrading = new System.Windows.Forms.TabControl();
-            this.tabPageCommandSecu = new System.Windows.Forms.TabPage();
-            this.tabPageEntrustFlow = new System.Windows.Forms.TabPage();
-            this.tabPageDialFlow = new System.Windows.Forms.TabPage();
-            this.tabPageEntrustFlowParent = new System.Windows.Forms.TabPage();
-            this.tabPageDialFlowParent = new System.Windows.Forms.TabPage();
-            this.splitContainerMarket = new System.Windows.Forms.SplitContainer();
-            this.splitContainerTrading = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanelTrading = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
-            this.selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add = new System.Windows.Forms.DataGridViewImageColumn();
-            this.copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minus = new System.Windows.Forms.DataGridViewImageColumn();
-            this.buysellPanel = new System.Windows.Forms.Panel();
-            this.btnEntrust = new System.Windows.Forms.Button();
-            this.btnCalculate = new System.Windows.Forms.Button();
-            this.comboBoxFutureSell = new System.Windows.Forms.ComboBox();
-            this.comboBoxFutureBuy = new System.Windows.Forms.ComboBox();
-            this.comboBoxSpotSell = new System.Windows.Forms.ComboBox();
-            this.comboBoxSpotBuy = new System.Windows.Forms.ComboBox();
-            this.lblFuturesSellPrice = new System.Windows.Forms.Label();
-            this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
-            this.lblSpotSellPrice = new System.Windows.Forms.Label();
-            this.lblSpotBuyPrice = new System.Windows.Forms.Label();
-            this.panelEntrust = new System.Windows.Forms.Panel();
-            this.btnEntrusting = new System.Windows.Forms.Button();
-            this.btnCalc = new System.Windows.Forms.Button();
-            this.tableLayoutPanelDealFlow = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewDealFlow = new System.Windows.Forms.DataGridView();
-            this.df_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_securitycode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_securityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_fundno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_fundname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_portfoliocode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_portfolioname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_pricetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_entrustprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_entrustdirection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_dealprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_dealamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_dealmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_dealtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_stockholdercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_declareno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_declareseat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_entrustbatchno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_instanceid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_entrustno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.df_dealno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc_selected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCmdTrading = new System.Windows.Forms.DataGridView();
+            this.tc_selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tc_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_commandtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_executetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,7 +72,63 @@ namespace HundsunExtDemo
             this.tc_instanceid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_monitorunit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tabControlDetailTrading = new System.Windows.Forms.TabControl();
+            this.tabPageCommandSecu = new System.Windows.Forms.TabPage();
+            this.tabPageEntrustFlow = new System.Windows.Forms.TabPage();
+            this.tabPageDialFlow = new System.Windows.Forms.TabPage();
+            this.tabPageEntrustFlowParent = new System.Windows.Forms.TabPage();
+            this.tabPageDialFlowParent = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanelDealFlow = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewDealFlow = new System.Windows.Forms.DataGridView();
+            this.df_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_securitycode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_securityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_fundno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_fundname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_portfoliocode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_portfolioname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_pricetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_entrustprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_entrustdirection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_dealprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_dealamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_dealmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_dealtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_stockholdercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_declareno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_declareseat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_entrustbatchno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_instanceid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_entrustno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.df_dealno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitContainerMarket = new System.Windows.Forms.SplitContainer();
+            this.splitContainerTrading = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buysellPanel = new System.Windows.Forms.Panel();
+            this.btnEntrust = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
+            this.comboBoxFutureSell = new System.Windows.Forms.ComboBox();
+            this.comboBoxFutureBuy = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpotSell = new System.Windows.Forms.ComboBox();
+            this.comboBoxSpotBuy = new System.Windows.Forms.ComboBox();
+            this.lblFuturesSellPrice = new System.Windows.Forms.Label();
+            this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
+            this.lblSpotSellPrice = new System.Windows.Forms.Label();
+            this.lblSpotBuyPrice = new System.Windows.Forms.Label();
+            this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
+            this.bs_selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bs_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bs_copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_minus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panelEntrust = new System.Windows.Forms.Panel();
+            this.btnEntrusting = new System.Windows.Forms.Button();
+            this.btnCalc = new System.Windows.Forms.Button();
+            this.statusStripMain = new System.Windows.Forms.StatusStrip();
+            this.statusLabelOrg = new System.Windows.Forms.ToolStripStatusLabel();
+            this.flowLayoutPanelCmdTrading = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanelMain.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -138,40 +141,43 @@ namespace HundsunExtDemo
             this.splitContainerTradingCommand.Panel1.SuspendLayout();
             this.splitContainerTradingCommand.Panel2.SuspendLayout();
             this.splitContainerTradingCommand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).BeginInit();
             this.tabControlDetailTrading.SuspendLayout();
             this.tabPageDialFlowParent.SuspendLayout();
+            this.tableLayoutPanelDealFlow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMarket)).BeginInit();
             this.splitContainerMarket.Panel2.SuspendLayout();
             this.splitContainerMarket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).BeginInit();
             this.splitContainerTrading.Panel2.SuspendLayout();
             this.splitContainerTrading.SuspendLayout();
-            this.tableLayoutPanelTrading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.buysellPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
             this.panelEntrust.SuspendLayout();
-            this.tableLayoutPanelDealFlow.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).BeginInit();
+            this.statusStripMain.SuspendLayout();
+            this.flowLayoutPanelCmdTrading.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.toolStrip, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.menuStrip, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.splitContainerMain, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1039, 549);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanelMain.ColumnCount = 1;
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelMain.Controls.Add(this.toolStrip, 0, 1);
+            this.tableLayoutPanelMain.Controls.Add(this.menuStrip, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.splitContainerMain, 0, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.statusStripMain, 0, 3);
+            this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
+            this.tableLayoutPanelMain.RowCount = 4;
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1039, 549);
+            this.tableLayoutPanelMain.TabIndex = 0;
             // 
             // toolStrip
             // 
@@ -181,9 +187,9 @@ namespace HundsunExtDemo
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4});
-            this.toolStrip.Location = new System.Drawing.Point(0, 38);
+            this.toolStrip.Location = new System.Drawing.Point(0, 27);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1039, 38);
+            this.toolStrip.Size = new System.Drawing.Size(1039, 27);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -193,7 +199,7 @@ namespace HundsunExtDemo
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 35);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
@@ -202,7 +208,7 @@ namespace HundsunExtDemo
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 35);
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
@@ -211,7 +217,7 @@ namespace HundsunExtDemo
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 35);
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripButton4
@@ -220,7 +226,7 @@ namespace HundsunExtDemo
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 35);
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // menuStrip
@@ -233,39 +239,39 @@ namespace HundsunExtDemo
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1039, 38);
+            this.menuStrip.Size = new System.Drawing.Size(1039, 27);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
             // sysToolStripMenuItem
             // 
             this.sysToolStripMenuItem.Name = "sysToolStripMenuItem";
-            this.sysToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.sysToolStripMenuItem.Text = "sys";
+            this.sysToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.sysToolStripMenuItem.Text = "系统";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 34);
-            this.viewToolStripMenuItem.Text = "view";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.viewToolStripMenuItem.Text = "视图";
             // 
             // toolToolStripMenuItem
             // 
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
-            this.toolToolStripMenuItem.Size = new System.Drawing.Size(43, 34);
-            this.toolToolStripMenuItem.Text = "tool";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.toolToolStripMenuItem.Text = "工具";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(45, 34);
-            this.helpToolStripMenuItem.Text = "help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.helpToolStripMenuItem.Text = "帮助";
             // 
             // splitContainerMain
             // 
             this.splitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(3, 79);
+            this.splitContainerMain.Location = new System.Drawing.Point(3, 57);
             this.splitContainerMain.Name = "splitContainerMain";
             // 
             // splitContainerMain.Panel1
@@ -275,7 +281,7 @@ namespace HundsunExtDemo
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.splitContainerMarket);
-            this.splitContainerMain.Size = new System.Drawing.Size(1033, 411);
+            this.splitContainerMain.Size = new System.Drawing.Size(1033, 460);
             this.splitContainerMain.SplitterDistance = 773;
             this.splitContainerMain.TabIndex = 3;
             // 
@@ -288,7 +294,7 @@ namespace HundsunExtDemo
             this.tabTradingCommand.Location = new System.Drawing.Point(0, 0);
             this.tabTradingCommand.Name = "tabTradingCommand";
             this.tabTradingCommand.SelectedIndex = 0;
-            this.tabTradingCommand.Size = new System.Drawing.Size(769, 407);
+            this.tabTradingCommand.Size = new System.Drawing.Size(769, 456);
             this.tabTradingCommand.TabIndex = 2;
             this.tabTradingCommand.Tag = "";
             // 
@@ -298,7 +304,7 @@ namespace HundsunExtDemo
             this.tabPageCommandTrading.Location = new System.Drawing.Point(4, 22);
             this.tabPageCommandTrading.Name = "tabPageCommandTrading";
             this.tabPageCommandTrading.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCommandTrading.Size = new System.Drawing.Size(761, 381);
+            this.tabPageCommandTrading.Size = new System.Drawing.Size(761, 430);
             this.tabPageCommandTrading.TabIndex = 0;
             this.tabPageCommandTrading.Text = "指令交易";
             this.tabPageCommandTrading.UseVisualStyleBackColor = true;
@@ -312,21 +318,21 @@ namespace HundsunExtDemo
             // 
             // splitContainerTradingCommand.Panel1
             // 
-            this.splitContainerTradingCommand.Panel1.Controls.Add(this.dataGridView);
+            this.splitContainerTradingCommand.Panel1.Controls.Add(this.flowLayoutPanelCmdTrading);
             // 
             // splitContainerTradingCommand.Panel2
             // 
             this.splitContainerTradingCommand.Panel2.Controls.Add(this.tabControlDetailTrading);
-            this.splitContainerTradingCommand.Size = new System.Drawing.Size(755, 375);
-            this.splitContainerTradingCommand.SplitterDistance = 197;
+            this.splitContainerTradingCommand.Size = new System.Drawing.Size(755, 424);
+            this.splitContainerTradingCommand.SplitterDistance = 222;
             this.splitContainerTradingCommand.TabIndex = 1;
             // 
-            // dataGridView
+            // dataGridViewCmdTrading
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCmdTrading.AllowUserToAddRows = false;
+            this.dataGridViewCmdTrading.AllowUserToDeleteRows = false;
+            this.dataGridViewCmdTrading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCmdTrading.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tc_selected,
             this.tc_commandno,
             this.tc_commandtype,
@@ -353,13 +359,169 @@ namespace HundsunExtDemo
             this.tc_instanceid,
             this.tc_instanceno,
             this.tc_monitorunit});
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowTemplate.Height = 23;
-            this.dataGridView.Size = new System.Drawing.Size(755, 197);
-            this.dataGridView.TabIndex = 0;
-            this.dataGridView.VirtualMode = true;
+            this.dataGridViewCmdTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCmdTrading.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewCmdTrading.Name = "dataGridViewCmdTrading";
+            this.dataGridViewCmdTrading.RowTemplate.Height = 23;
+            this.dataGridViewCmdTrading.Size = new System.Drawing.Size(0, 220);
+            this.dataGridViewCmdTrading.TabIndex = 0;
+            this.dataGridViewCmdTrading.VirtualMode = true;
+            // 
+            // tc_selected
+            // 
+            this.tc_selected.HeaderText = "选中";
+            this.tc_selected.Name = "tc_selected";
+            this.tc_selected.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tc_selected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.tc_selected.Width = 80;
+            // 
+            // tc_commandno
+            // 
+            this.tc_commandno.HeaderText = "指令序号";
+            this.tc_commandno.Name = "tc_commandno";
+            this.tc_commandno.Width = 80;
+            // 
+            // tc_commandtype
+            // 
+            this.tc_commandtype.HeaderText = "指令类型";
+            this.tc_commandtype.Name = "tc_commandtype";
+            this.tc_commandtype.Width = 80;
+            // 
+            // tc_executetype
+            // 
+            this.tc_executetype.HeaderText = "执行类型";
+            this.tc_executetype.Name = "tc_executetype";
+            this.tc_executetype.Width = 80;
+            // 
+            // tc_commandnum
+            // 
+            this.tc_commandnum.HeaderText = "指令份数";
+            this.tc_commandnum.Name = "tc_commandnum";
+            this.tc_commandnum.Width = 80;
+            // 
+            // tc_targetnum
+            // 
+            this.tc_targetnum.HeaderText = "目标份数";
+            this.tc_targetnum.Name = "tc_targetnum";
+            this.tc_targetnum.Width = 80;
+            // 
+            // tc_baisprice
+            // 
+            this.tc_baisprice.HeaderText = "基差|价差";
+            this.tc_baisprice.Name = "tc_baisprice";
+            // 
+            // tc_longmorethan
+            // 
+            this.tc_longmorethan.HeaderText = "多头委比";
+            this.tc_longmorethan.Name = "tc_longmorethan";
+            this.tc_longmorethan.Width = 80;
+            // 
+            // tc_bearmorethan
+            // 
+            this.tc_bearmorethan.HeaderText = "空头委比";
+            this.tc_bearmorethan.Name = "tc_bearmorethan";
+            this.tc_bearmorethan.Width = 80;
+            // 
+            // tc_longratio
+            // 
+            this.tc_longratio.HeaderText = "多头成比";
+            this.tc_longratio.Name = "tc_longratio";
+            this.tc_longratio.Width = 80;
+            // 
+            // tc_bearratio
+            // 
+            this.tc_bearratio.HeaderText = "空头成比";
+            this.tc_bearratio.Name = "tc_bearratio";
+            this.tc_bearratio.Width = 80;
+            // 
+            // tc_commandamount
+            // 
+            this.tc_commandamount.HeaderText = "指令数量";
+            this.tc_commandamount.Name = "tc_commandamount";
+            this.tc_commandamount.Width = 80;
+            // 
+            // tc_entrustedamount
+            // 
+            this.tc_entrustedamount.HeaderText = "已委托数量";
+            this.tc_entrustedamount.Name = "tc_entrustedamount";
+            // 
+            // tc_dealamount
+            // 
+            this.tc_dealamount.HeaderText = "已成数量";
+            this.tc_dealamount.Name = "tc_dealamount";
+            this.tc_dealamount.Width = 80;
+            // 
+            // tc_commandmoney
+            // 
+            this.tc_commandmoney.HeaderText = "指令金额";
+            this.tc_commandmoney.Name = "tc_commandmoney";
+            this.tc_commandmoney.Width = 80;
+            // 
+            // tc_exposure
+            // 
+            this.tc_exposure.HeaderText = "裸敞口";
+            this.tc_exposure.Name = "tc_exposure";
+            this.tc_exposure.Width = 60;
+            // 
+            // tc_startdate
+            // 
+            this.tc_startdate.HeaderText = "开始日期";
+            this.tc_startdate.Name = "tc_startdate";
+            this.tc_startdate.Width = 80;
+            // 
+            // tc_enddate
+            // 
+            this.tc_enddate.HeaderText = "结束日期";
+            this.tc_enddate.Name = "tc_enddate";
+            this.tc_enddate.Width = 80;
+            // 
+            // tc_starttime
+            // 
+            this.tc_starttime.HeaderText = "开始时间";
+            this.tc_starttime.Name = "tc_starttime";
+            this.tc_starttime.Width = 80;
+            // 
+            // tc_endtime
+            // 
+            this.tc_endtime.HeaderText = "结束时间";
+            this.tc_endtime.Name = "tc_endtime";
+            this.tc_endtime.Width = 80;
+            // 
+            // tc_dispatchtime
+            // 
+            this.tc_dispatchtime.HeaderText = "分发时间";
+            this.tc_dispatchtime.Name = "tc_dispatchtime";
+            this.tc_dispatchtime.Width = 80;
+            // 
+            // tc_executeperson
+            // 
+            this.tc_executeperson.HeaderText = "下达人";
+            this.tc_executeperson.Name = "tc_executeperson";
+            this.tc_executeperson.Width = 60;
+            // 
+            // tc_dispatchperson
+            // 
+            this.tc_dispatchperson.HeaderText = "分发人";
+            this.tc_dispatchperson.Name = "tc_dispatchperson";
+            this.tc_dispatchperson.Width = 60;
+            // 
+            // tc_instanceid
+            // 
+            this.tc_instanceid.HeaderText = "实例号";
+            this.tc_instanceid.Name = "tc_instanceid";
+            this.tc_instanceid.Width = 60;
+            // 
+            // tc_instanceno
+            // 
+            this.tc_instanceno.HeaderText = "实例编号";
+            this.tc_instanceno.Name = "tc_instanceno";
+            this.tc_instanceno.Width = 80;
+            // 
+            // tc_monitorunit
+            // 
+            this.tc_monitorunit.HeaderText = "监控单元";
+            this.tc_monitorunit.Name = "tc_monitorunit";
+            this.tc_monitorunit.Width = 80;
             // 
             // tabControlDetailTrading
             // 
@@ -370,7 +532,7 @@ namespace HundsunExtDemo
             this.tabControlDetailTrading.Location = new System.Drawing.Point(0, 0);
             this.tabControlDetailTrading.Name = "tabControlDetailTrading";
             this.tabControlDetailTrading.SelectedIndex = 0;
-            this.tabControlDetailTrading.Size = new System.Drawing.Size(755, 174);
+            this.tabControlDetailTrading.Size = new System.Drawing.Size(755, 198);
             this.tabControlDetailTrading.TabIndex = 0;
             // 
             // tabPageCommandSecu
@@ -378,7 +540,7 @@ namespace HundsunExtDemo
             this.tabPageCommandSecu.Location = new System.Drawing.Point(4, 22);
             this.tabPageCommandSecu.Name = "tabPageCommandSecu";
             this.tabPageCommandSecu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCommandSecu.Size = new System.Drawing.Size(747, 148);
+            this.tabPageCommandSecu.Size = new System.Drawing.Size(747, 172);
             this.tabPageCommandSecu.TabIndex = 0;
             this.tabPageCommandSecu.Text = "指令证券";
             this.tabPageCommandSecu.UseVisualStyleBackColor = true;
@@ -388,7 +550,7 @@ namespace HundsunExtDemo
             this.tabPageEntrustFlow.Location = new System.Drawing.Point(4, 22);
             this.tabPageEntrustFlow.Name = "tabPageEntrustFlow";
             this.tabPageEntrustFlow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEntrustFlow.Size = new System.Drawing.Size(747, 148);
+            this.tabPageEntrustFlow.Size = new System.Drawing.Size(747, 172);
             this.tabPageEntrustFlow.TabIndex = 1;
             this.tabPageEntrustFlow.Text = "委托流水";
             this.tabPageEntrustFlow.UseVisualStyleBackColor = true;
@@ -398,7 +560,7 @@ namespace HundsunExtDemo
             this.tabPageDialFlow.Location = new System.Drawing.Point(4, 22);
             this.tabPageDialFlow.Name = "tabPageDialFlow";
             this.tabPageDialFlow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDialFlow.Size = new System.Drawing.Size(747, 148);
+            this.tabPageDialFlow.Size = new System.Drawing.Size(747, 172);
             this.tabPageDialFlow.TabIndex = 2;
             this.tabPageDialFlow.Text = "成交流水";
             this.tabPageDialFlow.UseVisualStyleBackColor = true;
@@ -408,7 +570,7 @@ namespace HundsunExtDemo
             this.tabPageEntrustFlowParent.Location = new System.Drawing.Point(4, 22);
             this.tabPageEntrustFlowParent.Name = "tabPageEntrustFlowParent";
             this.tabPageEntrustFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(761, 381);
+            this.tabPageEntrustFlowParent.Size = new System.Drawing.Size(761, 430);
             this.tabPageEntrustFlowParent.TabIndex = 1;
             this.tabPageEntrustFlowParent.Text = "委托流水";
             this.tabPageEntrustFlowParent.UseVisualStyleBackColor = true;
@@ -419,238 +581,10 @@ namespace HundsunExtDemo
             this.tabPageDialFlowParent.Location = new System.Drawing.Point(4, 22);
             this.tabPageDialFlowParent.Name = "tabPageDialFlowParent";
             this.tabPageDialFlowParent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDialFlowParent.Size = new System.Drawing.Size(761, 381);
+            this.tabPageDialFlowParent.Size = new System.Drawing.Size(761, 430);
             this.tabPageDialFlowParent.TabIndex = 2;
             this.tabPageDialFlowParent.Text = "成交流水";
             this.tabPageDialFlowParent.UseVisualStyleBackColor = true;
-            // 
-            // splitContainerMarket
-            // 
-            this.splitContainerMarket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainerMarket.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMarket.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMarket.Name = "splitContainerMarket";
-            this.splitContainerMarket.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerMarket.Panel2
-            // 
-            this.splitContainerMarket.Panel2.Controls.Add(this.splitContainerTrading);
-            this.splitContainerMarket.Size = new System.Drawing.Size(256, 411);
-            this.splitContainerMarket.SplitterDistance = 63;
-            this.splitContainerMarket.TabIndex = 0;
-            // 
-            // splitContainerTrading
-            // 
-            this.splitContainerTrading.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainerTrading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerTrading.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerTrading.Name = "splitContainerTrading";
-            this.splitContainerTrading.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerTrading.Panel2
-            // 
-            this.splitContainerTrading.Panel2.Controls.Add(this.tableLayoutPanelTrading);
-            this.splitContainerTrading.Size = new System.Drawing.Size(256, 344);
-            this.splitContainerTrading.SplitterDistance = 49;
-            this.splitContainerTrading.TabIndex = 0;
-            // 
-            // tableLayoutPanelTrading
-            // 
-            this.tableLayoutPanelTrading.ColumnCount = 1;
-            this.tableLayoutPanelTrading.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelTrading.Controls.Add(this.dataGridViewBuySell, 0, 1);
-            this.tableLayoutPanelTrading.Controls.Add(this.buysellPanel, 0, 0);
-            this.tableLayoutPanelTrading.Controls.Add(this.panelEntrust, 0, 2);
-            this.tableLayoutPanelTrading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelTrading.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelTrading.Name = "tableLayoutPanelTrading";
-            this.tableLayoutPanelTrading.RowCount = 3;
-            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 129F));
-            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTrading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanelTrading.Size = new System.Drawing.Size(252, 287);
-            this.tableLayoutPanelTrading.TabIndex = 0;
-            // 
-            // dataGridViewBuySell
-            // 
-            this.dataGridViewBuySell.AllowUserToAddRows = false;
-            this.dataGridViewBuySell.AllowUserToDeleteRows = false;
-            this.dataGridViewBuySell.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBuySell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selection,
-            this.commandno,
-            this.add,
-            this.copies,
-            this.minus});
-            this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 132);
-            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
-            this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(246, 106);
-            this.dataGridViewBuySell.TabIndex = 9;
-            // 
-            // selection
-            // 
-            this.selection.HeaderText = "选择";
-            this.selection.Name = "selection";
-            // 
-            // commandno
-            // 
-            this.commandno.HeaderText = "指令序号";
-            this.commandno.Name = "commandno";
-            this.commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // add
-            // 
-            this.add.HeaderText = "增加";
-            this.add.Name = "add";
-            // 
-            // copies
-            // 
-            this.copies.HeaderText = "份数";
-            this.copies.Name = "copies";
-            // 
-            // minus
-            // 
-            this.minus.HeaderText = "减少";
-            this.minus.Name = "minus";
-            // 
-            // buysellPanel
-            // 
-            this.buysellPanel.Controls.Add(this.btnEntrust);
-            this.buysellPanel.Controls.Add(this.btnCalculate);
-            this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
-            this.buysellPanel.Controls.Add(this.comboBoxFutureBuy);
-            this.buysellPanel.Controls.Add(this.comboBoxSpotSell);
-            this.buysellPanel.Controls.Add(this.comboBoxSpotBuy);
-            this.buysellPanel.Controls.Add(this.lblFuturesSellPrice);
-            this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
-            this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
-            this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
-            this.buysellPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buysellPanel.Location = new System.Drawing.Point(3, 3);
-            this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(246, 123);
-            this.buysellPanel.TabIndex = 2;
-            // 
-            // btnEntrust
-            // 
-            this.btnEntrust.Location = new System.Drawing.Point(148, 287);
-            this.btnEntrust.Name = "btnEntrust";
-            this.btnEntrust.Size = new System.Drawing.Size(75, 23);
-            this.btnEntrust.TabIndex = 11;
-            this.btnEntrust.Text = "委托";
-            this.btnEntrust.UseVisualStyleBackColor = true;
-            // 
-            // btnCalculate
-            // 
-            this.btnCalculate.Location = new System.Drawing.Point(25, 287);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
-            this.btnCalculate.TabIndex = 10;
-            this.btnCalculate.Text = "计算";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxFutureSell
-            // 
-            this.comboBoxFutureSell.FormattingEnabled = true;
-            this.comboBoxFutureSell.Location = new System.Drawing.Point(102, 93);
-            this.comboBoxFutureSell.Name = "comboBoxFutureSell";
-            this.comboBoxFutureSell.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxFutureSell.TabIndex = 8;
-            this.comboBoxFutureSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
-            // 
-            // comboBoxFutureBuy
-            // 
-            this.comboBoxFutureBuy.FormattingEnabled = true;
-            this.comboBoxFutureBuy.Location = new System.Drawing.Point(102, 67);
-            this.comboBoxFutureBuy.Name = "comboBoxFutureBuy";
-            this.comboBoxFutureBuy.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxFutureBuy.TabIndex = 7;
-            this.comboBoxFutureBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
-            // 
-            // comboBoxSpotSell
-            // 
-            this.comboBoxSpotSell.FormattingEnabled = true;
-            this.comboBoxSpotSell.Location = new System.Drawing.Point(102, 41);
-            this.comboBoxSpotSell.Name = "comboBoxSpotSell";
-            this.comboBoxSpotSell.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxSpotSell.TabIndex = 6;
-            // 
-            // comboBoxSpotBuy
-            // 
-            this.comboBoxSpotBuy.FormattingEnabled = true;
-            this.comboBoxSpotBuy.Location = new System.Drawing.Point(102, 12);
-            this.comboBoxSpotBuy.Name = "comboBoxSpotBuy";
-            this.comboBoxSpotBuy.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxSpotBuy.TabIndex = 5;
-            this.comboBoxSpotBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
-            // 
-            // lblFuturesSellPrice
-            // 
-            this.lblFuturesSellPrice.AutoSize = true;
-            this.lblFuturesSellPrice.Location = new System.Drawing.Point(4, 93);
-            this.lblFuturesSellPrice.Name = "lblFuturesSellPrice";
-            this.lblFuturesSellPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblFuturesSellPrice.TabIndex = 3;
-            this.lblFuturesSellPrice.Text = "期货委卖价";
-            // 
-            // lblFuturesBuyPrice
-            // 
-            this.lblFuturesBuyPrice.AutoSize = true;
-            this.lblFuturesBuyPrice.Location = new System.Drawing.Point(4, 68);
-            this.lblFuturesBuyPrice.Name = "lblFuturesBuyPrice";
-            this.lblFuturesBuyPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblFuturesBuyPrice.TabIndex = 2;
-            this.lblFuturesBuyPrice.Text = "期货委买价";
-            // 
-            // lblSpotSellPrice
-            // 
-            this.lblSpotSellPrice.AutoSize = true;
-            this.lblSpotSellPrice.Location = new System.Drawing.Point(4, 41);
-            this.lblSpotSellPrice.Name = "lblSpotSellPrice";
-            this.lblSpotSellPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblSpotSellPrice.TabIndex = 1;
-            this.lblSpotSellPrice.Text = "现货委卖价";
-            // 
-            // lblSpotBuyPrice
-            // 
-            this.lblSpotBuyPrice.AutoSize = true;
-            this.lblSpotBuyPrice.Location = new System.Drawing.Point(4, 14);
-            this.lblSpotBuyPrice.Name = "lblSpotBuyPrice";
-            this.lblSpotBuyPrice.Size = new System.Drawing.Size(65, 12);
-            this.lblSpotBuyPrice.TabIndex = 0;
-            this.lblSpotBuyPrice.Text = "现货委买价";
-            // 
-            // panelEntrust
-            // 
-            this.panelEntrust.Controls.Add(this.btnEntrusting);
-            this.panelEntrust.Controls.Add(this.btnCalc);
-            this.panelEntrust.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEntrust.Location = new System.Drawing.Point(3, 244);
-            this.panelEntrust.Name = "panelEntrust";
-            this.panelEntrust.Size = new System.Drawing.Size(246, 40);
-            this.panelEntrust.TabIndex = 10;
-            // 
-            // btnEntrusting
-            // 
-            this.btnEntrusting.Location = new System.Drawing.Point(148, 10);
-            this.btnEntrusting.Name = "btnEntrusting";
-            this.btnEntrusting.Size = new System.Drawing.Size(75, 23);
-            this.btnEntrusting.TabIndex = 1;
-            this.btnEntrusting.Text = "委托";
-            this.btnEntrusting.UseVisualStyleBackColor = true;
-            // 
-            // btnCalc
-            // 
-            this.btnCalc.Location = new System.Drawing.Point(42, 10);
-            this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(75, 23);
-            this.btnCalc.TabIndex = 0;
-            this.btnCalc.Text = "计算";
-            this.btnCalc.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanelDealFlow
             // 
@@ -663,7 +597,7 @@ namespace HundsunExtDemo
             this.tableLayoutPanelDealFlow.RowCount = 2;
             this.tableLayoutPanelDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanelDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanelDealFlow.Size = new System.Drawing.Size(755, 375);
+            this.tableLayoutPanelDealFlow.Size = new System.Drawing.Size(755, 424);
             this.tableLayoutPanelDealFlow.TabIndex = 0;
             // 
             // dataGridViewDealFlow
@@ -698,7 +632,7 @@ namespace HundsunExtDemo
             this.dataGridViewDealFlow.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewDealFlow.Name = "dataGridViewDealFlow";
             this.dataGridViewDealFlow.RowTemplate.Height = 23;
-            this.dataGridViewDealFlow.Size = new System.Drawing.Size(749, 350);
+            this.dataGridViewDealFlow.Size = new System.Drawing.Size(749, 396);
             this.dataGridViewDealFlow.TabIndex = 0;
             // 
             // df_commandno
@@ -833,147 +767,263 @@ namespace HundsunExtDemo
             this.df_dealno.Name = "df_dealno";
             this.df_dealno.Width = 80;
             // 
-            // tc_selected
+            // splitContainerMarket
             // 
-            this.tc_selected.HeaderText = "选中";
-            this.tc_selected.Name = "tc_selected";
+            this.splitContainerMarket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainerMarket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMarket.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMarket.Name = "splitContainerMarket";
+            this.splitContainerMarket.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // tc_commandno
+            // splitContainerMarket.Panel2
             // 
-            this.tc_commandno.HeaderText = "指令序号";
-            this.tc_commandno.Name = "tc_commandno";
+            this.splitContainerMarket.Panel2.Controls.Add(this.splitContainerTrading);
+            this.splitContainerMarket.Size = new System.Drawing.Size(256, 460);
+            this.splitContainerMarket.SplitterDistance = 70;
+            this.splitContainerMarket.TabIndex = 0;
             // 
-            // tc_commandtype
+            // splitContainerTrading
             // 
-            this.tc_commandtype.HeaderText = "指令类型";
-            this.tc_commandtype.Name = "tc_commandtype";
+            this.splitContainerTrading.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainerTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTrading.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerTrading.Name = "splitContainerTrading";
+            this.splitContainerTrading.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // tc_executetype
+            // splitContainerTrading.Panel2
             // 
-            this.tc_executetype.HeaderText = "执行类型";
-            this.tc_executetype.Name = "tc_executetype";
+            this.splitContainerTrading.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainerTrading.Size = new System.Drawing.Size(256, 386);
+            this.splitContainerTrading.SplitterDistance = 54;
+            this.splitContainerTrading.TabIndex = 0;
             // 
-            // tc_commandnum
+            // flowLayoutPanel1
             // 
-            this.tc_commandnum.HeaderText = "指令份数";
-            this.tc_commandnum.Name = "tc_commandnum";
+            this.flowLayoutPanel1.Controls.Add(this.buysellPanel);
+            this.flowLayoutPanel1.Controls.Add(this.dataGridViewBuySell);
+            this.flowLayoutPanel1.Controls.Add(this.panelEntrust);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(252, 324);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // tc_targetnum
+            // buysellPanel
             // 
-            this.tc_targetnum.HeaderText = "目标份数";
-            this.tc_targetnum.Name = "tc_targetnum";
+            this.buysellPanel.Controls.Add(this.btnEntrust);
+            this.buysellPanel.Controls.Add(this.btnCalculate);
+            this.buysellPanel.Controls.Add(this.comboBoxFutureSell);
+            this.buysellPanel.Controls.Add(this.comboBoxFutureBuy);
+            this.buysellPanel.Controls.Add(this.comboBoxSpotSell);
+            this.buysellPanel.Controls.Add(this.comboBoxSpotBuy);
+            this.buysellPanel.Controls.Add(this.lblFuturesSellPrice);
+            this.buysellPanel.Controls.Add(this.lblFuturesBuyPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotSellPrice);
+            this.buysellPanel.Controls.Add(this.lblSpotBuyPrice);
+            this.buysellPanel.Location = new System.Drawing.Point(3, 3);
+            this.buysellPanel.Name = "buysellPanel";
+            this.buysellPanel.Size = new System.Drawing.Size(246, 123);
+            this.buysellPanel.TabIndex = 2;
             // 
-            // tc_baisprice
+            // btnEntrust
             // 
-            this.tc_baisprice.HeaderText = "基差|价差";
-            this.tc_baisprice.Name = "tc_baisprice";
+            this.btnEntrust.Location = new System.Drawing.Point(148, 287);
+            this.btnEntrust.Name = "btnEntrust";
+            this.btnEntrust.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrust.TabIndex = 11;
+            this.btnEntrust.Text = "委托";
+            this.btnEntrust.UseVisualStyleBackColor = true;
             // 
-            // tc_longmorethan
+            // btnCalculate
             // 
-            this.tc_longmorethan.HeaderText = "多头委比";
-            this.tc_longmorethan.Name = "tc_longmorethan";
+            this.btnCalculate.Location = new System.Drawing.Point(25, 287);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculate.TabIndex = 10;
+            this.btnCalculate.Text = "计算";
+            this.btnCalculate.UseVisualStyleBackColor = true;
             // 
-            // tc_bearmorethan
+            // comboBoxFutureSell
             // 
-            this.tc_bearmorethan.HeaderText = "空头委比";
-            this.tc_bearmorethan.Name = "tc_bearmorethan";
+            this.comboBoxFutureSell.FormattingEnabled = true;
+            this.comboBoxFutureSell.Location = new System.Drawing.Point(102, 93);
+            this.comboBoxFutureSell.Name = "comboBoxFutureSell";
+            this.comboBoxFutureSell.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxFutureSell.TabIndex = 8;
+            this.comboBoxFutureSell.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // tc_longratio
+            // comboBoxFutureBuy
             // 
-            this.tc_longratio.HeaderText = "多头成比";
-            this.tc_longratio.Name = "tc_longratio";
+            this.comboBoxFutureBuy.FormattingEnabled = true;
+            this.comboBoxFutureBuy.Location = new System.Drawing.Point(102, 67);
+            this.comboBoxFutureBuy.Name = "comboBoxFutureBuy";
+            this.comboBoxFutureBuy.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxFutureBuy.TabIndex = 7;
+            this.comboBoxFutureBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // tc_bearratio
+            // comboBoxSpotSell
             // 
-            this.tc_bearratio.HeaderText = "空头成比";
-            this.tc_bearratio.Name = "tc_bearratio";
+            this.comboBoxSpotSell.FormattingEnabled = true;
+            this.comboBoxSpotSell.Location = new System.Drawing.Point(102, 41);
+            this.comboBoxSpotSell.Name = "comboBoxSpotSell";
+            this.comboBoxSpotSell.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSpotSell.TabIndex = 6;
             // 
-            // tc_commandamount
+            // comboBoxSpotBuy
             // 
-            this.tc_commandamount.HeaderText = "指令数量";
-            this.tc_commandamount.Name = "tc_commandamount";
+            this.comboBoxSpotBuy.FormattingEnabled = true;
+            this.comboBoxSpotBuy.Location = new System.Drawing.Point(102, 12);
+            this.comboBoxSpotBuy.Name = "comboBoxSpotBuy";
+            this.comboBoxSpotBuy.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSpotBuy.TabIndex = 5;
+            this.comboBoxSpotBuy.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // tc_entrustedamount
+            // lblFuturesSellPrice
             // 
-            this.tc_entrustedamount.HeaderText = "已委托数量";
-            this.tc_entrustedamount.Name = "tc_entrustedamount";
+            this.lblFuturesSellPrice.AutoSize = true;
+            this.lblFuturesSellPrice.Location = new System.Drawing.Point(4, 93);
+            this.lblFuturesSellPrice.Name = "lblFuturesSellPrice";
+            this.lblFuturesSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesSellPrice.TabIndex = 3;
+            this.lblFuturesSellPrice.Text = "期货委卖价";
             // 
-            // tc_dealamount
+            // lblFuturesBuyPrice
             // 
-            this.tc_dealamount.HeaderText = "已成数量";
-            this.tc_dealamount.Name = "tc_dealamount";
+            this.lblFuturesBuyPrice.AutoSize = true;
+            this.lblFuturesBuyPrice.Location = new System.Drawing.Point(4, 68);
+            this.lblFuturesBuyPrice.Name = "lblFuturesBuyPrice";
+            this.lblFuturesBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblFuturesBuyPrice.TabIndex = 2;
+            this.lblFuturesBuyPrice.Text = "期货委买价";
             // 
-            // tc_commandmoney
+            // lblSpotSellPrice
             // 
-            this.tc_commandmoney.HeaderText = "指令金额";
-            this.tc_commandmoney.Name = "tc_commandmoney";
+            this.lblSpotSellPrice.AutoSize = true;
+            this.lblSpotSellPrice.Location = new System.Drawing.Point(4, 41);
+            this.lblSpotSellPrice.Name = "lblSpotSellPrice";
+            this.lblSpotSellPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotSellPrice.TabIndex = 1;
+            this.lblSpotSellPrice.Text = "现货委卖价";
             // 
-            // tc_exposure
+            // lblSpotBuyPrice
             // 
-            this.tc_exposure.HeaderText = "裸敞口";
-            this.tc_exposure.Name = "tc_exposure";
+            this.lblSpotBuyPrice.AutoSize = true;
+            this.lblSpotBuyPrice.Location = new System.Drawing.Point(4, 14);
+            this.lblSpotBuyPrice.Name = "lblSpotBuyPrice";
+            this.lblSpotBuyPrice.Size = new System.Drawing.Size(65, 12);
+            this.lblSpotBuyPrice.TabIndex = 0;
+            this.lblSpotBuyPrice.Text = "现货委买价";
             // 
-            // tc_startdate
+            // dataGridViewBuySell
             // 
-            this.tc_startdate.HeaderText = "开始日期";
-            this.tc_startdate.Name = "tc_startdate";
+            this.dataGridViewBuySell.AllowUserToAddRows = false;
+            this.dataGridViewBuySell.AllowUserToDeleteRows = false;
+            this.dataGridViewBuySell.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBuySell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bs_selection,
+            this.bs_commandno,
+            this.bs_add,
+            this.bs_copies,
+            this.bs_minus});
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 132);
+            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
+            this.dataGridViewBuySell.RowTemplate.Height = 23;
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(246, 145);
+            this.dataGridViewBuySell.TabIndex = 9;
+            this.dataGridViewBuySell.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGridViewBuySell_CellParsing);
+            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
             // 
-            // tc_enddate
+            // bs_selection
             // 
-            this.tc_enddate.HeaderText = "结束日期";
-            this.tc_enddate.Name = "tc_enddate";
+            this.bs_selection.HeaderText = "选择";
+            this.bs_selection.Name = "bs_selection";
             // 
-            // tc_starttime
+            // bs_commandno
             // 
-            this.tc_starttime.HeaderText = "开始时间";
-            this.tc_starttime.Name = "tc_starttime";
+            this.bs_commandno.HeaderText = "指令序号";
+            this.bs_commandno.Name = "bs_commandno";
+            this.bs_commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.bs_commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // tc_endtime
+            // bs_add
             // 
-            this.tc_endtime.HeaderText = "结束时间";
-            this.tc_endtime.Name = "tc_endtime";
+            this.bs_add.HeaderText = "增加";
+            this.bs_add.Name = "bs_add";
             // 
-            // tc_dispatchtime
+            // bs_copies
             // 
-            this.tc_dispatchtime.HeaderText = "分发时间";
-            this.tc_dispatchtime.Name = "tc_dispatchtime";
+            this.bs_copies.HeaderText = "份数";
+            this.bs_copies.Name = "bs_copies";
             // 
-            // tc_executeperson
+            // bs_minus
             // 
-            this.tc_executeperson.HeaderText = "下达人";
-            this.tc_executeperson.Name = "tc_executeperson";
+            this.bs_minus.HeaderText = "减少";
+            this.bs_minus.Name = "bs_minus";
             // 
-            // tc_dispatchperson
+            // panelEntrust
             // 
-            this.tc_dispatchperson.HeaderText = "分发人";
-            this.tc_dispatchperson.Name = "tc_dispatchperson";
+            this.panelEntrust.Controls.Add(this.btnEntrusting);
+            this.panelEntrust.Controls.Add(this.btnCalc);
+            this.panelEntrust.Location = new System.Drawing.Point(3, 283);
+            this.panelEntrust.Name = "panelEntrust";
+            this.panelEntrust.Size = new System.Drawing.Size(246, 40);
+            this.panelEntrust.TabIndex = 10;
             // 
-            // tc_instanceid
+            // btnEntrusting
             // 
-            this.tc_instanceid.HeaderText = "实例号";
-            this.tc_instanceid.Name = "tc_instanceid";
+            this.btnEntrusting.Location = new System.Drawing.Point(148, 10);
+            this.btnEntrusting.Name = "btnEntrusting";
+            this.btnEntrusting.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrusting.TabIndex = 1;
+            this.btnEntrusting.Text = "委托";
+            this.btnEntrusting.UseVisualStyleBackColor = true;
             // 
-            // tc_instanceno
+            // btnCalc
             // 
-            this.tc_instanceno.HeaderText = "实例编号";
-            this.tc_instanceno.Name = "tc_instanceno";
+            this.btnCalc.Location = new System.Drawing.Point(42, 10);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalc.TabIndex = 0;
+            this.btnCalc.Text = "计算";
+            this.btnCalc.UseVisualStyleBackColor = true;
             // 
-            // tc_monitorunit
+            // statusStripMain
             // 
-            this.tc_monitorunit.HeaderText = "监控单元";
-            this.tc_monitorunit.Name = "tc_monitorunit";
+            this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabelOrg});
+            this.statusStripMain.Location = new System.Drawing.Point(0, 527);
+            this.statusStripMain.Name = "statusStripMain";
+            this.statusStripMain.Size = new System.Drawing.Size(1039, 22);
+            this.statusStripMain.TabIndex = 4;
+            this.statusStripMain.Text = "statusStrip1";
+            // 
+            // statusLabelOrg
+            // 
+            this.statusLabelOrg.Name = "statusLabelOrg";
+            this.statusLabelOrg.Size = new System.Drawing.Size(0, 17);
+            // 
+            // flowLayoutPanelCmdTrading
+            // 
+            this.flowLayoutPanelCmdTrading.Controls.Add(this.dataGridViewCmdTrading);
+            this.flowLayoutPanelCmdTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelCmdTrading.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelCmdTrading.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelCmdTrading.Name = "flowLayoutPanelCmdTrading";
+            this.flowLayoutPanelCmdTrading.Size = new System.Drawing.Size(755, 222);
+            this.flowLayoutPanelCmdTrading.TabIndex = 0;
             // 
             // HundsunExtDemo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 549);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelMain);
             this.Name = "HundsunExtDemo2";
             this.Text = "HundsunExtDemo2";
-            this.Load += new System.EventHandler(this.HundsunExtDemo_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Load += new System.EventHandler(this.HundsunExtDemo2_Load);
+            this.tableLayoutPanelMain.ResumeLayout(false);
+            this.tableLayoutPanelMain.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -988,29 +1038,32 @@ namespace HundsunExtDemo
             this.splitContainerTradingCommand.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).EndInit();
             this.splitContainerTradingCommand.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).EndInit();
             this.tabControlDetailTrading.ResumeLayout(false);
             this.tabPageDialFlowParent.ResumeLayout(false);
+            this.tableLayoutPanelDealFlow.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).EndInit();
             this.splitContainerMarket.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMarket)).EndInit();
             this.splitContainerMarket.ResumeLayout(false);
             this.splitContainerTrading.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTrading)).EndInit();
             this.splitContainerTrading.ResumeLayout(false);
-            this.tableLayoutPanelTrading.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.buysellPanel.ResumeLayout(false);
             this.buysellPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
             this.panelEntrust.ResumeLayout(false);
-            this.tableLayoutPanelDealFlow.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).EndInit();
+            this.statusStripMain.ResumeLayout(false);
+            this.statusStripMain.PerformLayout();
+            this.flowLayoutPanelCmdTrading.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem sysToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
@@ -1025,7 +1078,7 @@ namespace HundsunExtDemo
         private System.Windows.Forms.TabControl tabTradingCommand;
         private System.Windows.Forms.TabPage tabPageCommandTrading;
         private System.Windows.Forms.SplitContainer splitContainerTradingCommand;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView dataGridViewCmdTrading;
         private System.Windows.Forms.TabControl tabControlDetailTrading;
         private System.Windows.Forms.TabPage tabPageCommandSecu;
         private System.Windows.Forms.TabPage tabPageEntrustFlow;
@@ -1038,11 +1091,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.Button btnEntrust;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.DataGridView dataGridViewBuySell;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selection;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commandno;
-        private System.Windows.Forms.DataGridViewImageColumn add;
-        private System.Windows.Forms.DataGridViewTextBoxColumn copies;
-        private System.Windows.Forms.DataGridViewImageColumn minus;
         private System.Windows.Forms.ComboBox comboBoxFutureSell;
         private System.Windows.Forms.ComboBox comboBoxFutureBuy;
         private System.Windows.Forms.ComboBox comboBoxSpotSell;
@@ -1051,7 +1099,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.Label lblFuturesBuyPrice;
         private System.Windows.Forms.Label lblSpotSellPrice;
         private System.Windows.Forms.Label lblSpotBuyPrice;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTrading;
         private System.Windows.Forms.Panel panelEntrust;
         private System.Windows.Forms.Button btnEntrusting;
         private System.Windows.Forms.Button btnCalc;
@@ -1079,7 +1126,15 @@ namespace HundsunExtDemo
         private System.Windows.Forms.DataGridViewTextBoxColumn df_instanceno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_entrustno;
         private System.Windows.Forms.DataGridViewTextBoxColumn df_dealno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tc_selected;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.StatusStrip statusStripMain;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabelOrg;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn bs_selection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bs_commandno;
+        private System.Windows.Forms.DataGridViewImageColumn bs_add;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bs_copies;
+        private System.Windows.Forms.DataGridViewImageColumn bs_minus;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn tc_selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandno;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandtype;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_executetype;
@@ -1105,5 +1160,6 @@ namespace HundsunExtDemo
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceid;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceno;
         private System.Windows.Forms.DataGridViewTextBoxColumn tc_monitorunit;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCmdTrading;
     }
 }
