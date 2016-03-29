@@ -31,7 +31,7 @@ namespace HundsunExtDemo
             FillEntrustGrid(eiItems);
 
 
-            SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selected});
+            SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection});
             SetDataGridVieweReadOnly(this.dataGridViewDealFlow, new List<DataGridViewColumn>());
             SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies});
 
@@ -134,35 +134,12 @@ namespace HundsunExtDemo
             return tcItems;
         }
 
-        private void FillCommandTradingList(List<UITradingCommandItem> tcItems)
-        {
-            //this.dataGridViewCmdTrading.AllowUserToAddRows = true;
-            foreach (var dataItem in tcItems)
-            {
-                List<string> values = new List<string>();
-                values.Add(dataItem.Selected.ToString());
-                values.Add(dataItem.CommandNo.ToString());
-                values.Add(dataItem.CommandType);
-                values.Add(dataItem.ExecuteType);
-
-                this.dataGridViewCmdTrading.Rows.Add(values);
-            }
-            
-        }
-
         private void FillCommandTrading(List<UITradingCommandItem> tcItems)
         {
-            //var rows = this.dataGridViewCmdTrading.Rows;
-            //DataGridViewRow row = new DataGridViewRow();
-            //var tcItems = new List<UITradingCommandItem>();
-            //FillCommandTradingList(tcItems);
             foreach (var dataItem in tcItems)
             {
-
-                //this.dataGridViewCmdTrading.Rows.Add("1", "2", "3");
-
                 int rowIndex = this.dataGridViewCmdTrading.Rows.Add();
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_selected"].Value = dataItem.Selected;
+                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_selection"].Value = dataItem.Selected;
                 this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandno"].Value = dataItem.CommandNo;
                 this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandtype"].Value = dataItem.CommandType;
                 this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_executetype"].Value = dataItem.ExecuteType;
@@ -267,7 +244,7 @@ namespace HundsunExtDemo
             List<UIEntrustItem> eiItems = new List<UIEntrustItem>();
             UIEntrustItem item = new UIEntrustItem 
             {
-                Selected = 0,
+                Selected = 2,
                 CommandNo = 11111,
                 Copies = 0
             };

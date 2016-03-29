@@ -90,16 +90,43 @@ namespace HundsunExtDemo
             this.lblSpotSellPrice = new System.Windows.Forms.Label();
             this.lblSpotBuyPrice = new System.Windows.Forms.Label();
             this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
-            this.bs_selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bs_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bs_add = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bs_copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bs_minus = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelEntrust = new System.Windows.Forms.Panel();
             this.btnEntrusting = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusLabelOrg = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dataGridViewCmdTrading = new System.Windows.Forms.DataGridView();
+            this.tc_selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tc_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_executetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_targetnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_baisprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_longmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_bearmorethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_longratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_bearratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_entrustedamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dealamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_commandmoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_exposure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_startdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_enddate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_starttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_endtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dispatchtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_executeperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_dispatchperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_instanceid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_instanceno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc_monitorunit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_selection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bs_commandno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bs_copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_minus = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanelMain.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -110,6 +137,7 @@ namespace HundsunExtDemo
             this.tabTradingCommand.SuspendLayout();
             this.tabPageCommandTrading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).BeginInit();
+            this.splitContainerTradingCommand.Panel1.SuspendLayout();
             this.splitContainerTradingCommand.Panel2.SuspendLayout();
             this.splitContainerTradingCommand.SuspendLayout();
             this.tabControlDetailTrading.SuspendLayout();
@@ -127,6 +155,7 @@ namespace HundsunExtDemo
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
             this.panelEntrust.SuspendLayout();
             this.statusStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -284,6 +313,10 @@ namespace HundsunExtDemo
             this.splitContainerTradingCommand.Location = new System.Drawing.Point(3, 3);
             this.splitContainerTradingCommand.Name = "splitContainerTradingCommand";
             this.splitContainerTradingCommand.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerTradingCommand.Panel1
+            // 
+            this.splitContainerTradingCommand.Panel1.Controls.Add(this.dataGridViewCmdTrading);
             // 
             // splitContainerTradingCommand.Panel2
             // 
@@ -703,33 +736,6 @@ namespace HundsunExtDemo
             this.dataGridViewBuySell.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGridViewBuySell_CellParsing);
             this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
             // 
-            // bs_selection
-            // 
-            this.bs_selection.HeaderText = "选择";
-            this.bs_selection.Name = "bs_selection";
-            // 
-            // bs_commandno
-            // 
-            this.bs_commandno.HeaderText = "指令序号";
-            this.bs_commandno.Name = "bs_commandno";
-            this.bs_commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.bs_commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // bs_add
-            // 
-            this.bs_add.HeaderText = "增加";
-            this.bs_add.Name = "bs_add";
-            // 
-            // bs_copies
-            // 
-            this.bs_copies.HeaderText = "份数";
-            this.bs_copies.Name = "bs_copies";
-            // 
-            // bs_minus
-            // 
-            this.bs_minus.HeaderText = "减少";
-            this.bs_minus.Name = "bs_minus";
-            // 
             // panelEntrust
             // 
             this.panelEntrust.Controls.Add(this.btnEntrusting);
@@ -772,6 +778,233 @@ namespace HundsunExtDemo
             this.statusLabelOrg.Name = "statusLabelOrg";
             this.statusLabelOrg.Size = new System.Drawing.Size(0, 17);
             // 
+            // dataGridViewCmdTrading
+            // 
+            this.dataGridViewCmdTrading.AllowUserToAddRows = false;
+            this.dataGridViewCmdTrading.AllowUserToDeleteRows = false;
+            this.dataGridViewCmdTrading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCmdTrading.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tc_selection,
+            this.tc_commandno,
+            this.tc_commandtype,
+            this.tc_executetype,
+            this.tc_commandnum,
+            this.tc_targetnum,
+            this.tc_baisprice,
+            this.tc_longmorethan,
+            this.tc_bearmorethan,
+            this.tc_longratio,
+            this.tc_bearratio,
+            this.tc_commandamount,
+            this.tc_entrustedamount,
+            this.tc_dealamount,
+            this.tc_commandmoney,
+            this.tc_exposure,
+            this.tc_startdate,
+            this.tc_enddate,
+            this.tc_starttime,
+            this.tc_endtime,
+            this.tc_dispatchtime,
+            this.tc_executeperson,
+            this.tc_dispatchperson,
+            this.tc_instanceid,
+            this.tc_instanceno,
+            this.tc_monitorunit});
+            this.dataGridViewCmdTrading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCmdTrading.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewCmdTrading.Name = "dataGridViewCmdTrading";
+            this.dataGridViewCmdTrading.RowTemplate.Height = 23;
+            this.dataGridViewCmdTrading.Size = new System.Drawing.Size(755, 222);
+            this.dataGridViewCmdTrading.TabIndex = 0;
+            // 
+            // tc_selection
+            // 
+            this.tc_selection.HeaderText = "选中";
+            this.tc_selection.Name = "tc_selection";
+            this.tc_selection.Width = 60;
+            // 
+            // tc_commandno
+            // 
+            this.tc_commandno.HeaderText = "指令序号";
+            this.tc_commandno.Name = "tc_commandno";
+            this.tc_commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tc_commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tc_commandno.Width = 80;
+            // 
+            // tc_commandtype
+            // 
+            this.tc_commandtype.HeaderText = "指令类型";
+            this.tc_commandtype.Name = "tc_commandtype";
+            this.tc_commandtype.Width = 80;
+            // 
+            // tc_executetype
+            // 
+            this.tc_executetype.HeaderText = "执行类型";
+            this.tc_executetype.Name = "tc_executetype";
+            this.tc_executetype.Width = 80;
+            // 
+            // tc_commandnum
+            // 
+            this.tc_commandnum.HeaderText = "指令份数";
+            this.tc_commandnum.Name = "tc_commandnum";
+            this.tc_commandnum.Width = 80;
+            // 
+            // tc_targetnum
+            // 
+            this.tc_targetnum.HeaderText = "目标份数";
+            this.tc_targetnum.Name = "tc_targetnum";
+            this.tc_targetnum.Width = 80;
+            // 
+            // tc_baisprice
+            // 
+            this.tc_baisprice.HeaderText = "基差|价差";
+            this.tc_baisprice.Name = "tc_baisprice";
+            // 
+            // tc_longmorethan
+            // 
+            this.tc_longmorethan.HeaderText = "多头委比";
+            this.tc_longmorethan.Name = "tc_longmorethan";
+            this.tc_longmorethan.Width = 80;
+            // 
+            // tc_bearmorethan
+            // 
+            this.tc_bearmorethan.HeaderText = "空头委比";
+            this.tc_bearmorethan.Name = "tc_bearmorethan";
+            this.tc_bearmorethan.Width = 80;
+            // 
+            // tc_longratio
+            // 
+            this.tc_longratio.HeaderText = "多头成比";
+            this.tc_longratio.Name = "tc_longratio";
+            this.tc_longratio.Width = 80;
+            // 
+            // tc_bearratio
+            // 
+            this.tc_bearratio.HeaderText = "空头成比";
+            this.tc_bearratio.Name = "tc_bearratio";
+            this.tc_bearratio.Width = 80;
+            // 
+            // tc_commandamount
+            // 
+            this.tc_commandamount.HeaderText = "指令数量";
+            this.tc_commandamount.Name = "tc_commandamount";
+            this.tc_commandamount.Width = 80;
+            // 
+            // tc_entrustedamount
+            // 
+            this.tc_entrustedamount.HeaderText = "已委托数量";
+            this.tc_entrustedamount.Name = "tc_entrustedamount";
+            // 
+            // tc_dealamount
+            // 
+            this.tc_dealamount.HeaderText = "已成数量";
+            this.tc_dealamount.Name = "tc_dealamount";
+            this.tc_dealamount.Width = 80;
+            // 
+            // tc_commandmoney
+            // 
+            this.tc_commandmoney.HeaderText = "指令金额";
+            this.tc_commandmoney.Name = "tc_commandmoney";
+            this.tc_commandmoney.Width = 80;
+            // 
+            // tc_exposure
+            // 
+            this.tc_exposure.HeaderText = "裸敞口";
+            this.tc_exposure.Name = "tc_exposure";
+            this.tc_exposure.Width = 80;
+            // 
+            // tc_startdate
+            // 
+            this.tc_startdate.HeaderText = "开始日期";
+            this.tc_startdate.Name = "tc_startdate";
+            this.tc_startdate.Width = 80;
+            // 
+            // tc_enddate
+            // 
+            this.tc_enddate.HeaderText = "结束日期";
+            this.tc_enddate.Name = "tc_enddate";
+            this.tc_enddate.Width = 80;
+            // 
+            // tc_starttime
+            // 
+            this.tc_starttime.HeaderText = "开始时间";
+            this.tc_starttime.Name = "tc_starttime";
+            this.tc_starttime.Width = 80;
+            // 
+            // tc_endtime
+            // 
+            this.tc_endtime.HeaderText = "结束时间";
+            this.tc_endtime.Name = "tc_endtime";
+            this.tc_endtime.Width = 80;
+            // 
+            // tc_dispatchtime
+            // 
+            this.tc_dispatchtime.HeaderText = "分发时间";
+            this.tc_dispatchtime.Name = "tc_dispatchtime";
+            this.tc_dispatchtime.Width = 80;
+            // 
+            // tc_executeperson
+            // 
+            this.tc_executeperson.HeaderText = "下达人";
+            this.tc_executeperson.Name = "tc_executeperson";
+            this.tc_executeperson.Width = 80;
+            // 
+            // tc_dispatchperson
+            // 
+            this.tc_dispatchperson.HeaderText = "分发人";
+            this.tc_dispatchperson.Name = "tc_dispatchperson";
+            this.tc_dispatchperson.Width = 80;
+            // 
+            // tc_instanceid
+            // 
+            this.tc_instanceid.HeaderText = "实例号";
+            this.tc_instanceid.Name = "tc_instanceid";
+            this.tc_instanceid.Width = 80;
+            // 
+            // tc_instanceno
+            // 
+            this.tc_instanceno.HeaderText = "实例编号";
+            this.tc_instanceno.Name = "tc_instanceno";
+            this.tc_instanceno.Width = 80;
+            // 
+            // tc_monitorunit
+            // 
+            this.tc_monitorunit.HeaderText = "监控单元";
+            this.tc_monitorunit.Name = "tc_monitorunit";
+            this.tc_monitorunit.Width = 80;
+            // 
+            // bs_selection
+            // 
+            this.bs_selection.FillWeight = 74.23858F;
+            this.bs_selection.HeaderText = "选择";
+            this.bs_selection.Name = "bs_selection";
+            // 
+            // bs_commandno
+            // 
+            this.bs_commandno.FillWeight = 203.0457F;
+            this.bs_commandno.HeaderText = "指令序号";
+            this.bs_commandno.Name = "bs_commandno";
+            this.bs_commandno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.bs_commandno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // bs_add
+            // 
+            this.bs_add.FillWeight = 74.23858F;
+            this.bs_add.HeaderText = "增加";
+            this.bs_add.Name = "bs_add";
+            // 
+            // bs_copies
+            // 
+            this.bs_copies.FillWeight = 74.23858F;
+            this.bs_copies.HeaderText = "份数";
+            this.bs_copies.Name = "bs_copies";
+            // 
+            // bs_minus
+            // 
+            this.bs_minus.FillWeight = 74.23858F;
+            this.bs_minus.HeaderText = "减少";
+            this.bs_minus.Name = "bs_minus";
+            // 
             // HundsunExtDemo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -793,6 +1026,7 @@ namespace HundsunExtDemo
             this.splitContainerMain.ResumeLayout(false);
             this.tabTradingCommand.ResumeLayout(false);
             this.tabPageCommandTrading.ResumeLayout(false);
+            this.splitContainerTradingCommand.Panel1.ResumeLayout(false);
             this.splitContainerTradingCommand.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTradingCommand)).EndInit();
             this.splitContainerTradingCommand.ResumeLayout(false);
@@ -813,6 +1047,7 @@ namespace HundsunExtDemo
             this.panelEntrust.ResumeLayout(false);
             this.statusStripMain.ResumeLayout(false);
             this.statusStripMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -884,6 +1119,33 @@ namespace HundsunExtDemo
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelOrg;
+        private System.Windows.Forms.DataGridView dataGridViewCmdTrading;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn tc_selection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_executetype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_targetnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_baisprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longmorethan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearmorethan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_longratio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_bearratio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_entrustedamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dealamount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_commandmoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_exposure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_startdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_enddate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_starttime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_endtime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dispatchtime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_executeperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_dispatchperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_instanceno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc_monitorunit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bs_selection;
         private System.Windows.Forms.DataGridViewTextBoxColumn bs_commandno;
         private System.Windows.Forms.DataGridViewImageColumn bs_add;
