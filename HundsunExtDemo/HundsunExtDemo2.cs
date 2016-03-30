@@ -654,10 +654,10 @@ namespace HundsunExtDemo
 
         private void Cells_KeyPress(object sender, KeyPressEventArgs e)
         {
-            KeyPress(e, (DataGridViewTextBoxEditingControl)sender);
+            KeyPressEx(e, (DataGridViewTextBoxEditingControl)sender);
         }
 
-        private void KeyPress(KeyPressEventArgs e, DataGridViewTextBoxEditingControl dgvTxt)
+        private void KeyPressEx(KeyPressEventArgs e, DataGridViewTextBoxEditingControl dgvTxt)
         {
             if (char.IsNumber(e.KeyChar))
             {

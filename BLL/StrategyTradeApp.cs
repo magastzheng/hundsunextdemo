@@ -96,24 +96,61 @@ namespace BLL
 
             foreach (FieldItem item in functionItem.RequestFields)
             {
-                switch (item.Type)
-                {
-                    //case PackFieldType.IntType:
-                    //    packer.AddInt();
-                    //    break;
-                    //case PackFieldType.FloatType:
-                    //    packer.AddDouble();
-                    //    break;
-                    //case PackFieldType.StringType:
-                    //    packer.AddStr();
-                    //    break;
-                    //case PackFieldType.BinaryType:
-                    //    packer.AddRaw();
-                    //    break;
+                switch (item.Name)
+                { 
+                    case "operator_no":
+                        packer.AddStr(user.Operator);
+                        break;
+                    case "password":
+                        packer.AddStr(user.Password);
+                        break;
+                    case "mac_address":
+                        {
+                            packer.AddStr(LoginInfoManager.Instance.MacAddress);
+                        }
+                        break;
+                    case "op_station":
+                        { 
+                            //TODO:
+                        }
+                        break;
+                    case "ip_address":
+                        {
+                            packer.AddStr(LoginInfoManager.Instance.IPAddress);
+                        }
+                        break;
+                    case "hd_volserial":
+                        {
+                            packer.AddStr("");
+                        }
+                        break;
+                    case "authorization_id":
+                        { 
+                            //TODO:
+                        }
+                        break;
                     default:
-                        string msg = string.Format("The packer field type {0} is not support", item.Type);
-                        throw new NotSupportedException(msg);
+                        break;
                 }
+
+                //switch (item.Type)
+                //{
+                //    //case PackFieldType.IntType:
+                //    //    packer.AddInt();
+                //    //    break;
+                //    //case PackFieldType.FloatType:
+                //    //    packer.AddDouble();
+                //    //    break;
+                //    //case PackFieldType.StringType:
+                //    //    packer.AddStr();
+                //    //    break;
+                //    //case PackFieldType.BinaryType:
+                //    //    packer.AddRaw();
+                //    //    break;
+                //    default:
+                //        string msg = string.Format("The packer field type {0} is not support", item.Type);
+                //        throw new NotSupportedException(msg);
+                //}
             }
 
             unsafe

@@ -56,7 +56,9 @@
     <Compile Include="BuySellConfigTest.cs" />
     <Compile Include="ConfigManagerTest.cs" />
     <Compile Include="FunctionConfigTest.cs" />
+    <Compile Include="IniFileTest.cs" />
     <Compile Include="JsonUnitTest.cs" />
+    <Compile Include="LoginInfoManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
