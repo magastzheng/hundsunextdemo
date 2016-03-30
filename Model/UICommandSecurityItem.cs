@@ -63,6 +63,9 @@ namespace Model
         //目标份数
         public int TargetCopies { get; set; }
 
+        //指令份数
+        public int CommandCopies { get; set; }
+
         //涨停价
         public double LimitUpPrice { get; set; }
 

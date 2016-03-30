@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HundsunExtDemo.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace HundsunExtDemo
 {
     static class Program
     {
+        public static MainController _s_mainfrmController = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,13 @@ namespace HundsunExtDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HundsunExtDemo2());
+
+            LoginController loginController = new LoginController(new LoginForm());
+            Application.Run(loginController.LoginForm);
+            if (_s_mainfrmController != null)
+            {
+                Application.Run(_s_mainfrmController.MainForm);
+            }
         }
     }
 }

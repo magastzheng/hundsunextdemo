@@ -14,29 +14,41 @@ namespace HundsunExtDemo
 {
     public partial class HundsunExtDemo2 : Form
     {
+        private const int MAX_ENTRUST_AMOUNT = 10;
+
         public HundsunExtDemo2()
         {
             InitializeComponent();
         }
 
-        private void HundsunExtDemo2_Load(object sender, EventArgs e)
+        public void SetData()
         {
             var tcItems = GenerateTestCommandTrading();
             FillCommandTrading(tcItems);
+
+            var csItems = GenerateTestCommandSecurity();
+            FillCommandSecurity(csItems);
 
             var dfItems = GenerateDealFlowData();
             FillDealFlow(dfItems);
 
             var eiItems = GetDefaultEntrustData();
-            FillEntrustGrid(eiItems);
+            FillEntrustGrid(eiItems); 
+        }
 
+        private void HundsunExtDemo2_Load(object sender, EventArgs e)
+        {
+            InitializeControl();
+            SetData();
+        }
 
-            SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection});
+        private void InitializeControl()
+        {
+            SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection });
             SetDataGridVieweReadOnly(this.dataGridViewDealFlow, new List<DataGridViewColumn>());
-            SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies});
+            SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies });
 
             InitializeCombobox();
-
         }
 
         #region combobox
@@ -248,18 +260,6 @@ namespace HundsunExtDemo
             return selectionItems;
         }
 
-        private void SetSelectionRowBackground(DataGridView dgv, int rowIndex, bool isSelected)
-        {
-            if (isSelected)
-            {
-                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Blue;
-            }
-            else
-            {
-                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
-            }
-        }
-
         private void DataGridViewCmdTrading_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
@@ -267,24 +267,180 @@ namespace HundsunExtDemo
                 return;
 
             int selectIndex = dgv.Columns["tc_selection"].Index;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+            int commandNo = (int)row.Cells["tc_commandno"].Value;
             if (e.ColumnIndex == selectIndex)
             {
-                bool selection = (bool)dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                bool selection = (bool)row.Cells[e.ColumnIndex].Value;
                 if (selection)
                 {
-                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                    row.Cells[e.ColumnIndex].Value = false;
                     SetSelectionRowBackground(dgv, e.RowIndex, false);
                     //dgv.Rows[e.RowIndex].Selected = false;
+                    RemoveEntrustGrid(commandNo);
                 }
                 else
                 {
-                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                    row.Cells[e.ColumnIndex].Value = true;
                     SetSelectionRowBackground(dgv, e.RowIndex, true);
                     //dgv.Rows[e.RowIndex].Selected = true;
+
+                    UIEntrustItem item = new UIEntrustItem
+                    {
+                        Selected = 0,
+                        CommandNo = commandNo,
+                        Copies = 0
+                    };
+
+                    FillEntrustGrid(new List<UIEntrustItem> { item });
                 }
             }
         }
 
+        private void SortCmdTradingGrid()
+        {
+            this.dataGridViewCmdTrading.Sort(this.dataGridViewCmdTrading.Columns["tc_commanno"], ListSortDirection.Ascending);
+        }
+        #endregion
+
+        #region 指令证券
+
+        private List<UICommandSecurityItem> GenerateTestCommandSecurity()
+        {
+            List<UICommandSecurityItem> csItems = new List<UICommandSecurityItem>();
+
+            UICommandSecurityItem item1 = new UICommandSecurityItem 
+            { 
+                Selected = 0,
+                SecurityCode = "000002",
+                SecurityName = "万科A",
+                CommandNo = 23,
+                FundCode = "FO11123",
+                PortfolioName = "Test",
+                CommandPrice = 12.23,
+                CommandAmount = 12345,
+                EntrustDirection = "Buy",
+                EntrustedAmount = 1200,
+                PriceType = "B1",
+                EntrustedPrice = 12.20,
+                ThisEntrustAmount = 120,
+                DealAmount = 200,
+                TargetAmount = 250,
+                WaitAmount = 50,
+                SuspensionFlag = "Up",
+                TargetCopies = 5,
+                LimitUpPrice = 15.0,
+                LimitDownPrice = 10.5,
+                LimitUpOrDown = "Up"
+            };
+            UICommandSecurityItem item2 = new UICommandSecurityItem
+            {
+                Selected = 0,
+                SecurityCode = "000001",
+                SecurityName = "中国平安",
+                CommandNo = 23,
+                FundCode = "FO11123",
+                PortfolioName = "Test",
+                CommandPrice = 12.23,
+                CommandAmount = 12345,
+                EntrustDirection = "Buy",
+                EntrustedAmount = 1200,
+                PriceType = "B1",
+                EntrustedPrice = 12.20,
+                ThisEntrustAmount = 120,
+                DealAmount = 200,
+                TargetAmount = 250,
+                WaitAmount = 50,
+                SuspensionFlag = "Up",
+                TargetCopies = 5,
+                LimitUpPrice = 15.0,
+                LimitDownPrice = 10.5,
+                LimitUpOrDown = "Up"
+            };
+
+            csItems.Add(item1);
+            csItems.Add(item2);
+
+            return csItems;
+        }
+
+        private void FillCommandSecurity(List<UICommandSecurityItem> csItems)
+        {
+            foreach (var dataItem in csItems)
+            {
+                int rowIndex = this.dataGridViewCmdSecurity.Rows.Add();
+                DataGridViewRow row = this.dataGridViewCmdSecurity.Rows[rowIndex];
+
+                bool isSelected = dataItem.Selected > 0 ? true : false;
+                row.Cells["cs_selection"].Value = isSelected;
+                row.Cells["cs_secucode"].Value = dataItem.SecurityCode;
+                row.Cells["cs_secuname"].Value = dataItem.SecurityName;
+                row.Cells["cs_commandno"].Value = dataItem.CommandNo;
+                row.Cells["cs_fundcode"].Value = dataItem.FundCode;
+                row.Cells["cs_portfolioname"].Value = dataItem.PortfolioName;
+                row.Cells["cs_commandprice"].Value = dataItem.CommandPrice;
+                row.Cells["cs_commandamount"].Value = dataItem.CommandAmount;
+                row.Cells["cs_entrustdirection"].Value = dataItem.EntrustDirection;
+                row.Cells["cs_entrustedamount"].Value = dataItem.EntrustedAmount;
+                row.Cells["cs_pricetype"].Value = dataItem.PriceType;
+                row.Cells["cs_entrustprice"].Value = dataItem.EntrustedPrice;
+                row.Cells["cs_thisentrustamout"].Value = dataItem.ThisEntrustAmount;
+                row.Cells["cs_dealamount"].Value = dataItem.DealAmount;
+                row.Cells["cs_targetamount"].Value = dataItem.TargetAmount;
+                row.Cells["cs_waitamount"].Value = dataItem.WaitAmount;
+                row.Cells["cs_suspensionflag"].Value = dataItem.SuspensionFlag;
+                row.Cells["cs_targetcopies"].Value = dataItem.TargetCopies;
+                row.Cells["cs_commandcopies"].Value = dataItem.CommandCopies;
+                row.Cells["cs_limitupprice"].Value = dataItem.LimitUpPrice;
+                row.Cells["cs_limitdownprice"].Value = dataItem.LimitDownPrice;
+                row.Cells["cs_limitupdown"].Value = dataItem.LimitUpOrDown;
+
+                SetSelectionRowBackground(this.dataGridViewCmdSecurity, rowIndex, isSelected);
+            }
+        }
+
+        private List<UICommandSecurityItem> GetSelectionCommandSecurityItems()
+        {
+            List<UICommandSecurityItem> selectionItems = new List<UICommandSecurityItem>();
+            var dgv = dataGridViewCmdTrading;
+            try
+            {
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    UICommandSecurityItem item = new UICommandSecurityItem();
+                    item.CommandNo          =   (int)row.Cells["tc_commandno"].Value;
+                    item.SecurityCode       =   (string)row.Cells["cs_secucode"].Value;
+                    item.SecurityName       =   (string)row.Cells["cs_secuname"].Value;         
+                    item.CommandNo          =   (int)row.Cells["cs_commandno"].Value;       
+                    item.FundCode           =   (string)row.Cells["cs_fundcode"].Value;
+                    item.PortfolioName      =   (string)row.Cells["cs_portfolioname"].Value;    
+                    item.CommandPrice       =   (double)row.Cells["cs_commandprice"].Value;     
+                    item.CommandAmount      =   (int)row.Cells["cs_commandamount"].Value;
+                    item.EntrustDirection   =   (string)row.Cells["cs_entrustdirection"].Value; 
+                    item.EntrustedAmount    =   (int)row.Cells["cs_entrustedamount"].Value;  
+                    item.PriceType          =   (string)row.Cells["cs_pricetype"].Value;        
+                    item.EntrustedPrice     =   (double)row.Cells["cs_entrustprice"].Value;     
+                    item.ThisEntrustAmount  =   (int)row.Cells["cs_thisentrustamout"].Value; 
+                    item.DealAmount         =   (int)row.Cells["cs_dealamount"].Value;       
+                    item.TargetAmount       =   (int)row.Cells["cs_targetamount"].Value;     
+                    item.WaitAmount         =   (int)row.Cells["cs_waitamount"].Value;       
+                    item.SuspensionFlag     =   (string)row.Cells["cs_suspensionflag"].Value;   
+                    item.TargetCopies       =   (int)row.Cells["cs_targetcopies"].Value;     
+                    item.CommandCopies      =   (int)row.Cells["cs_commandcopies"].Value;    
+                    item.LimitUpPrice       =   (double)row.Cells["cs_limitupprice"].Value;     
+                    item.LimitDownPrice     =   (double)row.Cells["cs_limitdownprice"].Value;
+                    item.LimitUpOrDown      =   (string)row.Cells["cs_limitupdown"].Value;      
+
+                    selectionItems.Add(item);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return selectionItems;
+        }
         #endregion
 
         #region 成交流水
@@ -381,21 +537,62 @@ namespace HundsunExtDemo
             foreach (var dataItem in eiItems)
             {
                 int rowIndex = this.dataGridViewBuySell.Rows.Add();
-
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_selection"].Value = dataItem.Selected > 0?true:false;
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_commandno"].Value = dataItem.CommandNo;
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_copies"].Value = 0;
+                DataGridViewRow row = this.dataGridViewBuySell.Rows[rowIndex];
+                bool isSelected = dataItem.Selected > 0 ? true : false;
+                row.Cells["bs_selection"].Value = isSelected;
+                row.Cells["bs_commandno"].Value = dataItem.CommandNo;
+                row.Cells["bs_copies"].Value = 0;
 
                 Image plusImg = Image.FromFile(@"img\plus.png");
                 Bitmap plusBt = new Bitmap(plusImg, new Size(20, 20));
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_add"].Value = plusBt;
+                row.Cells["bs_add"].Value = plusBt;
 
                 Image minusImg = Image.FromFile(@"img\minus.png");
                 Bitmap minusBt = new Bitmap(minusImg, new Size(20, 20));
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_minus"].Value = minusBt;
+                row.Cells["bs_minus"].Value = minusBt;
+
+                SetSelectionRowBackground(dataGridViewBuySell, rowIndex, isSelected);
+            }
+
+            SortBuySellGrid();
+        }
+
+        private void RemoveEntrustGrid(int commandNo)
+        {
+            //this.dataGridViewBuySell.Rows.RemoveAt(rowIndex);
+            DataGridView dgv = this.dataGridViewBuySell;
+
+            for(int i = dgv.Rows.Count - 1; i >= 0; i--)
+            {
+                int bsCommandNo = (int)dgv.Rows[i].Cells["bs_commandno"].Value;
+                if (bsCommandNo == commandNo)
+                {
+                    dgv.Rows.RemoveAt(i);
+                }
             }
         }
 
+        private List<UIEntrustItem> GetSelectionEntrustItems()
+        {
+            List<UIEntrustItem> eiItems = new List<UIEntrustItem>();
+            var dgv = this.dataGridViewBuySell;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                UIEntrustItem item = new UIEntrustItem();
+                item.Selected = 1;
+                item.CommandNo = (int)row.Cells["bs_commandno"].Value;
+                item.Copies = (int)row.Cells["bs_copies"].Value;
+
+                eiItems.Add(item);
+            }
+
+            return eiItems;
+        }
+
+        private void SortBuySellGrid()
+        {
+            this.dataGridViewBuySell.Sort(dataGridViewBuySell.Columns["bs_commandno"], ListSortDirection.Ascending);
+        }
         #endregion
 
         #region set grid readonly
@@ -462,7 +659,26 @@ namespace HundsunExtDemo
 
         private void KeyPress(KeyPressEventArgs e, DataGridViewTextBoxEditingControl dgvTxt)
         {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            if (char.IsNumber(e.KeyChar))
+            {
+                int preValue = 0;
+                if (!string.IsNullOrEmpty(dgvTxt.Text))
+                {
+                    preValue = int.Parse(dgvTxt.Text);
+                }
+                int curValue = int.Parse(e.KeyChar.ToString());
+                if(preValue * 10 + curValue < MAX_ENTRUST_AMOUNT)
+                {
+                    //让操作失效
+                    e.Handled = false;
+                }
+                else
+                {
+                    //input beyond the range
+                    e.Handled = true;
+                }
+            }
+            else if(e.KeyChar == (char)Keys.Back)
             {
                 //让操作失效
                 e.Handled = false;
@@ -480,29 +696,119 @@ namespace HundsunExtDemo
         private void DataGridViewBuySell_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
-            if (dgv == null)
+            if (dgv == null || e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
-            int copiesIndex = dgv.Columns["bs_copies"].Index;
-            if (e.ColumnIndex == dgv.Columns["bs_add"].Index)
-            {
-                int oldValue = (int)dgv.Rows[e.RowIndex].Cells["bs_copies"].Value;
-                dgv.Rows[e.RowIndex].Cells["bs_copies"].Value = oldValue + 1;
-            }
-            else if (e.ColumnIndex == dgv.Columns["bs_minus"].Index)
-            {
-                int oldValue = (int)dgv.Rows[e.RowIndex].Cells["bs_copies"].Value;
-                if (oldValue > 0)
-                {
-                    dgv.Rows[e.RowIndex].Cells["bs_copies"].Value = oldValue - 1;
-                }
 
-            }
-            else
-            { 
-                //do nothing
+            int copiesIndex = dgv.Columns["bs_copies"].Index;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+            //const int AddIndex = dgv.Columns["bs_add"].Index;
+            switch (dgv.Columns[e.ColumnIndex].Name)
+            {
+                case "bs_add":
+                    {
+                        int oldValue = int.Parse(row.Cells["bs_copies"].Value.ToString());
+                        if (oldValue < MAX_ENTRUST_AMOUNT)
+                        {
+                            row.Cells["bs_copies"].Value = oldValue + 1;
+                        }
+                        else
+                        {
+                            //invalid input
+                        }
+                    }
+                    break;
+                case "bs_minus":
+                    {
+                        int oldValue = int.Parse(row.Cells["bs_copies"].Value.ToString());
+                        if (oldValue > 0)
+                        {
+                            row.Cells["bs_copies"].Value = oldValue - 1;
+                        }
+                        else
+                        { 
+                            //invalid input
+                        }
+                    }
+                    break;
             }
         }
 
+        #endregion
+
+        #region button click
+
+        private void ButtonEntrusting_Click(object sender, EventArgs e)
+        {
+            BuySellItem spotBuyItem = (BuySellItem)comboBoxSpotBuy.SelectedItem;
+            BuySellItem spotSellItem = (BuySellItem)comboBoxSpotSell.SelectedItem;
+            BuySellItem futureBuyItem = (BuySellItem)comboBoxFutureBuy.SelectedItem;
+            BuySellItem futureSellItem = (BuySellItem)comboBoxFutureSell.SelectedItem;
+
+            Console.WriteLine(spotBuyItem);
+
+            //submit the entrust portfolio
+        }
+
+        private void ButtonCalc_Click(object sender, EventArgs e)
+        {
+            //计算委托金额
+        }
+
+        #endregion
+
+        #region common operation of controls
+
+        private void SetSelectionRowBackground(DataGridView dgv, int rowIndex, bool isSelected)
+        {
+            if (isSelected)
+            {
+                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Blue;
+            }
+            else
+            {
+                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+        }
+
+        #endregion
+
+        #region TabControlTradingCommand_SelectedIndexChanged
+
+        private void TabControlTradingCommand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tc = (TabControl)sender;
+            string selectTabName = this.tabTradingCommand.SelectedTab.Name;
+            if (selectTabName == "tabPageDialFlowParent")
+            {
+                this.tableLayoutPanelDealFlow.Controls.Add(this.dataGridViewDealFlow, 0, 0);
+            }
+            else if (selectTabName == "tabPageCommandTrading")
+            {
+                AddDialFlowGridInDetail();
+            }
+        }
+
+        #endregion
+
+        #region TabControlDetailTrading_SelectedIndexChanged
+
+        private void TabControlDetailTrading_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tc = (TabControl)sender;
+            //Console.WriteLine(this.tabControlDetailTrading.SelectedTab.Name);
+            //throw new NotImplementedException();
+            if (this.tabControlDetailTrading.SelectedTab.Name == "tabPageDialFlow")
+            {
+                AddDialFlowGridInDetail();
+            }
+        }
+
+        private void AddDialFlowGridInDetail()
+        {
+            this.tableLayoutPanelDealFlow.Controls.Remove(this.dataGridViewDealFlow);
+            this.tabPageDialFlow.Controls.Clear();
+            this.tabPageDialFlow.Controls.Add(this.dataGridViewDealFlow);
+        }
         #endregion
     }
 }
