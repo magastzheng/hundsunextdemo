@@ -27,7 +27,7 @@ namespace HundsunExtDemo
             var dfItems = GenerateDealFlowData();
             FillDealFlow(dfItems);
 
-            var eiItems = GenerateEntrustData();
+            var eiItems = GetDefaultEntrustData();
             FillEntrustGrid(eiItems);
 
 
@@ -130,6 +130,35 @@ namespace HundsunExtDemo
             };
             tcItems.Add(item1);
 
+            UITradingCommandItem item2 = new UITradingCommandItem
+            {
+                Selected = 1,
+                CommandNo = 20,
+                CommandType = "Test",
+                ExecuteType = "Buy",
+                CommandNum = 100,
+                TargetNum = 150,
+                BaisPrice = 0.25,
+                LongMoreThan = 0.35,
+                BearMoreThan = 0.25,
+                LongRatio = 0.35,
+                BearRatio = 0.12,
+                CommandAmount = 130,
+                EntrustedAmount = 120,
+                CommandMoney = 154014.00,
+                Exposure = 12.0,
+                StartDate = "20160321",
+                EndDate = "20160321",
+                StartTime = "134200",
+                EndTime = "134500",
+                DispatchTime = "134311",
+                ExecutePerson = "Magast",
+                DispatchPerson = "Youyo",
+                InstanceId = "1120",
+                InstanceNo = "A110",
+                MonitorUnit = "M10"
+            };
+            tcItems.Add(item2);
 
             return tcItems;
         }
@@ -139,32 +168,120 @@ namespace HundsunExtDemo
             foreach (var dataItem in tcItems)
             {
                 int rowIndex = this.dataGridViewCmdTrading.Rows.Add();
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_selection"].Value = dataItem.Selected;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandno"].Value = dataItem.CommandNo;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandtype"].Value = dataItem.CommandType;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_executetype"].Value = dataItem.ExecuteType;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandnum"].Value = dataItem.CommandNum;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_targetnum"].Value = dataItem.TargetNum;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_baisprice"].Value = dataItem.BaisPrice;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_longmorethan"].Value = dataItem.LongMoreThan;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_bearmorethan"].Value = dataItem.BearMoreThan;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_longratio"].Value = dataItem.LongRatio;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_bearratio"].Value = dataItem.BearRatio;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandamount"].Value = dataItem.CommandAmount;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_entrustedamount"].Value = dataItem.EntrustedAmount;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_dealamount"].Value = dataItem.DealAmount;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_commandmoney"].Value = dataItem.CommandMoney;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_exposure"].Value = dataItem.Exposure;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_startdate"].Value = dataItem.StartDate;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_enddate"].Value = dataItem.EndDate;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_starttime"].Value = dataItem.StartTime;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_endtime"].Value = dataItem.EndTime;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_dispatchtime"].Value = dataItem.DispatchTime;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_executeperson"].Value = dataItem.ExecutePerson;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_dispatchperson"].Value = dataItem.DispatchPerson;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_instanceid"].Value = dataItem.InstanceId;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_instanceno"].Value = dataItem.InstanceNo;
-                this.dataGridViewCmdTrading.Rows[rowIndex].Cells["tc_monitorunit"].Value = dataItem.MonitorUnit;
+                DataGridViewRow row = this.dataGridViewCmdTrading.Rows[rowIndex];
+
+                bool isSelected = dataItem.Selected > 0 ? true : false;
+                row.Cells["tc_selection"].Value = isSelected;
+                row.Cells["tc_commandno"].Value = dataItem.CommandNo;
+                row.Cells["tc_commandtype"].Value = dataItem.CommandType;
+                row.Cells["tc_executetype"].Value = dataItem.ExecuteType;
+                row.Cells["tc_commandnum"].Value = dataItem.CommandNum;
+                row.Cells["tc_targetnum"].Value = dataItem.TargetNum;
+                row.Cells["tc_baisprice"].Value = dataItem.BaisPrice;
+                row.Cells["tc_longmorethan"].Value = dataItem.LongMoreThan;
+                row.Cells["tc_bearmorethan"].Value = dataItem.BearMoreThan;
+                row.Cells["tc_longratio"].Value = dataItem.LongRatio;
+                row.Cells["tc_bearratio"].Value = dataItem.BearRatio;
+                row.Cells["tc_commandamount"].Value = dataItem.CommandAmount;
+                row.Cells["tc_entrustedamount"].Value = dataItem.EntrustedAmount;
+                row.Cells["tc_dealamount"].Value = dataItem.DealAmount;
+                row.Cells["tc_commandmoney"].Value = dataItem.CommandMoney;
+                row.Cells["tc_exposure"].Value = dataItem.Exposure;
+                row.Cells["tc_startdate"].Value = dataItem.StartDate;
+                row.Cells["tc_enddate"].Value = dataItem.EndDate;
+                row.Cells["tc_starttime"].Value = dataItem.StartTime;
+                row.Cells["tc_endtime"].Value = dataItem.EndTime;
+                row.Cells["tc_dispatchtime"].Value = dataItem.DispatchTime;
+                row.Cells["tc_executeperson"].Value = dataItem.ExecutePerson;
+                row.Cells["tc_dispatchperson"].Value = dataItem.DispatchPerson;
+                row.Cells["tc_instanceid"].Value = dataItem.InstanceId;
+                row.Cells["tc_instanceno"].Value = dataItem.InstanceNo;
+                row.Cells["tc_monitorunit"].Value = dataItem.MonitorUnit;
+
+                SetSelectionRowBackground(this.dataGridViewCmdTrading, rowIndex, isSelected);
+            }
+        }
+
+        private List<UITradingCommandItem> GetSelectionCommandTradingItems()
+        {
+            List<UITradingCommandItem> selectionItems = new List<UITradingCommandItem>();
+            var dgv = dataGridViewCmdTrading;
+            try
+            {
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    UITradingCommandItem item = new UITradingCommandItem();
+                    item.CommandNo = (int)row.Cells["tc_commandno"].Value;
+                    item.CommandType = (string)row.Cells["tc_commandtype"].Value;
+                    item.ExecuteType = (string)row.Cells["tc_executetype"].Value;
+                    item.CommandNum = (int)row.Cells["tc_commandnum"].Value;
+                    item.TargetNum = (int)row.Cells["tc_targetnum"].Value;
+                    item.BaisPrice = (double)row.Cells["tc_baisprice"].Value;
+                    item.LongMoreThan = (double)row.Cells["tc_longmorethan"].Value;
+                    item.BearMoreThan = (double)row.Cells["tc_bearmorethan"].Value;
+                    item.LongRatio = (double)row.Cells["tc_longratio"].Value;
+                    item.BearRatio = (double)row.Cells["tc_bearratio"].Value;
+                    item.CommandAmount = (int)row.Cells["tc_commandamount"].Value;
+                    item.EntrustedAmount = (int)row.Cells["tc_entrustedamount"].Value;
+                    item.DealAmount = (int)row.Cells["tc_dealamount"].Value;
+                    item.CommandMoney = (double)row.Cells["tc_commandmoney"].Value;
+                    item.Exposure = (double)row.Cells["tc_exposure"].Value;
+                    item.StartDate = (string)row.Cells["tc_startdate"].Value;
+                    item.EndDate = (string)row.Cells["tc_enddate"].Value;
+                    item.StartTime = (string)row.Cells["tc_starttime"].Value;
+                    item.EndTime = (string)row.Cells["tc_endtime"].Value;
+                    item.DispatchTime = (string)row.Cells["tc_dispatchtime"].Value;
+                    item.ExecutePerson = (string)row.Cells["tc_executeperson"].Value;
+                    item.DispatchPerson = (string)row.Cells["tc_dispatchperson"].Value;
+                    item.InstanceId = (string)row.Cells["tc_instanceid"].Value;
+                    item.InstanceNo = (string)row.Cells["tc_instanceno"].Value;
+                    item.MonitorUnit = (string)row.Cells["tc_monitorunit"].Value;
+
+                    selectionItems.Add(item);
+                }
+            }
+            catch(Exception e)
+            { 
+                Console.WriteLine(e.Message);
+            }
+
+            return selectionItems;
+        }
+
+        private void SetSelectionRowBackground(DataGridView dgv, int rowIndex, bool isSelected)
+        {
+            if (isSelected)
+            {
+                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Blue;
+            }
+            else
+            {
+                dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+        }
+
+        private void DataGridViewCmdTrading_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if(dgv == null || e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            int selectIndex = dgv.Columns["tc_selection"].Index;
+            if (e.ColumnIndex == selectIndex)
+            {
+                bool selection = (bool)dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (selection)
+                {
+                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                    SetSelectionRowBackground(dgv, e.RowIndex, false);
+                    //dgv.Rows[e.RowIndex].Selected = false;
+                }
+                else
+                {
+                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                    SetSelectionRowBackground(dgv, e.RowIndex, true);
+                    //dgv.Rows[e.RowIndex].Selected = true;
+                }
             }
         }
 
@@ -239,18 +356,23 @@ namespace HundsunExtDemo
 
         #region 委托
 
-        private List<UIEntrustItem> GenerateEntrustData()
+        private List<UIEntrustItem> GetDefaultEntrustData()
         {
+            List<UITradingCommandItem> selectionCommandItems = GetSelectionCommandTradingItems();
+
             List<UIEntrustItem> eiItems = new List<UIEntrustItem>();
-            UIEntrustItem item = new UIEntrustItem 
+            foreach (UITradingCommandItem tcItem in selectionCommandItems)
             {
-                Selected = 2,
-                CommandNo = 11111,
-                Copies = 0
-            };
+                UIEntrustItem item = new UIEntrustItem
+                {
+                    Selected = 0,
+                    CommandNo = tcItem.CommandNo,
+                    Copies = 0
+                };
 
-            eiItems.Add(item);
-
+                eiItems.Add(item);
+            }
+           
             return eiItems;
         }
 
@@ -260,7 +382,7 @@ namespace HundsunExtDemo
             {
                 int rowIndex = this.dataGridViewBuySell.Rows.Add();
 
-                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_selection"].Value = dataItem.Selected;
+                this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_selection"].Value = dataItem.Selected > 0?true:false;
                 this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_commandno"].Value = dataItem.CommandNo;
                 this.dataGridViewBuySell.Rows[rowIndex].Cells["bs_copies"].Value = 0;
 
@@ -373,6 +495,7 @@ namespace HundsunExtDemo
                 {
                     dgv.Rows[e.RowIndex].Cells["bs_copies"].Value = oldValue - 1;
                 }
+
             }
             else
             { 

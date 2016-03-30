@@ -812,6 +812,7 @@ namespace HundsunExtDemo
             this.dataGridViewCmdTrading.RowTemplate.Height = 23;
             this.dataGridViewCmdTrading.Size = new System.Drawing.Size(755, 222);
             this.dataGridViewCmdTrading.TabIndex = 0;
+            this.dataGridViewCmdTrading.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(DataGridViewCmdTrading_CellClick);
             // 
             // tc_selection
             // 
