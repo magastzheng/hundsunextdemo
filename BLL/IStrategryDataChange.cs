@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Class1
+    public interface IStrategryDataChange
     {
+        void SetData(object data);
+        object GetDate();
     }
 }

@@ -38,6 +38,13 @@ namespace Model
         //期权可用保证金查询
         QueryOptionMargin = 35008,
 
+        //策略 交易实例查询
+        QueryTradingInstance = 71002,
+
+        //策略 账户组资金查询
+        QueryAccountGroupMoney = 71003,
+
+
         //策略 实例篮子委托
         EntrustInstanceBasket = 71005,
 

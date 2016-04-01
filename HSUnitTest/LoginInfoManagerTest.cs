@@ -65,8 +65,8 @@ namespace HSUnitTest
             //
             // TODO: Add test logic here
             //
-            string macAddress = LoginInfoManager.Instance.MacAddress;
-            Console.WriteLine(macAddress);
+            //string macAddress = TerminalConfig.Instance.MacAddress;
+            //Console.WriteLine(macAddress);
         }
     }
 }

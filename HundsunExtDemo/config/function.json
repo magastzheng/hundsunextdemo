@@ -145,6 +145,91 @@
 		}]
 	},
 	{
+		"code": 71002,
+		"name_en": "func_am_account_instance_qry",
+		"name_zh": "交易实例查询（账户组）",
+		"param":[
+			{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			},
+			{
+				"name": "account_group_code",
+				"type": "C32",
+				"require": "N"
+			},
+			{
+				"name": "instance_no",
+				"type": "N10",
+				"require": "N"
+			},
+			{
+				"name": "instance_type",
+				"type": "C1",
+				"require": "N"
+			},
+			{
+				"name": "ext_invest_plan_no_list",
+				"type": "C255",
+				"require": "N"
+			}
+		],
+		"response":[
+			{
+				"name": "instance_no",
+				"type": "N10"
+			},{
+				"name": "account_group_code",
+				"type": "C32"
+			},{
+				"name": "instance_type",
+				"type": "C1"
+			},{
+				"name": "oper_num",
+				"type": "N10"
+			},{
+				"name": "create_date",
+				"type": "N8"
+			},{
+				"name": "ext_invest_plan_no",
+				"type": "N10"
+			}
+		]
+	},
+	{
+		"code": 71003,
+		"name_en": "func_am_accounts_instance_qry",
+		"name_zh": "账户组资金查询",
+		"param":[
+			{
+				"name": "user_token",
+				"type": "C512",
+				"require": "Y"
+			},
+			{
+				"name": "account_group_code",
+				"type": "C32",
+				"require": "Y"
+			}
+		],
+		"response":[
+			{
+				"name": "asset_account",
+				"type": "C128"
+			},{
+				"name": "account_category",
+				"type": "C1"
+			},{
+				"name": "current_balance",
+				"type": "N16.2"
+			},{
+				"name": "enable_balance",
+				"type": "N16.2"
+			}
+		]
+	},
+	{
 		"code": 71005,
 		"name_en": "func_am_strategy_entrust_combi",
 		"name_zh": "实例篮子委托",

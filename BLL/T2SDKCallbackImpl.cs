@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public unsafe class CallbackImpl : CT2CallbackInterface
+    public unsafe class T2SDKCallbackImpl : CT2CallbackInterface
     {
-        private StrategyTradeApp _app = null;
-        public CallbackImpl(StrategyTradeApp app)
+        private T2SDKBase _app = null;
+        public T2SDKCallbackImpl(T2SDKBase app)
         {
             _app = app;
         }
@@ -18,42 +18,45 @@ namespace BLL
         #region Implement the interface CT2CallbackInterface
         public override void OnClose(CT2Connection lpConnection)
         {
-            throw new NotImplementedException();
+            _app.OnClose(lpConnection);
         }
 
         public override void OnConnect(CT2Connection lpConnection)
         {
-            throw new NotImplementedException();
+            _app.OnConnect(lpConnection);
         }
 
         public override void OnReceivedBiz(CT2Connection lpConnection, int hSend, string lppStr, CT2UnPacker lppUnPacker, int nResult)
         {
-            throw new NotImplementedException();
+            _app.OnReceivedBiz(lpConnection, hSend, lppStr, lppUnPacker, nResult);
         }
 
         public override void OnReceivedBizEx(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr, CT2UnPacker lppUnPacker, int nResult)
         {
-            throw new NotImplementedException();
+            _app.OnReceivedBizEx(lpConnection, hSend, lpRetData, lppStr, lppUnPacker, nResult);
         }
 
         public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
         {
-            throw new NotImplementedException();
+            _app.OnReceivedBizMsg(lpConnection, hSend, lpMsg);
         }
 
         public override void OnRegister(CT2Connection lpConnection)
         {
-            throw new NotImplementedException();
+            _app.OnRegister(lpConnection);
         }
 
         public override void OnSafeConnect(CT2Connection lpConnection)
         {
-            throw new NotImplementedException();
+            _app.OnSafeConnect(lpConnection);
         }
 
         public override void OnSent(CT2Connection lpConnection, int hSend, void* lpData, int nLength, int nQueuingData)
         {
-            throw new NotImplementedException();
+            //TODO:Fixed the convertion
+            //IntPtr intPtr = new IntPtr(lpData);
+            //_app.OnSent(lpConnection, hSend, intPtr, nLength, nQueuingData);
+            _app.OnSent(lpConnection, hSend, lpData, nLength, nQueuingData);
         }
 
         #endregion

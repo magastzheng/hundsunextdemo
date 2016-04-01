@@ -26,8 +26,8 @@ namespace Config
         private readonly Regex floatReg = new Regex(@"N\d+.\d+");
 
         public FunctionConfig()
-        { 
-        
+        {
+            Init();
         }
 
         public int Init()

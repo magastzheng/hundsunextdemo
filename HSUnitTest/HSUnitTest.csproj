@@ -25,6 +25,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ext_t2sdkEx, Version=1.0.5290.28789, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ext_t2sdkEx.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -53,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BLL\LoginBLLTest.cs" />
     <Compile Include="BuySellConfigTest.cs" />
     <Compile Include="ConfigManagerTest.cs" />
     <Compile Include="FunctionConfigTest.cs" />
@@ -60,6 +67,7 @@
     <Compile Include="JsonUnitTest.cs" />
     <Compile Include="LoginInfoManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemConfigTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config\fieldtype.json">
@@ -68,7 +76,10 @@
     <None Include="config\function.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="config\license.dat">
+    <None Include="config\global.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="license.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="config\t2sdk.ini">
@@ -80,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{11d6ae0d-bf60-4a4f-af42-cf7710dd8afe}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Config\Config.csproj">
       <Project>{1538db09-6bfc-4623-9db4-34577f335cd4}</Project>
       <Name>Config</Name>

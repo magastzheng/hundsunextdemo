@@ -1,4 +1,5 @@
-﻿using HundsunExtDemo.Controller;
+﻿using Config;
+using HundsunExtDemo.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace HundsunExtDemo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            ConfigManager.Instance.GetTerminalConfig();
             LoginController loginController = new LoginController(new LoginForm());
             Application.Run(loginController.LoginForm);
             if (_s_mainfrmController != null)

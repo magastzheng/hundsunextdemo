@@ -1,4 +1,7 @@
-﻿using HundsunExtDemo.Controller;
+﻿using BLL;
+using hundsun.t2sdk;
+using HundsunExtDemo.Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,12 +48,32 @@ namespace HundsunExtDemo
             string userName = this.cmbOperatorNo.Text;
             string password = this.tbOperatorPwd.Text;
             Console.WriteLine("user: " + userName + " " + "Password: " + password);
-            //HundsunExtDemo2 mainForm = new HundsunExtDemo2();
-            //MainController mainController = new MainController(mainForm);
-            //Program._s_mainfrmController = mainController;
 
-            //this._isExit = false;
-            //this.Close();
+            var config = new CT2Configinterface();
+            int iRet = config.Load("config/t2sdk.ini");
+
+            if (iRet != 0)
+            {
+                string msg = "读取连接配置对象失败！";
+                return;
+            }
+
+            LoginBLL loginBLL = new LoginBLL(config);
+            User user = new User
+            {
+                Operator = userName,
+                Password = password
+            };
+            
+            if(loginBLL.Login(user) == ConnectionCode.Success)
+            {
+                HundsunExtDemo2 mainForm = new HundsunExtDemo2();
+                MainController mainController = new MainController(mainForm);
+                Program._s_mainfrmController = mainController;
+            
+                this._isExit = false;
+                this.Close();
+            }
         }
 
         public void Exit()

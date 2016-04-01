@@ -16,7 +16,8 @@ namespace Config
         public BuySellOption BuySellOption { get { return _buySellOption; } }
 
         public BuySellConfig()
-        {  
+        {
+            Init();
         }
 
         public int Init()

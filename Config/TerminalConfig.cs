@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Config
 {
-    public class LoginInfoManager
+    public class TerminalConfig
     {
-        private static readonly LoginInfoManager _instance = new LoginInfoManager();
-        public static LoginInfoManager Instance { get { return _instance; } }
+        //private static readonly TerminalConfig _instance = new TerminalConfig();
+        //public static TerminalConfig Instance { get { return _instance; } }
 
         private string _macAddress;
         private string _opStation;
@@ -20,17 +20,17 @@ namespace Config
         private string _hdVolserial;
         private string _authorizationId;
 
-        static LoginInfoManager()
-        { 
+        //static TerminalConfig()
+        //{ 
         
-        }
+        //}
 
-        private LoginInfoManager()
+        public TerminalConfig(SystemConfig systemConfig)
         {
-            Init();
+            Init(systemConfig);
         }
 
-        private void Init()
+        public void Init(SystemConfig systemConfig)
         {
             string hostInfo = Dns.GetHostName();
             IPAddress[] addressList = Dns.GetHostEntry(hostInfo).AddressList;
@@ -61,11 +61,15 @@ namespace Config
                 _hdVolserial = mo.Properties["Model"].Value.ToString();
                 break;
             }
+
+            _opStation = systemConfig.GetSystemStr("opstation");
+            _authorizationId = systemConfig.GetSystemStr("authorizationid");
         }
 
         public string MacAddress { get { return _macAddress; } }
+        public string OpStation { get { return _opStation; } }
         public string IPAddress { get { return _ipAddress; } }
         public string HDVolserial { get { return _hdVolserial; } }
-
+        public string AuthorizationId { get { return _authorizationId; } }
     }
 }

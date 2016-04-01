@@ -12,6 +12,8 @@ namespace Config
 
         private BuySellConfig _buySellConfig;
         private FunctionConfig _functionConfig;
+        private SystemConfig _systemConfig;
+        private TerminalConfig _terminalConfig;
 
         private ConfigManager()
         {
@@ -27,9 +29,11 @@ namespace Config
         {
             _buySellConfig = new BuySellConfig();
             _functionConfig = new FunctionConfig();
+            _systemConfig = new SystemConfig();
+            _terminalConfig = new TerminalConfig(_systemConfig);
 
-            _buySellConfig.Init();
-            _functionConfig.Init();
+            //_buySellConfig.Init();
+            //_functionConfig.Init();
 
             return 0;
         }
@@ -44,6 +48,16 @@ namespace Config
         public FunctionConfig GetFunctionConfig()
         {
             return _instance._functionConfig;
+        }
+
+        public SystemConfig GetSystemConfig()
+        {
+            return _instance._systemConfig;
+        }
+
+        public TerminalConfig GetTerminalConfig()
+        {
+            return _instance._terminalConfig;
         }
     }
 }
