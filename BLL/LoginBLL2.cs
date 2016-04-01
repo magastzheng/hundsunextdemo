@@ -11,26 +11,24 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   
-    public class LoginBLL : T2SDKBase
+    public class LoginBLL2
     {
         private static ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public LoginBLL(CT2Configinterface config)
-            :base(config)
-        {
+        private T2SDKWrap _t2SDKWrap;
+        private ReceivedBizMsg _receivedBizMsg;
 
+        public LoginBLL2(T2SDKWrap t2SDKWrap)
+        {
+            _t2SDKWrap = t2SDKWrap;
+            _receivedBizMsg = OnReceivedBizMsg;
+            _t2SDKWrap.Register(FunctionCode.Login, _receivedBizMsg);
+            _t2SDKWrap.Register(FunctionCode.Logout, _receivedBizMsg);
+            _t2SDKWrap.Register(FunctionCode.HeartBeat, _receivedBizMsg);
         }
 
         public ConnectionCode Login(User user)
         {
-            if (!IsInit)
-            {
-                var retCon = Init();
-                if (retCon != ConnectionCode.Success)
-                    return retCon;
-            }
-
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.Login);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
             {
@@ -108,28 +106,22 @@ namespace BLL
                 bizMessage.SetContent(packer.GetPackBuf(), packer.GetPackLen());
             }
 
-            int retCode = SendSync(bizMessage);
+            int retCode = _t2SDKWrap.SendSync(bizMessage);
             packer.Dispose();
             bizMessage.Dispose();
 
             if (retCode < 0)
             {
-                logger.Error("登录失败:" + _conn.GetErrorMsg(retCode));
+                logger.Error("登录失败!");
                 return ConnectionCode.ErrorConn;
             }
 
-            return ReceivedBizMsg(retCode, FunctionCode.Login);
+            return ConnectionCode.Success;
         }
 
         public ConnectionCode Logout()
         {
-            if (!IsInit)
-            {
-                var retCon = Init();
-                if (retCon != ConnectionCode.Success)
-                    return retCon;
-            }
-
+      
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.Logout);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
             {
@@ -167,31 +159,21 @@ namespace BLL
                 bizMessage.SetContent(packer.GetPackBuf(), packer.GetPackLen());
             }
 
-            int retCode = SendSync(bizMessage);
+            int retCode = _t2SDKWrap.SendSync(bizMessage);
             packer.Dispose();
             bizMessage.Dispose();
 
             if (retCode < 0)
             {
-                logger.Error("退出登录失败:" + _conn.GetErrorMsg(retCode));
+                logger.Error("退出登录失败!");
                 return ConnectionCode.ErrorConn;
             }
 
-            var retConnCode = ReceivedBizMsg(retCode, FunctionCode.Logout);
-            
-
-            return retConnCode;
+            return ConnectionCode.Success;
         }
 
         public ConnectionCode HeartBeat()
         {
-            if (!IsInit)
-            {
-                var retCon = Init();
-                if (retCon != ConnectionCode.Success)
-                    return retCon;
-            }
-
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.HeartBeat);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
             {
@@ -228,39 +210,30 @@ namespace BLL
                 bizMessage.SetContent(packer.GetPackBuf(), packer.GetPackLen());
             }
 
-            int retCode = SendSync(bizMessage);
+            int retCode = _t2SDKWrap.SendSync(bizMessage);
             packer.Dispose();
             bizMessage.Dispose();
 
             if (retCode < 0)
             {
-                logger.Error("心跳检测失败:" + _conn.GetErrorMsg(retCode));
+                logger.Error("心跳检测失败");
 
                 return ConnectionCode.ErrorConn;
             }
-            else
-            { 
-                return ReceivedBizMsg(retCode, FunctionCode.HeartBeat);
-            }
+
+            return ConnectionCode.Success;
         }
 
-        public ConnectionCode ReceivedBizMsg(int hSend, FunctionCode functionCode)
+        public int OnReceivedBizMsg(CT2BizMessage bizMessage)
         {
-            CT2BizMessage bizMessage = null;
-            int retCode = _conn.RecvBizMsg(hSend, out bizMessage, (int)_timeOut, 1);
-            if (retCode < 0)
-            {
-                logger.Error("同步接收出错: " + _conn.GetErrorMsg(retCode));
-                return ConnectionCode.ErrorConn;
-            }
-
             int iRetCode = bizMessage.GetReturnCode();
             int iErrorCode = bizMessage.GetErrorNo();
+            int iFunction = bizMessage.GetFunction();
             if (iRetCode != 0)
             {
                 string msg = string.Format("同步接收数据出错： {0}, {1}", iErrorCode, bizMessage.GetErrorInfo());
 
-                return ConnectionCode.ErrorConn;
+                return iRetCode;
             }
 
             CT2UnPacker unpacker = null;
@@ -273,8 +246,8 @@ namespace BLL
 
             if (unpacker != null)
             {
-                PrintUnPack(unpacker);
-                switch (functionCode)
+                _t2SDKWrap.PrintUnPack(unpacker);
+                switch ((FunctionCode)iFunction)
                 {
                     case FunctionCode.Login:
                         {
@@ -285,7 +258,7 @@ namespace BLL
                             }
                             else
                             {
-                                return ConnectionCode.ErrorLogin;
+                                return (int)ConnectionCode.ErrorLogin;
                             }
                         }
                         break;
@@ -301,57 +274,7 @@ namespace BLL
             }
             //bizMessage.Dispose();
 
-            return ConnectionCode.Success;
-        }
-
-        public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
-        {
-            logger.Info("OnReceivedBizMsg: 接收业务数据！");
-
-            //获取返回码
-            int iRetCode = lpMsg.GetReturnCode();
-
-            //获取错误码
-            int iErrorCode = lpMsg.GetErrorNo();
-
-            int iFunction = lpMsg.GetFunction();
-
-            if (iRetCode != 0)
-            {
-                logger.Error("异步接收数据出错：" + lpMsg.GetErrorNo().ToString() + lpMsg.GetErrorInfo());
-            }
-            else
-            {
-                CT2UnPacker unpacker = null;
-                unsafe
-                {
-                    int iLen = 0;
-                    void* lpdata = lpMsg.GetContent(&iLen);
-                    unpacker = new CT2UnPacker(lpdata, (uint)iLen);
-                }
-
-                switch (iFunction)
-                {
-                    case (int)FunctionCode.Login:
-                        {
-                            var token = unpacker.GetStr("user_token");
-                            if (string.IsNullOrEmpty(token))
-                            {
-                                LoginManager.Instance.LoginUser.Token = token;
-                            }
-                        }
-                        break;
-                    case (int)FunctionCode.Logout:
-                        break;
-                    default:
-                        break;
-                }
-
-                PrintUnPack(unpacker);
-                unpacker.Dispose();
-            }
-            
-            lpMsg.Dispose();
+            return (int)ConnectionCode.Success;
         }
     }
 }

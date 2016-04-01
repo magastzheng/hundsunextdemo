@@ -23,8 +23,10 @@ namespace HundsunExtDemo
         }
         private bool _isExit = true;
 
-        public LoginForm()
+        private LoginBLL2 _loginBLL;
+        public LoginForm(LoginBLL2 loginBLL)
         {
+            this._loginBLL = loginBLL;
             InitializeComponent();
         }
 
@@ -49,23 +51,14 @@ namespace HundsunExtDemo
             string password = this.tbOperatorPwd.Text;
             Console.WriteLine("user: " + userName + " " + "Password: " + password);
 
-            var config = new CT2Configinterface();
-            int iRet = config.Load("config/t2sdk.ini");
-
-            if (iRet != 0)
-            {
-                string msg = "读取连接配置对象失败！";
-                return;
-            }
-
-            LoginBLL loginBLL = new LoginBLL(config);
+            
             User user = new User
             {
                 Operator = userName,
                 Password = password
             };
             
-            if(loginBLL.Login(user) == ConnectionCode.Success)
+            if(_loginBLL.Login(user) == ConnectionCode.Success)
             {
                 HundsunExtDemo2 mainForm = new HundsunExtDemo2();
                 MainController mainController = new MainController(mainForm);
