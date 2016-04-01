@@ -260,10 +260,10 @@ namespace HundsunExtDemo
             return selectionItems;
         }
 
-        private void DataGridViewCmdTrading_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewCmdTrading_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
-            if(dgv == null || e.ColumnIndex < 0 || e.RowIndex < 0)
+            if (dgv == null || e.ColumnIndex < 0 || e.RowIndex < 0)
                 return;
 
             int selectIndex = dgv.Columns["tc_selection"].Index;
@@ -271,30 +271,77 @@ namespace HundsunExtDemo
             int commandNo = (int)row.Cells["tc_commandno"].Value;
             if (e.ColumnIndex == selectIndex)
             {
-                bool selection = (bool)row.Cells[e.ColumnIndex].Value;
-                if (selection)
+                bool currentStatus = (bool)row.Cells[e.ColumnIndex].EditedFormattedValue;
+                //bool valueStatus = (bool)row.Cells[e.ColumnIndex].Value;
+
+                if (currentStatus)
+                {
+                        row.Cells[e.ColumnIndex].Value = true;
+                        SetSelectionRowBackground(dgv, e.RowIndex, true);
+                        //dgv.Rows[e.RowIndex].Selected = true;
+
+                        UIEntrustItem item = new UIEntrustItem
+                        {
+                            Selected = 0,
+                            CommandNo = commandNo,
+                            Copies = 0
+                        };
+
+                        FillEntrustGrid(new List<UIEntrustItem> { item });
+                }
+                else
                 {
                     row.Cells[e.ColumnIndex].Value = false;
                     SetSelectionRowBackground(dgv, e.RowIndex, false);
                     //dgv.Rows[e.RowIndex].Selected = false;
                     RemoveEntrustGrid(commandNo);
                 }
-                else
-                {
-                    row.Cells[e.ColumnIndex].Value = true;
-                    SetSelectionRowBackground(dgv, e.RowIndex, true);
-                    //dgv.Rows[e.RowIndex].Selected = true;
-
-                    UIEntrustItem item = new UIEntrustItem
-                    {
-                        Selected = 0,
-                        CommandNo = commandNo,
-                        Copies = 0
-                    };
-
-                    FillEntrustGrid(new List<UIEntrustItem> { item });
-                }
             }
+        }
+
+        private void DataGridViewCmdTrading_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if(dgv == null || e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
+
+            //int selectIndex = dgv.Columns["tc_selection"].Index;
+            //DataGridViewRow row = dgv.Rows[e.RowIndex];
+            //int commandNo = (int)row.Cells["tc_commandno"].Value;
+            //if (e.ColumnIndex == selectIndex)
+            //{
+            //    bool currentStatus = (bool)row.Cells[e.ColumnIndex].EditedFormattedValue;
+            //    bool valueStatus = (bool)row.Cells[e.ColumnIndex].Value;
+
+            //    if (currentStatus)
+            //    {
+            //        if (!valueStatus)
+            //        {
+            //            row.Cells[e.ColumnIndex].Value = true;
+            //            SetSelectionRowBackground(dgv, e.RowIndex, true);
+            //            //dgv.Rows[e.RowIndex].Selected = true;
+
+            //            UIEntrustItem item = new UIEntrustItem
+            //            {
+            //                Selected = 0,
+            //                CommandNo = commandNo,
+            //                Copies = 0
+            //            };
+
+            //            FillEntrustGrid(new List<UIEntrustItem> { item });
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (valueStatus)
+            //        {
+            //            row.Cells[e.ColumnIndex].Value = false;
+            //            SetSelectionRowBackground(dgv, e.RowIndex, false);
+            //            //dgv.Rows[e.RowIndex].Selected = false;
+            //            RemoveEntrustGrid(commandNo);
+            //        }
+            //    }
+            //}
         }
 
         private void SortCmdTradingGrid()

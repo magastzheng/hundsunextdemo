@@ -34,6 +34,8 @@ namespace BLL
             {
                 return ConnectionCode.ErrorLogin;
             }
+
+            LoginManager.Instance.LoginUser = user;
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
             bizMessage.SetFunction((int)FunctionCode.Login);

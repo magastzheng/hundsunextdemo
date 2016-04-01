@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataParser.cs" />
     <Compile Include="IDataReceiver.cs" />
     <Compile Include="IStrategryDataChange.cs" />
     <Compile Include="LoginBLL2.cs" />
