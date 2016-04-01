@@ -7,9 +7,41 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    public enum ValueType
+    { 
+        Int,
+        Char,
+        String,
+        Float,
+        Binary,
+        Unknown,
+    }
+
+    public class DataValue
+    {
+        public ValueType Type { get; set; }
+        public object Value { get; set; }
+    }
+
+    public class DataRow
+    {
+        public Dictionary<string, DataValue> Row { get; set; }
+    }
+
+    public class DataSet
+    {
+        public List<DataRow> Table { get; set; }
+    }
+
     public class DataParser
     {
-        //private List<UICo>
+        private List<DataSet> _dataSets = new List<DataSet>();
+
+        public List<DataSet> DataSets
+        {
+            get { return _dataSets; }
+        }
+
         public void Parse(CT2UnPacker lpUnPack)
         {
             Console.WriteLine("记录行数： {0}", lpUnPack.GetRowCount());
@@ -17,13 +49,16 @@ namespace BLL
 
             for (int i = 0; i < lpUnPack.GetDatasetCount(); i++)
             {
+                DataSet dataSet = new DataSet();
+                dataSet.Table = new List<DataRow>();
                 //设置当前结果集
                 lpUnPack.SetCurrentDatasetByIndex(i);
 
+                Dictionary<int, string> columnDic = new Dictionary<int, string>();
                 //打印字段
                 for (int j = 0; j < lpUnPack.GetColCount(); j++)
                 {
-                    Console.Write("{0,20:G}", lpUnPack.GetColName(j));
+                    columnDic.Add(j, lpUnPack.GetColName(j));
                 }
 
                 Console.WriteLine();
@@ -31,22 +66,62 @@ namespace BLL
                 //打印所有记录
                 for (int k = 0; k < lpUnPack.GetRowCount(); k++)
                 {
+                    DataRow row = new DataRow();
+                    row.Row = new Dictionary<string,DataValue>();
+
                     //打印每条记录
                     for (int t = 0; t < lpUnPack.GetColCount(); t++)
                     {
+                        string colName = columnDic[t];
                         switch (lpUnPack.GetColType(t))
                         {
                             case (sbyte)'I':  //I 整数
-                                Console.Write("{0,20:D}", lpUnPack.GetIntByIndex(t));
+                                {
+                                    DataValue dataValue = new DataValue 
+                                    {
+                                        Type = ValueType.Int,
+                                        Value = lpUnPack.GetIntByIndex(t)
+                                    };
+
+
+                                    row.Row.Add(colName, dataValue);
+                                }
                                 break;
                             case (sbyte)'C':  //C 
-                                Console.Write("{0,20:G}", (char)lpUnPack.GetCharByIndex(t));
+                                {
+                                    DataValue dataValue = new DataValue
+                                    {
+                                        Type = ValueType.Char,
+                                        Value = lpUnPack.GetCharByIndex(t)
+                                    };
+
+
+                                    row.Row.Add(colName, dataValue);
+                                }
                                 break;
                             case (sbyte)'S':   //S
-                                Console.Write("{0,20:G}", lpUnPack.GetStrByIndex(t));
+                                {
+                                    DataValue dataValue = new DataValue
+                                    {
+                                        Type = ValueType.String,
+                                        Value = lpUnPack.GetStrByIndex(t)
+                                    };
+
+
+                                    row.Row.Add(colName, dataValue);
+                                }
                                 break;
                             case (sbyte)'F':  //F
-                                Console.Write("{0,20:F2}", lpUnPack.GetDoubleByIndex(t));
+                                {
+                                    DataValue dataValue = new DataValue
+                                    {
+                                        Type = ValueType.Float,
+                                        Value = lpUnPack.GetDoubleByIndex(t)
+                                    };
+
+
+                                    row.Row.Add(colName, dataValue);
+                                }
                                 break;
                             case (sbyte)'R':  //R
                                 {
@@ -54,14 +129,17 @@ namespace BLL
                                 }
                             default:
                                 // 未知数据类型
-                                Console.Write("未知数据类型\n");
                                 break;
                         }
-                    }
+                    }//end to read all column for each row
+
+                    dataSet.Table.Add(row);
 
                     Console.WriteLine();
                     lpUnPack.Next();
-                }
+                }//end to read rows
+
+                _dataSets.Add(dataSet);
             }
 
             Console.WriteLine();
