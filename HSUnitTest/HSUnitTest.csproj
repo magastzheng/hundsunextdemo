@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ext_t2sdkEx, Version=1.0.5290.28789, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="ext_t2sdkEx, Version=1.0.5654.21600, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\ext_t2sdkEx.dll</HintPath>
     </Reference>
@@ -63,6 +63,7 @@
     <Compile Include="BuySellConfigTest.cs" />
     <Compile Include="ConfigManagerTest.cs" />
     <Compile Include="FunctionConfigTest.cs" />
+    <Compile Include="GridConfigTest.cs" />
     <Compile Include="IniFileTest.cs" />
     <Compile Include="JsonUnitTest.cs" />
     <Compile Include="LoginInfoManagerTest.cs" />
@@ -70,22 +71,7 @@
     <Compile Include="SystemConfigTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="config\fieldtype.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="config\function.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="config\global.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="license.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="config\t2sdk.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="config\uiconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -124,6 +110,10 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>copy $(SolutionDir)lib\*.dll $(TargetDir)
+copy $(SolutionDir)HundsunExtDemo\config\*.* $(TargetDir)config</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -58,15 +58,18 @@ namespace HundsunExtDemo
                 Password = password
             };
             
-            if(_loginBLL.Login(user) == ConnectionCode.Success)
-            {
+            //if(_loginBLL.Login(user) == ConnectionCode.Success)
+            
+            var retCode = _loginBLL.Login(user);
+            //if(retCode == ConnectionCode.Success)
+            //{
                 HundsunExtDemo2 mainForm = new HundsunExtDemo2();
                 MainController mainController = new MainController(mainForm);
                 Program._s_mainfrmController = mainController;
             
                 this._isExit = false;
                 this.Close();
-            }
+            //}
         }
 
         public void Exit()

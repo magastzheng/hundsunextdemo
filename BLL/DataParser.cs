@@ -1,4 +1,5 @@
 ﻿using hundsun.t2sdk;
+using Model.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public enum ValueType
-    { 
-        Int,
-        Char,
-        String,
-        Float,
-        Binary,
-        Unknown,
-    }
-
     public class DataValue
     {
-        public ValueType Type { get; set; }
+        public DataValueType Type { get; set; }
         public object Value { get; set; }
     }
 
@@ -79,7 +70,7 @@ namespace BLL
                                 {
                                     DataValue dataValue = new DataValue 
                                     {
-                                        Type = ValueType.Int,
+                                        Type = DataValueType.Int,
                                         Value = lpUnPack.GetIntByIndex(t)
                                     };
 
@@ -91,7 +82,7 @@ namespace BLL
                                 {
                                     DataValue dataValue = new DataValue
                                     {
-                                        Type = ValueType.Char,
+                                        Type = DataValueType.Char,
                                         Value = lpUnPack.GetCharByIndex(t)
                                     };
 
@@ -103,7 +94,7 @@ namespace BLL
                                 {
                                     DataValue dataValue = new DataValue
                                     {
-                                        Type = ValueType.String,
+                                        Type = DataValueType.String,
                                         Value = lpUnPack.GetStrByIndex(t)
                                     };
 
@@ -115,7 +106,7 @@ namespace BLL
                                 {
                                     DataValue dataValue = new DataValue
                                     {
-                                        Type = ValueType.Float,
+                                        Type = DataValueType.Float,
                                         Value = lpUnPack.GetDoubleByIndex(t)
                                     };
 

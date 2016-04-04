@@ -14,6 +14,7 @@ namespace Config
         private FunctionConfig _functionConfig;
         private SystemConfig _systemConfig;
         private TerminalConfig _terminalConfig;
+        private GridConfig _gridConfig;
 
         private ConfigManager()
         {
@@ -31,6 +32,7 @@ namespace Config
             _functionConfig = new FunctionConfig();
             _systemConfig = new SystemConfig();
             _terminalConfig = new TerminalConfig(_systemConfig);
+            _gridConfig = new GridConfig();
 
             //_buySellConfig.Init();
             //_functionConfig.Init();
@@ -58,6 +60,11 @@ namespace Config
         public TerminalConfig GetTerminalConfig()
         {
             return _instance._terminalConfig;
+        }
+
+        public GridConfig GetGridConfig()
+        {
+            return _instance._gridConfig;
         }
     }
 }

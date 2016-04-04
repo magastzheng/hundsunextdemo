@@ -47,6 +47,7 @@
     <Compile Include="config\BuySellOption.cs" />
     <Compile Include="config\FunctionItem.cs" />
     <Compile Include="ConnectionCode.cs" />
+    <Compile Include="Data\DataValueType.cs" />
     <Compile Include="EntrustParam.cs" />
     <Compile Include="config\FieldConfigItem.cs" />
     <Compile Include="FieldRequireType.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="UIDealFlowItem.cs" />
     <Compile Include="UIEntrustItem.cs" />
     <Compile Include="UITradingCommandItem.cs" />
+    <Compile Include="UI\HSGridColumn.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

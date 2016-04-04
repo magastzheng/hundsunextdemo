@@ -81,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\HSGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="HundsunExtDemo.resx">
       <DependentUpon>HundsunExtDemo.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +110,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="config\global.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="config\gridview.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="config\license.dat">
