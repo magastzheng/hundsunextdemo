@@ -47,6 +47,7 @@
     <Compile Include="config\BuySellOption.cs" />
     <Compile Include="config\FunctionItem.cs" />
     <Compile Include="ConnectionCode.cs" />
+    <Compile Include="Data\DataValue.cs" />
     <Compile Include="Data\DataValueType.cs" />
     <Compile Include="EntrustParam.cs" />
     <Compile Include="config\FieldConfigItem.cs" />

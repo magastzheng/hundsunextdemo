@@ -8,22 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class DataValue
-    {
-        public DataValueType Type { get; set; }
-        public object Value { get; set; }
-    }
-
-    public class DataRow
-    {
-        public Dictionary<string, DataValue> Row { get; set; }
-    }
-
-    public class DataSet
-    {
-        public List<DataRow> Table { get; set; }
-    }
-
+    
     public class DataParser
     {
         private List<DataSet> _dataSets = new List<DataSet>();
@@ -41,7 +26,7 @@ namespace BLL
             for (int i = 0; i < lpUnPack.GetDatasetCount(); i++)
             {
                 DataSet dataSet = new DataSet();
-                dataSet.Table = new List<DataRow>();
+                dataSet.Rows = new List<DataRow>();
                 //设置当前结果集
                 lpUnPack.SetCurrentDatasetByIndex(i);
 
@@ -58,7 +43,7 @@ namespace BLL
                 for (int k = 0; k < lpUnPack.GetRowCount(); k++)
                 {
                     DataRow row = new DataRow();
-                    row.Row = new Dictionary<string,DataValue>();
+                    row.Columns = new Dictionary<string,DataValue>();
 
                     //打印每条记录
                     for (int t = 0; t < lpUnPack.GetColCount(); t++)
@@ -75,7 +60,7 @@ namespace BLL
                                     };
 
 
-                                    row.Row.Add(colName, dataValue);
+                                    row.Columns.Add(colName, dataValue);
                                 }
                                 break;
                             case (sbyte)'C':  //C 
@@ -87,7 +72,7 @@ namespace BLL
                                     };
 
 
-                                    row.Row.Add(colName, dataValue);
+                                    row.Columns.Add(colName, dataValue);
                                 }
                                 break;
                             case (sbyte)'S':   //S
@@ -99,7 +84,7 @@ namespace BLL
                                     };
 
 
-                                    row.Row.Add(colName, dataValue);
+                                    row.Columns.Add(colName, dataValue);
                                 }
                                 break;
                             case (sbyte)'F':  //F
@@ -111,7 +96,7 @@ namespace BLL
                                     };
 
 
-                                    row.Row.Add(colName, dataValue);
+                                    row.Columns.Add(colName, dataValue);
                                 }
                                 break;
                             case (sbyte)'R':  //R
@@ -124,7 +109,7 @@ namespace BLL
                         }
                     }//end to read all column for each row
 
-                    dataSet.Table.Add(row);
+                    dataSet.Rows.Add(row);
 
                     Console.WriteLine();
                     lpUnPack.Next();
