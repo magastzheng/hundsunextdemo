@@ -82,7 +82,7 @@ namespace HundsunExtDemo.UI
                         break;
                     case HSGridColumnType.Image:
                         {
-                            column = new DataGridViewColumn();
+                            column = new DataGridViewImageColumn();
                         }
                         break;
                     case HSGridColumnType.Text:

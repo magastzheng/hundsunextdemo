@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Config;
 using hundsun.t2sdk;
 using HundsunExtDemo.Controller;
 using Model;
@@ -63,12 +64,13 @@ namespace HundsunExtDemo
             var retCode = _loginBLL.Login(user);
             //if(retCode == ConnectionCode.Success)
             //{
-                HundsunExtDemo2 mainForm = new HundsunExtDemo2();
-                MainController mainController = new MainController(mainForm);
-                Program._s_mainfrmController = mainController;
+            var gridConfig = ConfigManager.Instance.GetGridConfig();
+            HundsunExtDemo2 mainForm = new HundsunExtDemo2(gridConfig);
+            MainController mainController = new MainController(mainForm);
+            Program._s_mainfrmController = mainController;
             
-                this._isExit = false;
-                this.Close();
+            this._isExit = false;
+            this.Close();
             //}
         }
 

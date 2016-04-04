@@ -16,8 +16,9 @@ namespace HundsunExtDemo
     {
         private const int MAX_ENTRUST_AMOUNT = 10;
 
-        public HundsunExtDemo2()
+        public HundsunExtDemo2(GridConfig gridConfig)
         {
+            this._gridConfig = gridConfig;
             InitializeComponent();
         }
 
@@ -44,9 +45,9 @@ namespace HundsunExtDemo
 
         private void InitializeControl()
         {
-            SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection });
-            SetDataGridVieweReadOnly(this.dataGridViewDealFlow, new List<DataGridViewColumn>());
-            SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies });
+            //SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection });
+            //SetDataGridVieweReadOnly(this.dataGridViewDealFlow, new List<DataGridViewColumn>());
+            //SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies });
 
             InitializeCombobox();
         }
