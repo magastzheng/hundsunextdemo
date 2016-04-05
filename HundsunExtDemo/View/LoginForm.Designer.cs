@@ -1,4 +1,4 @@
-﻿namespace HundsunExtDemo
+﻿namespace HundsunExtDemo.View
 {
     partial class LoginForm
     {
@@ -103,6 +103,7 @@
             this.Controls.Add(this.lblOperatorNo);
             this.Name = "LoginForm";
             this.Text = "登录";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(LoginForm_FormClosing);
 
             this.ResumeLayout(false);

@@ -73,25 +73,22 @@
     <Compile Include="HundsunExtDemo2.Designer.cs">
       <DependentUpon>HundsunExtDemo2.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\HSGridView.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="HundsunExtDemo.resx">
       <DependentUpon>HundsunExtDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HundsunExtDemo2.resx">
       <DependentUpon>HundsunExtDemo2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="config\fieldtype.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
