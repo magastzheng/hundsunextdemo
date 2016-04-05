@@ -41,9 +41,9 @@ namespace Controls
             this.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentClick);
         }
 
-        public void FillData(DataSet dataSet)
+        public void FillData(DataSet dataSet, Dictionary<string, string> colDataMap)
         {
-            if (dataSet == null || dataSet.Rows == null)
+            if (dataSet == null || dataSet.Rows == null || colDataMap == null)
                 return;
 
             for(int r = 0, count = dataSet.Rows.Count; r < count; r++)
@@ -67,7 +67,13 @@ namespace Controls
                         default:
                             break;
                     }
-                    //row.Cells[col.Name].Value = ;
+
+                    if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]) )
+                    {
+                        string dataKey = colDataMap[col.Name];
+                        row.Cells[col.Name].Value = dataRow.Columns[dataKey];
+                    }
+                    //row.Cells[col.Name].Value = dataRow;
                 }
             }
         }

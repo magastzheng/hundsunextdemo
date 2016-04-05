@@ -109,6 +109,15 @@ namespace HundsunExtDemo.View
         }
         #endregion
 
+        #region 填充数据
+
+        private void FillRawData()
+        { 
+            
+        }
+
+        #endregion
+
         #region 填充指令交易
 
         private List<UITradingCommandItem> GenerateTestCommandTrading()
@@ -830,6 +839,7 @@ namespace HundsunExtDemo.View
             if (selectTabName == "tabParentEntrustFlow")
             {
                 this.tlPanelParentEntrustFlow.Controls.Add(this.dataGridViewEntrustFlow, 0, 1);
+                this.tlPanelParentEntrustFlow.Controls.Add(this.panelParentEntrustFlow, 0, 2);
             }
             else if (selectTabName == "tabParentDealFlow")
             {
@@ -868,6 +878,7 @@ namespace HundsunExtDemo.View
             else if (selectTabName == "tabChildEntrustFlow")
             {
                 this.tlPanelChildEntrustFlow.Controls.Add(this.dataGridViewEntrustFlow, 0, 0);
+                this.tlPanelChildEntrustFlow.Controls.Add(this.panelParentEntrustFlow, 0, 1);
             }
             else if (selectTabName == "tabChildDealFlow")
             {

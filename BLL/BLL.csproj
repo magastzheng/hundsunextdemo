@@ -60,6 +60,7 @@
     <Compile Include="LoginBLL2.cs" />
     <Compile Include="StrategyBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrategyBLL2.cs" />
     <Compile Include="T2SDKCallbackImpl.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="T2SDKBase.cs" />

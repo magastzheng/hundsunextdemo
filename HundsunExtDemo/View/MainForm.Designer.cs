@@ -421,8 +421,8 @@ namespace HundsunExtDemo.View
             this.tlPanelChildCmdSecurity.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildCmdSecurity.Name = "tlPanelChildCmdSecurity";
             this.tlPanelChildCmdSecurity.RowCount = 2;
-            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tlPanelChildCmdSecurity.Size = new System.Drawing.Size(764, 114);
             this.tlPanelChildCmdSecurity.TabIndex = 0;
             // 
@@ -456,8 +456,8 @@ namespace HundsunExtDemo.View
             this.tlPanelChildEntrustFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildEntrustFlow.Name = "tlPanelChildEntrustFlow";
             this.tlPanelChildEntrustFlow.RowCount = 2;
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tlPanelChildEntrustFlow.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildEntrustFlow.TabIndex = 0;
             // 
@@ -481,8 +481,8 @@ namespace HundsunExtDemo.View
             this.tlPanelChildDealFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildDealFlow.Name = "tlPanelChildDealFlow";
             this.tlPanelChildDealFlow.RowCount = 2;
-            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tlPanelChildDealFlow.Size = new System.Drawing.Size(764, 114);
             this.tlPanelChildDealFlow.TabIndex = 0;
             // 

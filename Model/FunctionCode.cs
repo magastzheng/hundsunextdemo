@@ -71,9 +71,9 @@ namespace Model
         EntrustStockOptionBasket = 91091,
 
         //委托撤销
-        Revocation = 91101,
+        Withdraw = 91101,
 
         //撤销篮子委托
-        RevocationBasket = 91102,
+        WithdrawBasket = 91102,
     }
 }
