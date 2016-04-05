@@ -393,7 +393,7 @@
 		},{
 		"name": "df_last",
 		"text": "",
-		"width": 80,
+		"width": 5,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -582,7 +582,7 @@
 		},{
 		"name": "cs_last",
 		"text": "",
-		"width": 80,
+		"width": 5,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -595,7 +595,7 @@
 	{
 		"name": "bs_selection",
 		"text": "选择",
-		"width": 80,
+		"width": 30,
 		"columntype": 1,
 		"valuetype": 0,
 		"visible": 1,
@@ -603,7 +603,7 @@
 		},{
 		"name": "bs_commandno",
 		"text": "指令序号",
-		"width": 80,
+		"width": 60,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -611,7 +611,7 @@
 		},{
 		"name": "bs_add",
 		"text": "增加",
-		"width": 80,
+		"width": 30,
 		"columntype": 2,
 		"valuetype": 0,
 		"visible": 1,
@@ -619,7 +619,7 @@
 		},{
 		"name": "bs_copies",
 		"text": "份数",
-		"width": 80,
+		"width": 30,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -627,7 +627,7 @@
 		},{
 		"name": "bs_minus",
 		"text": "减少",
-		"width": 80,
+		"width": 30,
 		"columntype": 2,
 		"valuetype": 0,
 		"visible": 1,
@@ -635,7 +635,7 @@
 		},{
 		"name": "bs_last",
 		"text": "",
-		"width": 80,
+		"width": 5,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -909,6 +909,13 @@
 		"valuetype": 0,
 		"visible": 1,
 		"readonly": 1
+		},{
+		"name": "ef_last",
+		"text": "",
+		"width": 5,
+		"columntype": 0,
+		"valuetype": 0,
+		"visible": 1
 		}
 	]
 },{
@@ -917,7 +924,7 @@
 	{
 		"name": "tc_last",
 		"text": "",
-		"width": 80,
+		"width": 5,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1

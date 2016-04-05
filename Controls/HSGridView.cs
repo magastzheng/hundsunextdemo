@@ -2,15 +2,19 @@
 using Model.UI;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HundsunExtDemo.UI
+namespace Controls
 {
-
+    [System.ComponentModel.DesignerCategory("code"),
+    Designer(typeof(System.Windows.Forms.Design.ControlDesigner)),
+    ComplexBindingProperties(),
+    Docking(DockingBehavior.Ask)]
     public partial class HSGridView : DataGridView
     {
         private HSGrid _hsGrid = null;

@@ -65,7 +65,7 @@ namespace HundsunExtDemo.View
             //if(retCode == ConnectionCode.Success)
             //{
             var gridConfig = ConfigManager.Instance.GetGridConfig();
-            HundsunExtDemo2 mainForm = new HundsunExtDemo2(gridConfig);
+            MainForm mainForm = new MainForm(gridConfig);
             MainController mainController = new MainController(mainForm);
             Program._s_mainfrmController = mainController;
             

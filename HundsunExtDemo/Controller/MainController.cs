@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HundsunExtDemo.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ namespace HundsunExtDemo.Controller
 {
     public class MainController
     {
-        private HundsunExtDemo2 _mainForm;
-        public HundsunExtDemo2 MainForm
+        private MainForm _mainForm;
+        public MainForm MainForm
         {
             get { return _mainForm; }
         }
 
-        public MainController(HundsunExtDemo2 mainForm)
+        public MainController(MainForm mainForm)
         {
             this._mainForm = mainForm;
         }

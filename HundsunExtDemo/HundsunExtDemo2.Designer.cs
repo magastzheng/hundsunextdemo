@@ -1,5 +1,5 @@
 ﻿using Config;
-using HundsunExtDemo.UI;
+using Controls;
 using Model.UI;
 using System;
 namespace HundsunExtDemo
