@@ -810,8 +810,8 @@ namespace HundsunExtDemo.View
 
         private void TabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TabControl tc = (TabControl)sender;
-            //string selectTabName = this.tabControlMain.SelectedTab.Name;
+            TabControl tc = (TabControl)sender;
+            string selectTabName = this.tabControlMain.SelectedTab.Name;
             //if (selectTabName == "tabPageDialFlowParent")
             //{
             //    this.tbPanelParentDealFlow.Controls.Add(this.dataGridViewDealFlow, 0, 0);
