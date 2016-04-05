@@ -22,6 +22,7 @@ namespace Model.UI
         public HSGridColumnType ColumnType { get; set; }
         public DataValueType ValueType { get; set; }
         public int Visible { get; set; }
+        public int ReadOnly { get; set; }
     }
 
     public class HSGrid

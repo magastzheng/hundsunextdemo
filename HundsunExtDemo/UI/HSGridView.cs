@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 namespace HundsunExtDemo.UI
 {
-    public class HSGridView: DataGridView
+
+    public partial class HSGridView : DataGridView
     {
         private HSGrid _hsGrid = null;
         private Dictionary<string, int> _columnNameIndex = new Dictionary<string, int>();
@@ -18,6 +19,8 @@ namespace HundsunExtDemo.UI
 
         public HSGridView(HSGrid hsGrid)
         {
+            InitializeComponent();
+
             this._hsGrid = hsGrid;
             this._columns = hsGrid.Columns;
             for (int i = 0, count = _columns.Count; i < count; i++)
@@ -100,7 +103,7 @@ namespace HundsunExtDemo.UI
                 column.HeaderText = col.Text;
                 column.Name = col.Name;
                 column.Width = col.Width;
-
+                column.ReadOnly = (col.ReadOnly != 0) ? true : false;
                 gridColumns[i] = column;
             }
 
