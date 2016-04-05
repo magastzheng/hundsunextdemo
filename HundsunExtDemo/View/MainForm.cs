@@ -23,10 +23,25 @@ namespace HundsunExtDemo.View
             InitializeComponent();
         }
 
+        public void SetData()
+        {
+            var tcItems = GenerateTestCommandTrading();
+            FillCommandTrading(tcItems);
+
+            var csItems = GenerateTestCommandSecurity();
+            FillCommandSecurity(csItems);
+
+            var dfItems = GenerateDealFlowData();
+            FillDealFlow(dfItems);
+
+            var eiItems = GetDefaultEntrustData();
+            FillEntrustGrid(eiItems);
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             InitializeControl();
-            //SetData();
+            SetData();
         }
 
         private void InitializeControl()
@@ -812,14 +827,20 @@ namespace HundsunExtDemo.View
         {
             TabControl tc = (TabControl)sender;
             string selectTabName = this.tabControlMain.SelectedTab.Name;
-            //if (selectTabName == "tabPageDialFlowParent")
-            //{
-            //    this.tbPanelParentDealFlow.Controls.Add(this.dataGridViewDealFlow, 0, 0);
-            //}
-            //else if (selectTabName == "tabPageCommandTrading")
-            //{
-            //    AddDialFlowGridInDetail();
-            //}
+            if (selectTabName == "tabParentEntrustFlow")
+            {
+                this.tlPanelParentEntrustFlow.Controls.Add(this.dataGridViewEntrustFlow, 0, 1);
+            }
+            else if (selectTabName == "tabParentDealFlow")
+            {
+                this.tlPanelParentDealFlow.Controls.Add(this.dataGridViewDealFlow, 0, 1);
+            }
+            else if (selectTabName == "tabParentCmdTrading")
+            {
+                //AddDialFlowGridInDetail();
+                //this.tlPanelParentCommand.Controls.Add(this.dataGridViewCmdTrading, 0, 1);
+                SwitchDetailTabPage(this.tabControlCmdDetail.SelectedTab.Name);
+            }
         }
 
         #endregion
@@ -829,12 +850,29 @@ namespace HundsunExtDemo.View
         private void TabControlCmdDetail_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tc = (TabControl)sender;
+            SwitchDetailTabPage(this.tabControlCmdDetail.SelectedTab.Name);
             //Console.WriteLine(this.tabControlDetailTrading.SelectedTab.Name);
             //throw new NotImplementedException();
             //if (this.tabControlCmdDetail.SelectedTab.Name == "tabPageDialFlow")
             //{
             //    AddDialFlowGridInDetail();
             //}
+        }
+
+        private void SwitchDetailTabPage(string selectTabName)
+        {
+            if (selectTabName == "tabChildCmdSecurity")
+            {
+                this.tlPanelChildCmdSecurity.Controls.Add(this.dataGridViewCmdSecurity, 0, 0);
+            }
+            else if (selectTabName == "tabChildEntrustFlow")
+            {
+                this.tlPanelChildEntrustFlow.Controls.Add(this.dataGridViewEntrustFlow, 0, 0);
+            }
+            else if (selectTabName == "tabChildDealFlow")
+            {
+                this.tlPanelChildDealFlow.Controls.Add(this.dataGridViewDealFlow, 0, 0);
+            }
         }
 
         private void AddDialFlowGridInDetail()

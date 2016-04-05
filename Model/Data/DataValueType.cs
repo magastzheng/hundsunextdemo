@@ -8,7 +8,7 @@ namespace Model.Data
 {
     public enum DataValueType
     {
-        Int,
+        Int = 0,
         Char,
         String,
         Float,

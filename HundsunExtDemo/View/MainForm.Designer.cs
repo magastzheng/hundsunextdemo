@@ -678,6 +678,8 @@ namespace HundsunExtDemo.View
             this.dataGridViewBuySell.RowTemplate.Height = 23;
             this.dataGridViewBuySell.Size = new System.Drawing.Size(221, 110);
             this.dataGridViewBuySell.TabIndex = 12;
+            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(DataGridViewBuySell_CellMouseClick);
+            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(DataGridViewBuySell_EditingControlShowing); 
             // 
             // tabParentEntrustFlow
             // 

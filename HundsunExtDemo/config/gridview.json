@@ -623,7 +623,7 @@
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
-		"readonly": 1
+		"readonly": 0
 		},{
 		"name": "bs_minus",
 		"text": "减少",
