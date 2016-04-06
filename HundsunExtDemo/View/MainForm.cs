@@ -1,4 +1,5 @@
 ﻿using Config;
+using Controls;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,8 @@ namespace HundsunExtDemo.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.dataGridViewCmdTrading.UpdateRelatedDataGrid = DataGridViewCmdTrading_Select;
+
             InitializeControl();
             SetData();
         }
@@ -793,6 +796,58 @@ namespace HundsunExtDemo.View
 
         #endregion
 
+        #region
+
+        public void DataGridViewCmdTrading_Select(UpdateDirection direction, Model.Data.DataRow dataRow)
+        {
+            string colKey = "instance_no";
+            if (dataRow == null || dataRow.Columns == null || dataRow.Columns.ContainsKey(colKey))
+                return;
+
+            if (direction == UpdateDirection.Add)
+            {
+                Dictionary<string, string> colDataMap = new Dictionary<string, string>();
+                Model.Data.DataSet eDataSet = new Model.Data.DataSet();
+                eDataSet.Rows = new List<Model.Data.DataRow>();
+                Model.Data.DataRow eRow = new Model.Data.DataRow();
+                eRow.Columns = new Dictionary<string, Model.Data.DataValue>();
+
+                foreach (var column in this.dataGridViewBuySell.GridColumns)
+                {
+                    if (column.ColumnType == Model.UI.HSGridColumnType.None)
+                        continue;
+
+                    Model.Data.DataValue dataValue = new Model.Data.DataValue();
+                    dataValue.Type = column.ValueType;
+                    if (column.Name == "bs_commandno")
+                    {
+                        dataValue.Value = dataRow.Columns["tc_commandno"].Value;
+                    }
+                    else if (column.ColumnType == Model.UI.HSGridColumnType.Image)
+                    {
+                        dataValue.Value = column.DefaultValue;
+                    }
+                    else
+                    {
+                        dataValue.Value = 0;
+                    }
+
+                    colDataMap.Add(column.Name, column.Name);
+                    eRow.Columns.Add(column.Name, dataValue);
+                }
+
+                eDataSet.Rows.Add(eRow);
+                this.dataGridViewBuySell.FillData(eDataSet, colDataMap);
+            }
+            else if (direction == UpdateDirection.Remove)
+            {
+                var targetValue = dataRow.Columns["tc_commandno"];
+                this.dataGridViewBuySell.DeleteData("bs_commandno", targetValue);
+            }
+        }
+
+        #endregion
+
         #region button click
 
         private void ButtonEntrusting_Click(object sender, EventArgs e)
@@ -805,6 +860,16 @@ namespace HundsunExtDemo.View
             Console.WriteLine(spotBuyItem);
 
             //submit the entrust portfolio
+            MessageBoxButtons msgButton = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("确定委托选中实例吗？", "委托", msgButton, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                //提交委托实例
+            }
+            else
+            { 
+                //取消
+            }
         }
 
         private void ButtonCalc_Click(object sender, EventArgs e)

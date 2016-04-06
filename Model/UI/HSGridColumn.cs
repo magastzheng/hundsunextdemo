@@ -9,6 +9,7 @@ namespace Model.UI
 {
     public enum HSGridColumnType
     {
+        None = -1,
         Text = 0,
         CheckBox = 1,
         Image = 2,
@@ -23,6 +24,7 @@ namespace Model.UI
         public DataValueType ValueType { get; set; }
         public int Visible { get; set; }
         public int ReadOnly { get; set; }
+        public string DefaultValue { get; set; }
     }
 
     public class HSGrid

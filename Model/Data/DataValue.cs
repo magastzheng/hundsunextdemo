@@ -49,6 +49,7 @@ namespace Model.Data
 
     public class DataSet
     {
+        public FunctionCode FunctionCode { get; set; }
         public List<DataRow> Rows { get; set; }
     }
 }

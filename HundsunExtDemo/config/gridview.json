@@ -208,6 +208,14 @@
 		"valuetype": 0,
 		"visible": 1,
 		"readonly": 1
+		},{
+		"name": "tc_last",
+		"text": "",
+		"width": 5,
+		"columntype": -1,
+		"valuetype": 0,
+		"visible": 1,
+		"readonly": 1
 		}
 	]
 },
@@ -394,7 +402,7 @@
 		"name": "df_last",
 		"text": "",
 		"width": 5,
-		"columntype": 0,
+		"columntype": -1,
 		"valuetype": 0,
 		"visible": 1,
 		"readonly": 1
@@ -583,7 +591,7 @@
 		"name": "cs_last",
 		"text": "",
 		"width": 5,
-		"columntype": 0,
+		"columntype": -1,
 		"valuetype": 0,
 		"visible": 1,
 		"readonly": 1
@@ -613,9 +621,10 @@
 		"text": "增加",
 		"width": 30,
 		"columntype": 2,
-		"valuetype": 0,
+		"valuetype": 2,
 		"visible": 1,
-		"readonly": 1
+		"readonly": 1,
+		"defaultvalue": "img/plus.png"
 		},{
 		"name": "bs_copies",
 		"text": "份数",
@@ -629,14 +638,15 @@
 		"text": "减少",
 		"width": 30,
 		"columntype": 2,
-		"valuetype": 0,
+		"valuetype": 2,
 		"visible": 1,
-		"readonly": 1
+		"readonly": 1,
+		"defaultvalue": "img/minus.png"
 		},{
 		"name": "bs_last",
 		"text": "",
 		"width": 5,
-		"columntype": 0,
+		"columntype": -1,
 		"valuetype": 0,
 		"visible": 1,
 		"readonly": 1
@@ -913,7 +923,7 @@
 		"name": "ef_last",
 		"text": "",
 		"width": 5,
-		"columntype": 0,
+		"columntype": -1,
 		"valuetype": 0,
 		"visible": 1
 		}

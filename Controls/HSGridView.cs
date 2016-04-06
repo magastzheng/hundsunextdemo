@@ -11,6 +11,13 @@ using System.Windows.Forms;
 
 namespace Controls
 {
+    public enum UpdateDirection
+    {
+        Add = 1,
+        Remove = 2,
+    }
+    public delegate void UpdateRelatedDataGrid(UpdateDirection direction, DataRow dataRow);
+
     [System.ComponentModel.DesignerCategory("code"),
     Designer(typeof(System.Windows.Forms.Design.ControlDesigner)),
     ComplexBindingProperties(),
@@ -20,6 +27,15 @@ namespace Controls
         private HSGrid _hsGrid = null;
         private Dictionary<string, int> _columnNameIndex = new Dictionary<string, int>();
         private List<HSGridColumn> _columns = null;
+        public List<HSGridColumn> GridColumns { get { return _columns; } }
+        
+        //选中父表中行之后，子表需要添加相应行
+        private UpdateRelatedDataGrid _updateRelatedDataGrid;
+        public UpdateRelatedDataGrid UpdateRelatedDataGrid
+        {
+            set { _updateRelatedDataGrid = value; }
+            get { return _updateRelatedDataGrid; }
+        }
 
         public HSGridView(HSGrid hsGrid)
         {
@@ -56,24 +72,111 @@ namespace Controls
                 foreach(HSGridColumn col in _columns)
                 {
 
-                    switch(col.ValueType)
+                    //switch(col.ValueType)
+                    //{
+                    //    case DataValueType.Int:
+                    //        break;
+                    //    case DataValueType.Float:
+                    //        break;
+                    //    case DataValueType.String:
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
+
+                    switch (col.ColumnType)
                     {
-                        case DataValueType.Int:
+                        case HSGridColumnType.CheckBox:
+                        case HSGridColumnType.Text:
+                            {
+                                if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]))
+                                {
+                                    string dataKey = colDataMap[col.Name];
+                                    FillDataCell(ref row, col, dataRow.Columns[dataKey]);
+                                }
+                            }
                             break;
-                        case DataValueType.Float:
-                            break;
-                        case DataValueType.String:
+                        case HSGridColumnType.Image:
+                            {
+                                if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]))
+                                {
+                                    string dataKey = colDataMap[col.Name];
+                                    string imgPath = dataRow.Columns[dataKey].GetStr();
+                                    Image plusImg = Image.FromFile(imgPath);
+                                    Bitmap plusBt = new Bitmap(plusImg, new Size(20, 20));
+                                    row.Cells[col.Name].Value = plusBt;
+                                }
+                            }
                             break;
                         default:
                             break;
                     }
+                }
+            }
+        }
 
-                    if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]) )
+        private void FillDataCell(ref DataGridViewRow row, HSGridColumn column, DataValue dataValue)
+        {
+            switch (column.ValueType)
+            {
+                case DataValueType.Int:
                     {
-                        string dataKey = colDataMap[col.Name];
-                        row.Cells[col.Name].Value = dataRow.Columns[dataKey];
+                        row.Cells[column.Name].Value = dataValue.GetInt();
                     }
-                    //row.Cells[col.Name].Value = dataRow;
+                    break;
+                case DataValueType.Float:
+                    {
+                        row.Cells[column.Name].Value = dataValue.GetDouble();
+                    }
+                    break;
+                case DataValueType.Char:
+                case DataValueType.String:
+                    {
+                        row.Cells[column.Name].Value = dataValue.GetStr();
+                    }
+                    break;
+                default:
+                    {
+                        row.Cells[column.Name].Value = dataValue.GetStr();
+                    }
+                    break;
+            }
+        }
+
+        public void DeleteData(string targetColName, DataValue targetColValue)
+        {
+            int index = _columnNameIndex[targetColName];
+            var column = _columns[index];
+            if(column ==  null)
+                return;
+
+            for (int i = this.Rows.Count - 1; i >= 0; i--)
+            {
+                string curValue = Rows[i].Cells[targetColName].Value.ToString();
+                bool needDelete = false;
+                switch (column.ValueType)
+                { 
+                    case DataValueType.Int:
+                        {
+                            int targetValue = targetColValue.GetInt();
+                            int temp = int.Parse(curValue);
+                            needDelete = targetValue == temp ? true : false;
+                        }
+                        break;
+                    case DataValueType.Char:
+                    case DataValueType.String:
+                        {
+                            string targetValue = targetColValue.GetStr();
+                            needDelete = targetValue == curValue ? true : false;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                if (needDelete)
+                {
+                    this.Rows.RemoveAt(i);
                 }
             }
         }
@@ -132,30 +235,38 @@ namespace Controls
 
             if (e.ColumnIndex == cbColIndex)
             {
-                bool currentStatus = (bool)row.Cells[e.ColumnIndex].EditedFormattedValue;
-               
-                if (currentStatus)
-                {
-                    row.Cells[e.ColumnIndex].Value = true;
-                    SetSelectionRowBackground(e.RowIndex, true);
-                    
-                    //pass the selected row to entrusted
-                    //UIEntrustItem item = new UIEntrustItem
-                    //{
-                    //    Selected = 0,
-                    //    CommandNo = commandNo,
-                    //    Copies = 0
-                    //};
+                SwitchSelection(dgv, e.RowIndex, e.ColumnIndex);
+            }
+        }
 
-                    //FillEntrustGrid(new List<UIEntrustItem> { item });
-                }
-                else
+        private void SwitchSelection(DataGridView dgv, int rowIndex, int colIndex)
+        {
+            DataGridViewRow row = dgv.Rows[rowIndex];
+            bool currentStatus = (bool)row.Cells[colIndex].EditedFormattedValue;
+
+            if (currentStatus)
+            {
+                row.Cells[colIndex].Value = true;
+                SetSelectionRowBackground(rowIndex, true);
+
+                //update the related datagridview if it needs              
+                if (_updateRelatedDataGrid != null)
                 {
-                    row.Cells[e.ColumnIndex].Value = false;
-                    SetSelectionRowBackground(e.RowIndex, false);
-                    
-                    //remove the uncheck rows
-                    //RemoveEntrustGrid(commandNo);
+                    int cbColIndex = GetCheckBoxColumnIndex();
+                    DataRow dataRow = GetDataRow(row, 1);
+                    _updateRelatedDataGrid(UpdateDirection.Add, dataRow);
+                }
+            }
+            else
+            {
+                row.Cells[colIndex].Value = false;
+                SetSelectionRowBackground(rowIndex, false);
+
+                if (_updateRelatedDataGrid != null)
+                {
+                    int cbColIndex = GetCheckBoxColumnIndex();
+                    DataRow dataRow = GetDataRow(row, 0);
+                    _updateRelatedDataGrid(UpdateDirection.Remove, dataRow);
                 }
             }
         }
@@ -176,6 +287,32 @@ namespace Controls
             return index;
         }
 
+        private DataRow GetDataRow(DataGridViewRow row, int defSelection)
+        {
+            DataRow dataRow = new DataRow();
+            dataRow.Columns = new Dictionary<string, DataValue>();
+            for(int i = 0, count = this._columns.Count; i < count; i++)
+            {
+                HSGridColumn column = this._columns[i];
+                if (column.ColumnType == HSGridColumnType.None)
+                    continue;
+
+                DataValue dataValue = new DataValue();
+                dataValue.Type = column.ValueType;
+                if (column.ColumnType == HSGridColumnType.CheckBox)
+                {
+                    dataValue.Value = defSelection;
+                }
+                else
+                {
+                    dataValue.Value = row.Cells[i].Value;
+                }
+                dataRow.Columns[column.Name] = dataValue;
+            }
+
+            return dataRow;
+        }
+
         private DataSet GetSelectionRows()
         {
             DataSet dataSet = new DataSet();
@@ -185,32 +322,14 @@ namespace Controls
             if (cbColIndex < 0)
                 return dataSet;
 
-            int validCount = this._columns.Count - 1;
+            int validColCount = this._columns.Count - 1;
             foreach (DataGridViewRow row in this.Rows)
             {
                 bool isChecked = (bool)row.Cells[cbColIndex].EditedFormattedValue;
                 if (!isChecked)
                     continue;
 
-                DataRow dataRow = new DataRow();
-                dataRow.Columns = new Dictionary<string, DataValue>();
-                for (int i = 0; i < validCount; i++)
-                {
-                    HSGridColumn column = this._columns[i];
-
-                    DataValue dataValue = new DataValue();
-                    dataValue.Type = column.ValueType;
-                    if (i == cbColIndex)
-                    {
-                        dataValue.Value = 1;
-                    }
-                    else
-                    {
-                        dataValue.Value = row.Cells[i].Value;
-                    }
-                    dataRow.Columns[column.Name] = dataValue;
-                }
-
+                DataRow dataRow = GetDataRow(row, 1);
                 dataSet.Rows.Add(dataRow);
             }
 
