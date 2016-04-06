@@ -59,6 +59,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdRefresh = new System.Windows.Forms.ToolStripButton();
             this.tsbCmdUndo = new System.Windows.Forms.ToolStripButton();
             this.tsbCmdCancelRedo = new System.Windows.Forms.ToolStripButton();
+            this.tsbCmdCancelAdd = new System.Windows.Forms.ToolStripButton();
             this.tabControlCmdDetail = new System.Windows.Forms.TabControl();
             this.tabChildCmdSecurity = new System.Windows.Forms.TabPage();
             this.tlPanelChildCmdSecurity = new System.Windows.Forms.TableLayoutPanel();
@@ -102,7 +103,6 @@ namespace HundsunExtDemo.View
             this.toolStripDealFlow = new System.Windows.Forms.ToolStrip();
             this.tsbDFRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.tsbCmdCancelAdd = new System.Windows.Forms.ToolStripButton();
 
             //
             //GridView
@@ -195,7 +195,7 @@ namespace HundsunExtDemo.View
             this.tsbMainRefresh.Name = "tsbMainRefresh";
             this.tsbMainRefresh.Size = new System.Drawing.Size(52, 23);
             this.tsbMainRefresh.Text = "刷新";
-            this.tsbMainRefresh.Click += new System.EventHandler(MainRefresh_Click);
+            this.tsbMainRefresh.Click += new System.EventHandler(this.MainRefresh_Click);
             // 
             // tsbMainOpen
             // 
@@ -383,6 +383,14 @@ namespace HundsunExtDemo.View
             this.tsbCmdCancelRedo.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdCancelRedo.Text = "撤补";
             // 
+            // tsbCmdCancelAdd
+            // 
+            this.tsbCmdCancelAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsbCmdCancelAdd.Image")));
+            this.tsbCmdCancelAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCmdCancelAdd.Name = "tsbCmdCancelAdd";
+            this.tsbCmdCancelAdd.Size = new System.Drawing.Size(76, 22);
+            this.tsbCmdCancelAdd.Text = "撤销追加";
+            // 
             // tabControlCmdDetail
             // 
             this.tabControlCmdDetail.Controls.Add(this.tabChildCmdSecurity);
@@ -452,8 +460,8 @@ namespace HundsunExtDemo.View
             this.tlPanelChildEntrustFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildEntrustFlow.Name = "tlPanelChildEntrustFlow";
             this.tlPanelChildEntrustFlow.RowCount = 2;
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlPanelChildEntrustFlow.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildEntrustFlow.TabIndex = 0;
             // 
@@ -655,7 +663,7 @@ namespace HundsunExtDemo.View
             this.btnEntrusting.TabIndex = 1;
             this.btnEntrusting.Text = "委托";
             this.btnEntrusting.UseVisualStyleBackColor = true;
-            this.btnEntrusting.Click += new System.EventHandler(ButtonEntrusting_Click);
+            this.btnEntrusting.Click += new System.EventHandler(this.ButtonEntrusting_Click);
             // 
             // btnCalc
             // 
@@ -665,7 +673,7 @@ namespace HundsunExtDemo.View
             this.btnCalc.TabIndex = 0;
             this.btnCalc.Text = "计算";
             this.btnCalc.UseVisualStyleBackColor = true;
-            this.btnCalc.Click += new System.EventHandler(ButtonCalc_Click);
+            this.btnCalc.Click += new System.EventHandler(this.ButtonCalc_Click);
             // 
             // dataGridViewBuySell
             // 
@@ -858,14 +866,6 @@ namespace HundsunExtDemo.View
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton11.Text = "toolStripButton11";
-            // 
-            // tsbCmdCancelAdd
-            // 
-            this.tsbCmdCancelAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsbCmdCancelAdd.Image")));
-            this.tsbCmdCancelAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCmdCancelAdd.Name = "tsbCmdCancelAdd";
-            this.tsbCmdCancelAdd.Size = new System.Drawing.Size(76, 22);
-            this.tsbCmdCancelAdd.Text = "撤销追加";
             // 
             // MainForm
             // 
