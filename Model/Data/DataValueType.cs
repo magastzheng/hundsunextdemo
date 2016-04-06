@@ -9,9 +9,9 @@ namespace Model.Data
     public enum DataValueType
     {
         Int = 0,
+        Float,
         Char,
         String,
-        Float,
         Binary,
         Unknown,
     }

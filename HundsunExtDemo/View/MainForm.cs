@@ -1,6 +1,7 @@
 ﻿using Config;
 using Controls;
 using Model;
+using Model.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,10 @@ namespace HundsunExtDemo.View
 
             var eiItems = GetDefaultEntrustData();
             FillEntrustGrid(eiItems);
+
+            Dictionary<string, string> efColDataMap;
+            var efDataSet = GenerateEntrustFlowData(out efColDataMap);
+            FillEntrustFlow(efDataSet, efColDataMap);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -571,6 +576,77 @@ namespace HundsunExtDemo.View
         }
         #endregion
 
+        #region 委托流水
+
+        private Model.Data.DataSet GenerateEntrustFlowData(out Dictionary<string, string> colDataMap)
+        {
+            Model.Data.DataSet dataSet = new Model.Data.DataSet 
+            {
+                FunctionCode = FunctionCode.QueryEntrustInstance,
+                Rows = new List<Model.Data.DataRow>()
+            };
+
+            const string CHAR = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Random r = new Random((int)DateTime.Now.Ticks);
+            colDataMap = new Dictionary<string, string>();
+            for (int i = 0; i < 10; i++)
+            {
+                Model.Data.DataRow dataRow = new Model.Data.DataRow();
+                dataRow.Columns = new Dictionary<string, Model.Data.DataValue>();
+
+                foreach (HSGridColumn column in this.dataGridViewEntrustFlow.GridColumns)
+                {
+                    if (!colDataMap.ContainsKey(column.Name))
+                    {
+                        colDataMap.Add(column.Name, column.Name);
+                    }
+
+                    Model.Data.DataValue dataValue = new Model.Data.DataValue();
+                    dataValue.Type = column.ValueType;
+
+                    switch (column.ValueType)
+                    {
+                        case Model.Data.DataValueType.Int:
+                            {
+                                dataValue.Value = r.Next(1, 100000);
+                            }
+                            break;
+                        case Model.Data.DataValueType.Float:
+                            {
+                                dataValue.Value = 100000 * r.NextDouble();
+                            }
+                            break;
+                        case Model.Data.DataValueType.Char:
+                        case Model.Data.DataValueType.String:
+                            {
+                                StringBuilder str = new StringBuilder();
+                                for (int j = 0; j < 15; j++)
+                                {
+                                    int temp = r.Next(0, 1000000);
+                                    int index = temp % 36;
+                                    str.Append(CHAR[index]);
+                                }
+
+                                dataValue.Value = str.ToString();
+                            }
+                            break;
+                    }
+
+                    dataRow.Columns[column.Name] = dataValue;
+                }
+
+                dataSet.Rows.Add(dataRow);
+            }
+
+            return dataSet;
+        }
+
+        private void FillEntrustFlow(Model.Data.DataSet dataSet, Dictionary<string, string> colDataMap)
+        {
+            this.dataGridViewEntrustFlow.FillData(dataSet, colDataMap);
+        }
+        #endregion
+
         #region 委托
 
         private List<UIEntrustItem> GetDefaultEntrustData()
@@ -877,6 +953,15 @@ namespace HundsunExtDemo.View
             //计算委托金额
         }
 
+        private void ButtonUnSelectAll_Click(object sender, System.EventArgs e)
+        {
+            this.dataGridViewEntrustFlow.SelectAll(false);
+        }
+
+        private void ButtonSelectAll_Click(object sender, System.EventArgs e)
+        {
+            this.dataGridViewEntrustFlow.SelectAll(true);
+        }
         #endregion
 
         #region common operation of controls

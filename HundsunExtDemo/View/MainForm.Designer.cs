@@ -792,6 +792,7 @@ namespace HundsunExtDemo.View
             this.btnUnselectAll.TabIndex = 1;
             this.btnUnselectAll.Text = "反选";
             this.btnUnselectAll.UseVisualStyleBackColor = true;
+            this.btnUnselectAll.Click += new System.EventHandler(ButtonUnSelectAll_Click);
             // 
             // btnSelectAll
             // 
@@ -801,6 +802,7 @@ namespace HundsunExtDemo.View
             this.btnSelectAll.TabIndex = 0;
             this.btnSelectAll.Text = "全选";
             this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(ButtonSelectAll_Click);
             // 
             // tabParentDealFlow
             // 

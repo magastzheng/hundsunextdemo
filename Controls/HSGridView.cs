@@ -68,7 +68,7 @@ namespace Controls
 
                 int rowIndex = this.Rows.Add();
                 DataGridViewRow row = this.Rows[rowIndex];
-
+                bool isSelected = false;
                 foreach(HSGridColumn col in _columns)
                 {
 
@@ -87,6 +87,17 @@ namespace Controls
                     switch (col.ColumnType)
                     {
                         case HSGridColumnType.CheckBox:
+                            {
+                                if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]))
+                                {
+                                    string dataKey = colDataMap[col.Name];
+                                    int targetValue = dataRow.Columns[dataKey].GetInt();
+                                    isSelected = targetValue > 0 ? true : false;
+                                    row.Cells[col.Name].Value = isSelected;
+                                    //FillDataCell(ref row, col, dataRow.Columns[dataKey]);
+                                }
+                            }
+                            break;
                         case HSGridColumnType.Text:
                             {
                                 if (colDataMap.ContainsKey(col.Name) && dataRow.Columns.ContainsKey(colDataMap[col.Name]))
@@ -112,6 +123,21 @@ namespace Controls
                             break;
                     }
                 }
+
+                SetSelectionRowBackground(rowIndex, isSelected);
+            }
+        }
+
+        public void SelectAll(bool isSelected)
+        {
+            foreach (DataGridViewRow row in this.Rows)
+            {
+                int cbColIndex = GetCheckBoxColumnIndex();
+                if (cbColIndex < 0)
+                    return;
+
+                row.Cells[cbColIndex].Value = isSelected;
+                SetSelectionRowBackground(row, isSelected);
             }
         }
 
@@ -235,19 +261,18 @@ namespace Controls
 
             if (e.ColumnIndex == cbColIndex)
             {
-                SwitchSelection(dgv, e.RowIndex, e.ColumnIndex);
+                SwitchSelection(row, e.ColumnIndex);
             }
         }
 
-        private void SwitchSelection(DataGridView dgv, int rowIndex, int colIndex)
+        private void SwitchSelection(DataGridViewRow row, int colIndex)
         {
-            DataGridViewRow row = dgv.Rows[rowIndex];
             bool currentStatus = (bool)row.Cells[colIndex].EditedFormattedValue;
 
             if (currentStatus)
             {
                 row.Cells[colIndex].Value = true;
-                SetSelectionRowBackground(rowIndex, true);
+                SetSelectionRowBackground(row, true);
 
                 //update the related datagridview if it needs              
                 if (_updateRelatedDataGrid != null)
@@ -260,7 +285,7 @@ namespace Controls
             else
             {
                 row.Cells[colIndex].Value = false;
-                SetSelectionRowBackground(rowIndex, false);
+                SetSelectionRowBackground(row, false);
 
                 if (_updateRelatedDataGrid != null)
                 {
@@ -350,6 +375,17 @@ namespace Controls
             }
         }
 
+        private void SetSelectionRowBackground(DataGridViewRow row, bool isSelected)
+        {
+            if (isSelected)
+            {
+                row.DefaultCellStyle.BackColor = Color.Blue;
+            }
+            else
+            {
+                row.DefaultCellStyle.BackColor = Color.White;
+            }
+        }
         #endregion
     }
 }
