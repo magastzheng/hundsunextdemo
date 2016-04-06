@@ -1,14 +1,23 @@
 ﻿[
 	{
 		"code": 10000,
+		"name_en": "func_message_heartbeat",
+		"name_zh": "心跳",
 		"param": [{
 			"name": "user_token",
 			"type": "C512"
 		}
+		],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
 		]
 	},
 	{
 		"code": 10001,
+		"name_en": "func_am_user_login",
+		"name_zh": "登录",
 		"param": [{
 			"name": "operator_no",
 			"type": "C16",
@@ -66,83 +75,428 @@
 	},
 	{
 		"code": 10002,
+		"name_en": "func_am_user_logout",
+		"name_zh": "退出登录",
 		"param": [{
 			"name": "user_token",
 			"type": "C512",
 			"require": "Y"
-		}]
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
+		]
 	},
 	{
 		"code": 30001,
+		"name_en": "func_am_fund_query",
+		"name_zh": "账户查询",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "account_code",
+			"type": "C32"
+			},{
+			"name": "account_name",
+			"type": "C32"
+			},{
+			"name": "account_type",
+			"type": "C3"
+			}
+		]
 	},
 	{
 		"code": 30002,
+		"name_en": "func_am_asset_query",
+		"name_zh": "资产单元查询",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "capital_account",
+			"type": "C16",
+			"require": "N"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "N"
+		},{
+			"name": "asset_no",
+			"type": "C16",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "capital_account",
+			"type": "C16"
+			},{
+			"name": "account_code",
+			"type": "C32"
+			},{
+			"name": "asset_no",
+			"type": "C16"
+			},{
+			"name": "asset_name",
+			"type": "C64"
+			}
+		]
 	},
 	{
 		"code": 30003,
+		"name_en": "func_am_combi_query",
+		"name_zh": "组合查询",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "capital_account",
+			"type": "C16",
+			"require": "N"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "N"
+		},{
+			"name": "asset_no",
+			"type": "C16",
+			"require": "N"
+		},{
+			"name": "combi_no",
+			"type": "C8",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "capital_account",
+			"type": "C16"
+			},{
+			"name": "account_code",
+			"type": "C32"
+			},{
+			"name": "asset_no",
+			"type": "C16"
+			},{
+			"name": "combi_no",
+			"type": "C8"
+			},{
+			"name": "combi_name",
+			"type": "C64"
+			},{
+			"name": "market_no_list",
+			"type": "C256"
+			},{
+			"name": "futu_invest_type",
+			"type": "C1"
+			},{
+			"name": "entrust_direction_list",
+			"type": "C256"
+			},{
+			"name": "invest_type_list",
+			"type": "C256"
+			},{
+			"name": "futu_invest_type_list",
+			"type": "C256"
+			},{
+			"name": "stock_type_list",
+			"type": "C256"
+			}
+		]
 	},
 	{
 		"code": 30004,
+		"name_en": "func_am_holder_query",
+		"name_zh": "交易股东查询",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "N"
+		},{
+			"name": "asset_no",
+			"type": "C16",
+			"require": "N"
+		},{
+			"name": "combi_no",
+			"type": "C8",
+			"require": "N"
+		},{
+			"name": "market_no",
+			"type": "C3",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "account_code",
+			"type": "C32"
+			},{
+			"name": "asset_no",
+			"type": "C16"
+			},{
+			"name": "combi_no",
+			"type": "C8"
+			},{
+			"name": "stockholder_id",
+			"type": "C20"
+			},{
+			"name": "market_no",
+			"type": "C3"
+			}
+		]
 	},
 	{
 		"code": 35003,
+		"name_en": "func_am_fundasset_qry",
+		"name_zh": "账户资产查询",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "Y"
+		},{
+			"name": "currency_code",
+			"type": "C3",
+			"require": "N"
+		},{
+			"name": "money_type",
+			"type": "C3",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "account_code",
+			"type": "C32"
+			},{
+			"name": "money_type",
+			"type": "C3"
+			},{
+			"name": "currency_code",
+			"type": "C3"
+			},{
+			"name": "total_asset",
+			"type": "N16.2"
+			},{
+			"name": "nav",
+			"type": "N9.3"
+			},{
+			"name": "last_nav",
+			"type": "N8.4"
+			},{
+			"name": "yesterday_nav",
+			"type": "N9.3"
+			},{
+			"name": "current_balance",
+			"type": "N16.2"
+			},{
+			"name": "begin_balance",
+			"type": "N16.2"
+			},{
+			"name": "deposit_balance",
+			"type": "N16.2"
+			},{
+			"name": "futu_deposit_balance",
+			"type": "N16.2"
+			},{
+			"name": "occupy_deposit_balance",
+			"type": "N16.2"
+			},{
+			"name": "futu_asset",
+			"type": "N16.2"
+			},{
+			"name": "stock_asset",
+			"type": "N16.2"
+			},{
+			"name": "bond_asset",
+			"type": "N16.2"
+			},{
+			"name": "fund_asset",
+			"type": "N16.2"
+			},{
+			"name": "repo_asset",
+			"type": "N16.2"
+			},{
+			"name": "other_asset",
+			"type": "N16.2"
+			},{
+			"name": "fund_share",
+			"type": "N16.2"
+			},{
+			"name": "fund_net_share",
+			"type": "N16.2"
+			},{
+			"name": "ofund_share",
+			"type": "N16.2"
+			},{
+			"name": "ofund_net_asset",
+			"type": "N16.2"
+			},{
+			"name": "payable_balance",
+			"type": "N16.2"
+			},{
+			"name": "receivable_balance",
+			"type": "N16.2"
+			}
+		]
 	},
 	{
 		"code": 35011,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
+		]
 	},
 	{
 		"code": 35012,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
+		]
 	},
 	{
 		"code": 35013,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
+		]
 	},
 	{
 		"code": 36012,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
+			}
+		]
+	},{
+		"code": 70004,
+		"name_en": "func_am_template_qry",
+		"name_zh": "现货模板信息查询",
+		"param": [{
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "template_no",
+			"type": "N8",
+			"require": "Y"
+		}],
+		"response":[
+			{
+				"name": "template_no",
+				"type": "N8"
+			},{
+				"name": "template_name",
+				"type": "C128"
+			},{
+				"name": "power_type",
+				"type": "C1"
+			},{
+				"name": "futu_amount",
+				"type": "N16"
+			},{
+				"name": "edit_operator_list",
+				"type": "C512"
+			},{
+				"name": "view_operator_list",
+				"type": "C512"
+			}
+		]
+	},{
+		"code": 70007,
+		"name_en": "func_am_template_stock_qry",
+		"name_zh": "现货模板成份股信息查询",
+		"param": [{
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "template_no",
+			"type": "N8",
+			"require": "Y"
+		}],
+		"response":[
+			{
+				"name": "template_no",
+				"type": "N8"
+			},{
+				"name": "market_no",
+				"type": "C3"
+			},{
+				"name": "stock_code",
+				"type": "C16"
+			},{
+				"name": "power_rate",
+				"type": "N16.8"
+			},{
+				"name": "replace_market_no1",
+				"type": "C3"
+			},{
+				"name": "replace_stock_code1",
+				"type": "C16"
+			},{
+				"name": "replace_power_rate1",
+				"type": "N16.8"
+			},{
+				"name": "replace_market_no2",
+				"type": "C3"
+			},{
+				"name": "replace_stock_code2",
+				"type": "C16"
+			},{
+				"name": "replace_power_rate2",
+				"type": "N16.8"
+			},{
+				"name": "replace_market_no3",
+				"type": "C3"
+			},{
+				"name": "replace_stock_code3",
+				"type": "C16"
+			},{
+				"name": "replace_power_rate3",
+				"type": "N16.8"
+			}
+			]
 	},
 	{
 		"code": 71002,
@@ -668,22 +1022,107 @@
 	},
 	{
 		"code": 91001,
+		"name_en": "func_amount_entrust",
+		"name_zh": "普通买卖委托",
 		"param": [{
-			"name": "",
-			"type": "",
-			"require": ""
-		}]
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "batch_no",
+			"type": "N8",
+			"require": "N"
+		},{
+			"name": "account_code",
+			"type": "C32",
+			"require": "N"
+		},{
+			"name": "asset_no",
+			"type": "C16",
+			"require": "N"
+		},{
+			"name": "combi_no",
+			"type": "C8",
+			"require": "N"
+		},{
+			"name": "instance_no",
+			"type": "C128",
+			"require": "N"
+		},{
+			"name": "stockholder_id",
+			"type": "C20",
+			"require": "N"
+		},{
+			"name": "report_seat",
+			"type": "C20",
+			"require": "N"
+		},{
+			"name": "market_no",
+			"type": "C3",
+			"require": "Y"
+		},{
+			"name": "stock_code",
+			"type": "C16",
+			"require": "Y"
+		},{
+			"name": "entrust_direction",
+			"type": "C3",
+			"require": "Y"
+		},{
+			"name": "price_type",
+			"type": "C1",
+			"require": "Y"
+		},{
+			"name": "entrust_price",
+			"type": "N11.4",
+			"require": "Y"
+		},{
+			"name": "entrust_amount",
+			"type": "N16.2",
+			"require": "Y"
+		},{
+			"name": "invest_type",
+			"type": "C1",
+			"require": "N"
+		},{
+			"name": "extsystem_id",
+			"type": "N8",
+			"require": "N"
+		},{
+			"name": "third_reff",
+			"type": "C256",
+			"require": "N"
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			},{
+			"name": "entrust_no",
+			"type": "N8"
+			},{
+			"name": "extsystem_id",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 91011,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
+		}],
+		"response":[{
+			"name": "",
+			"type": ""
 		}]
 	},
 	{
 		"code": 91090,
+		"name_en": "func_am_entrust_combi",
+		"name_zh": "篮子委托",
 		"param": [{
 			"name": "user_token",
 			"type": "C512",
@@ -769,6 +1208,8 @@
 	},
 	{
 		"code": 91101,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "user_token",
 			"type": "C512",
@@ -805,6 +1246,8 @@
 	},
 	{
 		"code": 91102,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "user_token",
 			"type": "C512",
@@ -841,83 +1284,153 @@
 	},
 	{
 		"code": 91104,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 31001,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 32001,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 33001,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 30010,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 91004,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 91105,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 31003,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 32003,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	},
 	{
 		"code": 34003,
+		"name_en": "",
+		"name_zh": "",
 		"param": [{
 			"name": "",
 			"type": "",
 			"require": ""
-		}]
+		}],
+		"response":[{
+			"name": "batch_no",
+			"type": "N8"
+			}
+		]
 	}
 ]
 

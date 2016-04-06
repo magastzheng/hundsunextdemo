@@ -38,6 +38,13 @@ namespace Model
         //期权可用保证金查询
         QueryOptionMargin = 35008,
 
+
+        //策略 现货模板信息查询
+        QuerySpotTemplate = 70004,
+
+        //策略 现货模板成份股信息查询
+        QuerySpotTemplateStock = 70007,
+
         //策略 交易实例查询
         QueryTradingInstance = 71002,
 

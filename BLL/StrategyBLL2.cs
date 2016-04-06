@@ -28,9 +28,11 @@ namespace BLL
             _t2SDKWrap.Register(FunctionCode.QueryEntrustInstance, _receivedBizMsg);
             _t2SDKWrap.Register(FunctionCode.QueryDealInstance, _receivedBizMsg);
             _t2SDKWrap.Register(FunctionCode.WithdrawBasket, _receivedBizMsg);
+            _t2SDKWrap.Register(FunctionCode.QuerySpotTemplate, _receivedBizMsg);
+            _t2SDKWrap.Register(FunctionCode.QuerySpotTemplateStock, _receivedBizMsg);
         }
 
-        public ConnectionCode Query()
+        public ConnectionCode QueryTrading()
         {
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QueryTradingInstance);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
@@ -46,7 +48,7 @@ namespace BLL
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            bizMessage.SetFunction((int)FunctionCode.QueryTradingInstance);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包
@@ -138,7 +140,7 @@ namespace BLL
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            bizMessage.SetFunction((int)FunctionCode.EntrustInstanceBasket);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包
@@ -280,7 +282,7 @@ namespace BLL
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            bizMessage.SetFunction((int)FunctionCode.QueryEntrustInstance);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包
@@ -422,7 +424,7 @@ namespace BLL
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            bizMessage.SetFunction((int)FunctionCode.QueryDealInstance);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包
@@ -559,7 +561,7 @@ namespace BLL
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
-            bizMessage.SetFunction((int)FunctionCode.Login);
+            bizMessage.SetFunction((int)FunctionCode.WithdrawBasket);
             bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
 
             //业务包
@@ -619,6 +621,160 @@ namespace BLL
 
             return ConnectionCode.Success;
         }
+
+        public ConnectionCode QueryTemplate()
+        {
+            FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QuerySpotTemplate);
+            if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
+            {
+                return ConnectionCode.ErrorNoFunctionCode;
+            }
+
+            string userToken = LoginManager.Instance.LoginUser.Token;
+            if (string.IsNullOrEmpty(userToken))
+            {
+                return ConnectionCode.ErrorLogin;
+            }
+
+            CT2BizMessage bizMessage = new CT2BizMessage();
+            //初始化
+            bizMessage.SetFunction((int)FunctionCode.QuerySpotTemplate);
+            bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
+
+            //业务包
+            CT2Packer packer = new CT2Packer(2);
+            packer.BeginPack();
+            foreach (FieldItem item in functionItem.RequestFields)
+            {
+                packer.AddField(item.Name, item.Type, item.Width, item.Scale);
+            }
+
+            foreach (FieldItem item in functionItem.RequestFields)
+            {
+                switch (item.Name)
+                {
+                    case "user_token":
+                        {
+                            packer.AddStr(userToken);
+                        }
+                        break;
+                    case "template_no":
+                        {
+                            packer.AddInt(-1);
+                        }
+                        break;
+                    default:
+                        if (item.Type == PackFieldType.IntType)
+                        {
+                            packer.AddInt(-1);
+                        }
+                        else if (item.Type == PackFieldType.StringType || item.Type == PackFieldType.CharType)
+                        {
+                            packer.AddStr(item.Name);
+                        }
+                        else
+                        {
+                            packer.AddStr(item.Name);
+                        }
+                        break;
+                }
+            }
+            packer.EndPack();
+
+            unsafe
+            {
+                bizMessage.SetContent(packer.GetPackBuf(), packer.GetPackLen());
+            }
+
+            int retCode = _t2SDKWrap.SendAsync(bizMessage);
+            packer.Dispose();
+            bizMessage.Dispose();
+
+            if (retCode < 0)
+            {
+                logger.Error("查询现货模板信息失败!");
+                return ConnectionCode.ErrorConn;
+            }
+
+            return ConnectionCode.Success;
+        }
+
+        public ConnectionCode QueryTemplateStock(int templateNo)
+        {
+            FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QuerySpotTemplateStock);
+            if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
+            {
+                return ConnectionCode.ErrorNoFunctionCode;
+            }
+
+            string userToken = LoginManager.Instance.LoginUser.Token;
+            if (string.IsNullOrEmpty(userToken))
+            {
+                return ConnectionCode.ErrorLogin;
+            }
+
+            CT2BizMessage bizMessage = new CT2BizMessage();
+            //初始化
+            bizMessage.SetFunction((int)FunctionCode.QuerySpotTemplateStock);
+            bizMessage.SetPacketType(CT2tag_def.REQUEST_PACKET);
+
+            //业务包
+            CT2Packer packer = new CT2Packer(2);
+            packer.BeginPack();
+            foreach (FieldItem item in functionItem.RequestFields)
+            {
+                packer.AddField(item.Name, item.Type, item.Width, item.Scale);
+            }
+
+            foreach (FieldItem item in functionItem.RequestFields)
+            {
+                switch (item.Name)
+                {
+                    case "user_token":
+                        {
+                            packer.AddStr(userToken);
+                        }
+                        break;
+                    case "template_no":
+                        {
+                            packer.AddInt(templateNo);
+                        }
+                        break;
+                    default:
+                        if (item.Type == PackFieldType.IntType)
+                        {
+                            packer.AddInt(-1);
+                        }
+                        else if (item.Type == PackFieldType.StringType || item.Type == PackFieldType.CharType)
+                        {
+                            packer.AddStr(item.Name);
+                        }
+                        else
+                        {
+                            packer.AddStr(item.Name);
+                        }
+                        break;
+                }
+            }
+            packer.EndPack();
+
+            unsafe
+            {
+                bizMessage.SetContent(packer.GetPackBuf(), packer.GetPackLen());
+            }
+
+            int retCode = _t2SDKWrap.SendAsync(bizMessage);
+            packer.Dispose();
+            bizMessage.Dispose();
+
+            if (retCode < 0)
+            {
+                logger.Error("查询现货模板信息失败!");
+                return ConnectionCode.ErrorConn;
+            }
+
+            return ConnectionCode.Success;
+        }
         #region
 
         public int OnReceivedBizMsg(CT2BizMessage bizMessage)
@@ -669,6 +825,16 @@ namespace BLL
                     case FunctionCode.WithdrawBasket:
                         { 
                             
+                        }
+                        break;
+                    case FunctionCode.QuerySpotTemplate:
+                        {
+
+                        }
+                        break;
+                    case FunctionCode.QuerySpotTemplateStock:
+                        {
+
                         }
                         break;
                     default:
