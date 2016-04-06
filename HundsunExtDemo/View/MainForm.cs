@@ -893,6 +893,14 @@ namespace HundsunExtDemo.View
             //this.tabPageDialFlow.Controls.Add(this.dataGridViewDealFlow);
         }
         #endregion
-    
+
+        #region toolstrip click
+        
+        private void MainRefresh_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
     }
 }
