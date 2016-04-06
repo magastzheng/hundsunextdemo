@@ -40,10 +40,10 @@ namespace HundsunExtDemo.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tlPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.tsMainRefresh = new System.Windows.Forms.ToolStripButton();
+            this.tsMainOpen = new System.Windows.Forms.ToolStripButton();
+            this.tsMainSave = new System.Windows.Forms.ToolStripButton();
+            this.tsMainSwitchOp = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.sysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,9 +56,9 @@ namespace HundsunExtDemo.View
             this.tlPanelParentCommand = new System.Windows.Forms.TableLayoutPanel();
             //this.dataGridViewCmdTrading = new System.Windows.Forms.DataGridView();
             this.toolStripCmdTrading = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.tsCmdRefresh = new System.Windows.Forms.ToolStripButton();
+            this.tsCmdUndo = new System.Windows.Forms.ToolStripButton();
+            this.tsCmdCancelRedo = new System.Windows.Forms.ToolStripButton();
             this.tabControlCmdDetail = new System.Windows.Forms.TabControl();
             this.tabChildCmdSecurity = new System.Windows.Forms.TabPage();
             this.tlPanelChildCmdSecurity = new System.Windows.Forms.TableLayoutPanel();
@@ -88,7 +88,7 @@ namespace HundsunExtDemo.View
             this.tabParentEntrustFlow = new System.Windows.Forms.TabPage();
             this.tlPanelParentEntrustFlow = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.tsEFRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             //this.dataGridViewEntrustFlow = new System.Windows.Forms.DataGridView();
             this.panelParentEntrustFlow = new System.Windows.Forms.Panel();
@@ -100,8 +100,9 @@ namespace HundsunExtDemo.View
             this.tlPanelParentDealFlow = new System.Windows.Forms.TableLayoutPanel();
             //this.dataGridViewDealFlow = new System.Windows.Forms.DataGridView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.tsDFRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.tsCmdCancelAdd = new System.Windows.Forms.ToolStripButton();
 
             //
             //GridView
@@ -177,51 +178,47 @@ namespace HundsunExtDemo.View
             // 
             this.toolStripMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
+            this.tsMainRefresh,
+            this.tsMainOpen,
+            this.tsMainSave,
+            this.tsMainSwitchOp});
             this.toolStripMain.Location = new System.Drawing.Point(0, 26);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(1033, 26);
             this.toolStripMain.TabIndex = 3;
             this.toolStripMain.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsMainRefresh
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 23);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.tsMainRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsMainRefresh.Image")));
+            this.tsMainRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsMainRefresh.Name = "tsMainRefresh";
+            this.tsMainRefresh.Size = new System.Drawing.Size(52, 23);
+            this.tsMainRefresh.Text = "刷新";
             // 
-            // toolStripButton2
+            // tsMainOpen
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 23);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.tsMainOpen.Image = ((System.Drawing.Image)(resources.GetObject("tsMainOpen.Image")));
+            this.tsMainOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsMainOpen.Name = "tsMainOpen";
+            this.tsMainOpen.Size = new System.Drawing.Size(52, 23);
+            this.tsMainOpen.Text = "打开";
             // 
-            // toolStripButton3
+            // tsMainSave
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 23);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsMainSave.Image = ((System.Drawing.Image)(resources.GetObject("tsMainSave.Image")));
+            this.tsMainSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsMainSave.Name = "tsMainSave";
+            this.tsMainSave.Size = new System.Drawing.Size(52, 23);
+            this.tsMainSave.Text = "保存";
             // 
-            // toolStripButton4
+            // tsMainSwitchOp
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 23);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.tsMainSwitchOp.Image = ((System.Drawing.Image)(resources.GetObject("tsMainSwitchOp.Image")));
+            this.tsMainSwitchOp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsMainSwitchOp.Name = "tsMainSwitchOp";
+            this.tsMainSwitchOp.Size = new System.Drawing.Size(88, 23);
+            this.tsMainSwitchOp.Text = "更换操作员";
             // 
             // menuStripMain
             // 
@@ -351,41 +348,39 @@ namespace HundsunExtDemo.View
             // toolStripCmdTrading
             // 
             this.toolStripCmdTrading.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7});
+            this.tsCmdRefresh,
+            this.tsCmdUndo,
+            this.tsCmdCancelRedo,
+            this.tsCmdCancelAdd});
             this.toolStripCmdTrading.Location = new System.Drawing.Point(0, 0);
             this.toolStripCmdTrading.Name = "toolStripCmdTrading";
             this.toolStripCmdTrading.Size = new System.Drawing.Size(774, 25);
             this.toolStripCmdTrading.TabIndex = 1;
             this.toolStripCmdTrading.Text = "toolStrip1";
             // 
-            // toolStripButton5
+            // tsCmdRefresh
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.tsCmdRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdRefresh.Image")));
+            this.tsCmdRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdRefresh.Name = "tsCmdRefresh";
+            this.tsCmdRefresh.Size = new System.Drawing.Size(52, 22);
+            this.tsCmdRefresh.Text = "刷新";
             // 
-            // toolStripButton6
+            // tsCmdUndo
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "toolStripButton6";
+            this.tsCmdUndo.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdUndo.Image")));
+            this.tsCmdUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdUndo.Name = "tsCmdUndo";
+            this.tsCmdUndo.Size = new System.Drawing.Size(52, 22);
+            this.tsCmdUndo.Text = "撤单";
             // 
-            // toolStripButton7
+            // tsCmdCancelRedo
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "刷新";
+            this.tsCmdCancelRedo.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdCancelRedo.Image")));
+            this.tsCmdCancelRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdCancelRedo.Name = "tsCmdCancelRedo";
+            this.tsCmdCancelRedo.Size = new System.Drawing.Size(52, 22);
+            this.tsCmdCancelRedo.Text = "撤补";
             // 
             // tabControlCmdDetail
             // 
@@ -406,7 +401,7 @@ namespace HundsunExtDemo.View
             this.tabChildCmdSecurity.Location = new System.Drawing.Point(4, 22);
             this.tabChildCmdSecurity.Name = "tabChildCmdSecurity";
             this.tabChildCmdSecurity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChildCmdSecurity.Size = new System.Drawing.Size(770, 120);
+            this.tabChildCmdSecurity.Size = new System.Drawing.Size(766, 116);
             this.tabChildCmdSecurity.TabIndex = 0;
             this.tabChildCmdSecurity.Text = "指令证券";
             this.tabChildCmdSecurity.UseVisualStyleBackColor = true;
@@ -423,7 +418,7 @@ namespace HundsunExtDemo.View
             this.tlPanelChildCmdSecurity.RowCount = 2;
             this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tlPanelChildCmdSecurity.Size = new System.Drawing.Size(764, 114);
+            this.tlPanelChildCmdSecurity.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildCmdSecurity.TabIndex = 0;
             // 
             // dataGridViewCmdSecurity
@@ -433,7 +428,7 @@ namespace HundsunExtDemo.View
             this.dataGridViewCmdSecurity.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCmdSecurity.Name = "dataGridViewCmdSecurity";
             this.dataGridViewCmdSecurity.RowTemplate.Height = 23;
-            this.dataGridViewCmdSecurity.Size = new System.Drawing.Size(758, 96);
+            this.dataGridViewCmdSecurity.Size = new System.Drawing.Size(754, 87);
             this.dataGridViewCmdSecurity.TabIndex = 0;
             // 
             // tabChildEntrustFlow
@@ -467,7 +462,7 @@ namespace HundsunExtDemo.View
             this.tabChildDealFlow.Location = new System.Drawing.Point(4, 22);
             this.tabChildDealFlow.Name = "tabChildDealFlow";
             this.tabChildDealFlow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChildDealFlow.Size = new System.Drawing.Size(770, 120);
+            this.tabChildDealFlow.Size = new System.Drawing.Size(766, 116);
             this.tabChildDealFlow.TabIndex = 2;
             this.tabChildDealFlow.Text = "成交流水";
             this.tabChildDealFlow.UseVisualStyleBackColor = true;
@@ -483,7 +478,7 @@ namespace HundsunExtDemo.View
             this.tlPanelChildDealFlow.RowCount = 2;
             this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tlPanelChildDealFlow.Size = new System.Drawing.Size(764, 114);
+            this.tlPanelChildDealFlow.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildDealFlow.TabIndex = 0;
             // 
             // splitContainerChildMarket
@@ -547,7 +542,7 @@ namespace HundsunExtDemo.View
             this.buysellPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buysellPanel.Location = new System.Drawing.Point(3, 3);
             this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(221, 124);
+            this.buysellPanel.Size = new System.Drawing.Size(221, 110);
             this.buysellPanel.TabIndex = 3;
             // 
             // btnEntrust
@@ -646,9 +641,9 @@ namespace HundsunExtDemo.View
             this.panelEntrust.Controls.Add(this.btnEntrusting);
             this.panelEntrust.Controls.Add(this.btnCalc);
             this.panelEntrust.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEntrust.Location = new System.Drawing.Point(3, 249);
+            this.panelEntrust.Location = new System.Drawing.Point(3, 258);
             this.panelEntrust.Name = "panelEntrust";
-            this.panelEntrust.Size = new System.Drawing.Size(221, 38);
+            this.panelEntrust.Size = new System.Drawing.Size(221, 29);
             this.panelEntrust.TabIndex = 11;
             // 
             // btnEntrusting
@@ -673,13 +668,13 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 133);
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 119);
             this.dataGridViewBuySell.Name = "dataGridViewBuySell";
             this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(221, 110);
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(221, 133);
             this.dataGridViewBuySell.TabIndex = 12;
-            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(DataGridViewBuySell_CellMouseClick);
-            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(DataGridViewBuySell_EditingControlShowing); 
+            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewBuySell_CellMouseClick);
+            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
             // 
             // tabParentEntrustFlow
             // 
@@ -713,7 +708,7 @@ namespace HundsunExtDemo.View
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
+            this.tsEFRefresh,
             this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -721,14 +716,13 @@ namespace HundsunExtDemo.View
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton8
+            // tsEFRefresh
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButton8";
+            this.tsEFRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsEFRefresh.Image")));
+            this.tsEFRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEFRefresh.Name = "tsEFRefresh";
+            this.tsEFRefresh.Size = new System.Drawing.Size(52, 22);
+            this.tsEFRefresh.Text = "刷新";
             // 
             // toolStripButton9
             // 
@@ -743,10 +737,10 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewEntrustFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEntrustFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEntrustFlow.Location = new System.Drawing.Point(3, 44);
+            this.dataGridViewEntrustFlow.Location = new System.Drawing.Point(3, 28);
             this.dataGridViewEntrustFlow.Name = "dataGridViewEntrustFlow";
             this.dataGridViewEntrustFlow.RowTemplate.Height = 23;
-            this.dataGridViewEntrustFlow.Size = new System.Drawing.Size(1007, 327);
+            this.dataGridViewEntrustFlow.Size = new System.Drawing.Size(1007, 360);
             this.dataGridViewEntrustFlow.TabIndex = 0;
             // 
             // panelParentEntrustFlow
@@ -756,14 +750,14 @@ namespace HundsunExtDemo.View
             this.panelParentEntrustFlow.Controls.Add(this.btnUnselectAll);
             this.panelParentEntrustFlow.Controls.Add(this.btnSelectAll);
             this.panelParentEntrustFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelParentEntrustFlow.Location = new System.Drawing.Point(3, 377);
+            this.panelParentEntrustFlow.Location = new System.Drawing.Point(3, 394);
             this.panelParentEntrustFlow.Name = "panelParentEntrustFlow";
-            this.panelParentEntrustFlow.Size = new System.Drawing.Size(1007, 37);
+            this.panelParentEntrustFlow.Size = new System.Drawing.Size(1007, 20);
             this.panelParentEntrustFlow.TabIndex = 2;
             // 
             // btnCancelAdd
             // 
-            this.btnCancelAdd.Location = new System.Drawing.Point(248, 4);
+            this.btnCancelAdd.Location = new System.Drawing.Point(248, 0);
             this.btnCancelAdd.Name = "btnCancelAdd";
             this.btnCancelAdd.Size = new System.Drawing.Size(75, 23);
             this.btnCancelAdd.TabIndex = 3;
@@ -772,7 +766,7 @@ namespace HundsunExtDemo.View
             // 
             // btnCancelSelect
             // 
-            this.btnCancelSelect.Location = new System.Drawing.Point(166, 2);
+            this.btnCancelSelect.Location = new System.Drawing.Point(166, 0);
             this.btnCancelSelect.Name = "btnCancelSelect";
             this.btnCancelSelect.Size = new System.Drawing.Size(75, 23);
             this.btnCancelSelect.TabIndex = 2;
@@ -781,7 +775,7 @@ namespace HundsunExtDemo.View
             // 
             // btnUnselectAll
             // 
-            this.btnUnselectAll.Location = new System.Drawing.Point(84, 3);
+            this.btnUnselectAll.Location = new System.Drawing.Point(84, 0);
             this.btnUnselectAll.Name = "btnUnselectAll";
             this.btnUnselectAll.Size = new System.Drawing.Size(75, 23);
             this.btnUnselectAll.TabIndex = 1;
@@ -790,7 +784,7 @@ namespace HundsunExtDemo.View
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(3, 3);
+            this.btnSelectAll.Location = new System.Drawing.Point(3, 0);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
             this.btnSelectAll.TabIndex = 0;
@@ -828,16 +822,16 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewDealFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDealFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDealFlow.Location = new System.Drawing.Point(3, 44);
+            this.dataGridViewDealFlow.Location = new System.Drawing.Point(3, 28);
             this.dataGridViewDealFlow.Name = "dataGridViewDealFlow";
             this.dataGridViewDealFlow.RowTemplate.Height = 23;
-            this.dataGridViewDealFlow.Size = new System.Drawing.Size(1007, 327);
+            this.dataGridViewDealFlow.Size = new System.Drawing.Size(1007, 360);
             this.dataGridViewDealFlow.TabIndex = 0;
             // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton10,
+            this.tsDFRefresh,
             this.toolStripButton11});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -845,14 +839,13 @@ namespace HundsunExtDemo.View
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripButton10
+            // tsDFRefresh
             // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton10.Text = "toolStripButton10";
+            this.tsDFRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsDFRefresh.Image")));
+            this.tsDFRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsDFRefresh.Name = "tsDFRefresh";
+            this.tsDFRefresh.Size = new System.Drawing.Size(52, 22);
+            this.tsDFRefresh.Text = "刷新";
             // 
             // toolStripButton11
             // 
@@ -863,6 +856,14 @@ namespace HundsunExtDemo.View
             this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton11.Text = "toolStripButton11";
             // 
+            // tsCmdCancelAdd
+            // 
+            this.tsCmdCancelAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdCancelAdd.Image")));
+            this.tsCmdCancelAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdCancelAdd.Name = "tsCmdCancelAdd";
+            this.tsCmdCancelAdd.Size = new System.Drawing.Size(76, 22);
+            this.tsCmdCancelAdd.Text = "撤销追加";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -870,8 +871,8 @@ namespace HundsunExtDemo.View
             this.ClientSize = new System.Drawing.Size(1033, 536);
             this.Controls.Add(this.tlPanelMain);
             this.Name = "MainForm";
-            this.Text = "策略交易";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "策略交易";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tlPanelMain.ResumeLayout(false);
             this.tlPanelMain.PerformLayout();
@@ -968,10 +969,10 @@ namespace HundsunExtDemo.View
         private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStripMain;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton tsMainRefresh;
+        private System.Windows.Forms.ToolStripButton tsMainOpen;
+        private System.Windows.Forms.ToolStripButton tsMainSave;
+        private System.Windows.Forms.ToolStripButton tsMainSwitchOp;
 
         private HSGridView dataGridViewCmdTrading;
         private HSGridView dataGridViewCmdSecurity;
@@ -986,14 +987,14 @@ namespace HundsunExtDemo.View
         //private System.Windows.Forms.DataGridView dataGridViewDealFlow;
 
         private System.Windows.Forms.ToolStrip toolStripCmdTrading;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton tsCmdRefresh;
+        private System.Windows.Forms.ToolStripButton tsCmdUndo;
+        private System.Windows.Forms.ToolStripButton tsCmdCancelRedo;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton tsEFRefresh;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripButton tsDFRefresh;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.Panel panelParentEntrustFlow;
         private System.Windows.Forms.Button btnUnselectAll;
@@ -1002,5 +1003,6 @@ namespace HundsunExtDemo.View
         private System.Windows.Forms.Button btnCancelSelect;
         private System.Windows.Forms.TableLayoutPanel tlPanelChildEntrustFlow;
         private System.Windows.Forms.TableLayoutPanel tlPanelChildDealFlow;
+        private System.Windows.Forms.ToolStripButton tsCmdCancelAdd;
     }
 }
