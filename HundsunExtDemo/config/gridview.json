@@ -17,6 +17,14 @@
 		"visible": 1,
 		"readonly": 1
 		},{
+		"name": "tc_monitorunit",
+		"text": "监控单元",
+		"width": 80,
+		"columntype": 0,
+		"valuetype": 0,
+		"visible": 1,
+		"readonly": 1
+		}, {
 		"name": "tc_commandtype",
 		"text": "指令类型",
 		"width": 80,
@@ -195,14 +203,6 @@
 		},{
 		"name": "tc_instanceno",
 		"text": "实例编号",
-		"width": 80,
-		"columntype": 0,
-		"valuetype": 0,
-		"visible": 1,
-		"readonly": 1
-		},{
-		"name": "tc_monitorunit",
-		"text": "监控单元",
 		"width": 80,
 		"columntype": 0,
 		"valuetype": 0,

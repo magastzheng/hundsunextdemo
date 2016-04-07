@@ -366,6 +366,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdRefresh.Name = "tsbCmdRefresh";
             this.tsbCmdRefresh.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdRefresh.Text = "刷新";
+            this.tsbCmdRefresh.Click += new System.EventHandler(ToolStripButton_CmdRefresh_Click);
             // 
             // tsbCmdUndo
             // 
@@ -374,6 +375,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdUndo.Name = "tsbCmdUndo";
             this.tsbCmdUndo.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdUndo.Text = "撤单";
+            this.tsbCmdUndo.Click += new System.EventHandler(ToolStripButton_CmdUndo_Click);
             // 
             // tsbCmdCancelRedo
             // 
@@ -382,6 +384,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdCancelRedo.Name = "tsbCmdCancelRedo";
             this.tsbCmdCancelRedo.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdCancelRedo.Text = "撤补";
+            this.tsbCmdCancelRedo.Click += new System.EventHandler(ToolStripButton_CmdCancelRedo_Click);
             // 
             // tsbCmdCancelAdd
             // 

@@ -1051,6 +1051,28 @@ namespace HundsunExtDemo.View
             throw new System.NotImplementedException();
         }
 
+        private void ToolStripButton_CmdRefresh_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void ToolStripButton_CmdCancelRedo_Click(object sender, System.EventArgs e)
+        {
+            CancelRedoForm cancelRedoForm = new CancelRedoForm();
+            cancelRedoForm.Owner = this;
+            cancelRedoForm.ShowDialog();
+            if (cancelRedoForm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            { 
+            
+            }
+            
+            throw new System.NotImplementedException();
+        }
+
+        private void ToolStripButton_CmdUndo_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
         #endregion
     }
 }
