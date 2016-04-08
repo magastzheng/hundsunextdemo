@@ -24,10 +24,8 @@ namespace HundsunExtDemo.View
         }
         private bool _isExit = true;
 
-        private LoginBLL2 _loginBLL;
-        public LoginForm(LoginBLL2 loginBLL)
+        public LoginForm()
         {
-            this._loginBLL = loginBLL;
             InitializeComponent();
         }
 
@@ -52,26 +50,17 @@ namespace HundsunExtDemo.View
             string password = this.tbOperatorPwd.Text;
             Console.WriteLine("user: " + userName + " " + "Password: " + password);
 
-            
-            User user = new User
+            var retCode = _loginController.Login(userName, password);
+            if(retCode == (int)ConnectionCode.Success)
             {
-                Operator = userName,
-                Password = password
-            };
+                var gridConfig = ConfigManager.Instance.GetGridConfig();
+                MainForm mainForm = new MainForm(gridConfig);
+                MainController mainController = new MainController(mainForm, _loginController.T2SDKWrap);
+                Program._s_mainfrmController = mainController;
             
-            //if(_loginBLL.Login(user) == ConnectionCode.Success)
-            
-            var retCode = _loginBLL.Login(user);
-            //if(retCode == ConnectionCode.Success)
-            //{
-            var gridConfig = ConfigManager.Instance.GetGridConfig();
-            MainForm mainForm = new MainForm(gridConfig);
-            MainController mainController = new MainController(mainForm);
-            Program._s_mainfrmController = mainController;
-            
-            this._isExit = false;
-            this.Close();
-            //}
+                this._isExit = false;
+                this.Close();
+            }
         }
 
         public void Exit()

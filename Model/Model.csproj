@@ -56,6 +56,7 @@
     <Compile Include="config\FunctionConfigItem.cs" />
     <Compile Include="PackageType.cs" />
     <Compile Include="PackFieldType.cs" />
+    <Compile Include="strategy\AccountItem.cs" />
     <Compile Include="strategy\TradingInstance.cs" />
     <Compile Include="t2sdk\MarketCode.cs" />
     <Compile Include="UICommandSecurityItem.cs" />

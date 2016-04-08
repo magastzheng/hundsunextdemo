@@ -17,8 +17,20 @@ namespace Model
         //退出登录
         Logout = 10002,
 
+        //内存数据查询
+        QuerymemoryData = 10009,
+
+        //账户查询
+        QueryAccount = 30001,
+
+        //资产单元查询
+        QueryAssetUnit = 30002,
+
         //组合查询
         QueryPortfolio = 30003,
+
+        //交易股东查询
+        QueryHolder = 30004,
 
         //组合持仓查询
         QueryHolding = 35001,
@@ -38,6 +50,8 @@ namespace Model
         //期权可用保证金查询
         QueryOptionMargin = 35008,
 
+        //套利 现货模板信息查询
+        QueryTradingInstance1 = 70002,
 
         //策略 现货模板信息查询
         QuerySpotTemplate = 70004,

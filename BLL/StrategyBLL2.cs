@@ -799,6 +799,7 @@ namespace BLL
 
             if (unpacker != null)
             {
+                Console.WriteLine("功能号：" + iFunction);
                 _t2SDKWrap.PrintUnPack(unpacker);
                 switch ((FunctionCode)iFunction)
                 {

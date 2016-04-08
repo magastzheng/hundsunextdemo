@@ -49,9 +49,9 @@ namespace HundsunExtDemo
 
             T2SDKWrap t2SDKWrap = new T2SDKWrap();
             t2SDKWrap.Connect();
-            LoginBLL2 loginBLL = new LoginBLL2(t2SDKWrap);
+            //LoginBLL2 loginBLL = new LoginBLL2(t2SDKWrap);
 
-            LoginController loginController = new LoginController(new LoginForm(loginBLL));
+            LoginController loginController = new LoginController(new LoginForm(), t2SDKWrap);
             Application.Run(loginController.LoginForm);
             if (_s_mainfrmController != null)
             {

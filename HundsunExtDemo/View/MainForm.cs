@@ -1,5 +1,6 @@
 ﻿using Config;
 using Controls;
+using HundsunExtDemo.Controller;
 using Model;
 using Model.UI;
 using System;
@@ -17,12 +18,27 @@ namespace HundsunExtDemo.View
     public partial class MainForm : Form
     {
         private const int MAX_ENTRUST_AMOUNT = 10;
+        private MainController _mainController;
+
+        public MainController MainController 
+        {
+            set { _mainController = value; }
+        }
 
         public MainForm(GridConfig gridConfig)
         {
             _gridConfig = gridConfig;
 
             InitializeComponent();
+        }
+
+        public void LoadData()
+        {
+            //var retCode = _mainController.StrategyBLL.QueryTrading();
+            var retCode = _mainController.StrategyBLL.QueryTemplate();
+            //retCode = _mainController.StrategyBLL.QueryTemplateStock(-1);
+            //retCode = _mainController.StrategyBLL.QueryDeal();
+            //Console.WriteLine(retCode);
         }
 
         public void SetData()
@@ -49,7 +65,8 @@ namespace HundsunExtDemo.View
             this.dataGridViewCmdTrading.UpdateRelatedDataGrid = DataGridViewCmdTrading_Select;
 
             InitializeControl();
-            SetData();
+            //SetData();
+            LoadData();
         }
 
         private void InitializeControl()
