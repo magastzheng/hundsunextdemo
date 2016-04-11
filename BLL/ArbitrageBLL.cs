@@ -3,6 +3,7 @@ using hundsun.t2sdk;
 using log4net;
 using Model;
 using Model.config;
+using Model.strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace BLL
         }
 
 
-        public ConnectionCode QueryInstance()
+        public ConnectionCode QueryInstance(AccountItem account)
         {
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QueryTradingInstance1);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
@@ -57,9 +58,9 @@ namespace BLL
                 packer.AddField(item.Name, item.Type, item.Width, item.Scale);
             }
 
-            var accounts = LoginManager.Instance.Accounts;
-            foreach (var account in accounts)
-            {
+            //var accounts = LoginManager.Instance.Accounts;
+            //foreach (var account in accounts)
+            //{
                 Console.WriteLine("Account: " + account.AccountCode + " " + account.AccountName);
                 foreach (FieldItem item in functionItem.RequestFields)
                 {
@@ -136,7 +137,7 @@ namespace BLL
                             break;
                     }
                 }
-            }
+            //}
             packer.EndPack();
 
             unsafe

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Config;
 using HundsunExtDemo.View;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,12 @@ namespace HundsunExtDemo.Controller
             this._strategyBLL = new StrategyBLL2(this._t2SDKWrap);
 
             ArbitrageBLL _arbBLL = new ArbitrageBLL(_t2SDKWrap);
-            _arbBLL.QueryInstance();
+
+            var accounts = LoginManager.Instance.Accounts;
+            foreach (var account in accounts)
+            {
+                _arbBLL.QueryInstance(account);
+            }
 
             this._mainForm = mainForm;
             this._mainForm.MainController = this;
