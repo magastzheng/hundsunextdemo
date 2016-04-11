@@ -1,5 +1,7 @@
-﻿{
-	"spotbuy":[{
+﻿[{
+	"name": "spotbuy",
+	"selected": "b0",
+	"items":[{
 			"id": "b0",
 			"order": "0",
 			"name": "市价"
@@ -119,8 +121,10 @@
 			"order": "B10",
 			"name": "买十价"
 		}
-	],
-	"spotsell":[
+	]},{
+	"name": "spotsell",
+	"selected": "s0",
+	"items":[
 		{
 			"id": "s0",
 			"order": "0",
@@ -241,8 +245,10 @@
 			"order": "S10",
 			"name": "卖十价"
 		}
-	],
-	"futurebuy": [
+	]},
+	{"name": "futurebuy",
+	"selected": "fb0",
+	"items": [
 		{
 			"id": "fb0",
 			"order": "0",
@@ -300,8 +306,10 @@
 			"order": "B5",
 			"name": "买五价"
 		}
-	],
-	"futuresell": [
+	]},
+	{"name": "futuresell",
+	"selected": "fs0",
+	"items": [
 		{
 			"id": "fs0",
 			"order": "0",
@@ -359,5 +367,70 @@
 			"order": "S5",
 			"name": "卖五价"
 		}
-	]
-}
+	]},
+	{
+		"name": "shanghaiexchangepricetype",
+		"selected": "shpt1",
+		"items":[
+			{
+				"id": "shpt1",
+				"order": "H",
+				"name": "意向申报"
+			},{
+				"id": "shpt2",
+				"order": "I",
+				"name": "定价申报"
+			},{
+				"id": "shpt3",
+				"order": "J",
+				"name": "成交申报"
+			},{
+				"id": "shpt4",
+				"order": "a",
+				"name": "五档即成剩撤"
+			},{
+				"id": "shpt5",
+				"order": "b",
+				"name": "五档即成剩转"
+			}
+		]
+	},{
+		"name": "shenzhenexchangepricetype",
+		"selected": "szpt1",
+		"items":[
+			{
+				"id": "szpt1",
+				"order": "A",
+				"name": "五档即成剩撤"
+			},{
+				"id": "szpt2",
+				"order": "C",
+				"name": "即成剩撤"
+			},{
+				"id": "szpt3",
+				"order": "D",
+				"name": "对手方最优"
+			},{
+				"id": "szpt4",
+				"order": "E",
+				"name": "本方最优"
+			},{
+				"id": "szpt5",
+				"order": "F",
+				"name": "全额成或撤"
+			},{
+				"id": "szpt6",
+				"order": "H",
+				"name": "意向申报"
+			},{
+				"id": "szpt7",
+				"order": "I",
+				"name": "定价申报"
+			},{
+				"id": "szpt8",
+				"order": "J",
+				"name": "成交申报"
+			}
+		]
+	}
+]

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class BuySellItem
+    public class ComboOptionItem
     {
         public string Id { get; set; }
         public string Order { get; set; }
@@ -16,5 +16,12 @@ namespace Model
         {
             return string.Format("{0}  {1}", Order, Name);
         }
+    }
+
+    public class ComboOption
+    {
+        public string Name { get; set; }
+        public string Selected { get; set; }
+        public List<ComboOptionItem> Items { get; set; }
     }
 }

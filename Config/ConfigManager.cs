@@ -10,7 +10,7 @@ namespace Config
     {
         private readonly static ConfigManager _instance = new ConfigManager();
 
-        private BuySellConfig _buySellConfig;
+        private ComboConfig _comboConfig;
         private FunctionConfig _functionConfig;
         private SystemConfig _systemConfig;
         private TerminalConfig _terminalConfig;
@@ -28,7 +28,7 @@ namespace Config
 
         private int Init()
         {
-            _buySellConfig = new BuySellConfig();
+            _comboConfig = new ComboConfig();
             _functionConfig = new FunctionConfig();
             _systemConfig = new SystemConfig();
             _terminalConfig = new TerminalConfig(_systemConfig);
@@ -42,9 +42,9 @@ namespace Config
 
         public static ConfigManager Instance { get { return _instance; } }
 
-        public BuySellConfig GetBuySellConfig()
+        public ComboConfig GetComboConfig()
         {
-            return _instance._buySellConfig;
+            return _instance._comboConfig;
         }
 
         public FunctionConfig GetFunctionConfig()

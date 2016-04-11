@@ -8,9 +8,9 @@ namespace Model
 {
     public class BuySellOption
     {
-        public List<BuySellItem> SpotBuy { get; set; }
-        public List<BuySellItem> SpotSell { get; set; }
-        public List<BuySellItem> FutureBuy { get; set; }
-        public List<BuySellItem> FutureSell { get; set; }
+        public List<ComboOptionItem> SpotBuy { get; set; }
+        public List<ComboOptionItem> SpotSell { get; set; }
+        public List<ComboOptionItem> FutureBuy { get; set; }
+        public List<ComboOptionItem> FutureSell { get; set; }
     }
 }

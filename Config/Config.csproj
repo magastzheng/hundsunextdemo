@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuySellConfig.cs" />
+    <Compile Include="ComboConfig.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="FileUtil.cs" />
     <Compile Include="FunctionConfig.cs" />

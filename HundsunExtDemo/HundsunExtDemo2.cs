@@ -55,20 +55,20 @@ namespace HundsunExtDemo
         #region combobox
         private void InitializeCombobox()
         {
-            var spotBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotBuy;
-            SetComboBox(this.comboBoxSpotBuy, spotBuy);
+            //var spotBuy = ConfigManager.Instance.GetComboConfig().BuySellOption.SpotBuy;
+            //SetComboBox(this.comboBoxSpotBuy, spotBuy);
 
-            var spotSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotSell;
-            SetComboBox(this.comboBoxSpotSell, spotSell);
+            //var spotSell = ConfigManager.Instance.GetComboConfig().BuySellOption.SpotSell;
+            //SetComboBox(this.comboBoxSpotSell, spotSell);
 
-            var futureBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureBuy;
-            SetComboBox(this.comboBoxFutureBuy, futureBuy);
+            //var futureBuy = ConfigManager.Instance.GetComboConfig().BuySellOption.FutureBuy;
+            //SetComboBox(this.comboBoxFutureBuy, futureBuy);
 
-            var futureSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureSell;
-            SetComboBox(this.comboBoxFutureSell, futureSell);
+            //var futureSell = ConfigManager.Instance.GetComboConfig().BuySellOption.FutureSell;
+            //SetComboBox(this.comboBoxFutureSell, futureSell);
         }
 
-        private void SetComboBox(ComboBox comboBox, List<BuySellItem> items)
+        private void SetComboBox(ComboBox comboBox, List<ComboOptionItem> items)
         {
             foreach (var item in items)
             {
@@ -84,7 +84,7 @@ namespace HundsunExtDemo
             if (comboBox == null)
                 return;
 
-            BuySellItem selectedItem = comboBox.SelectedItem as BuySellItem;
+            ComboOptionItem selectedItem = comboBox.SelectedItem as ComboOptionItem;
             if (selectedItem == null)
                 return;
 
@@ -787,10 +787,10 @@ namespace HundsunExtDemo
 
         private void ButtonEntrusting_Click(object sender, EventArgs e)
         {
-            BuySellItem spotBuyItem = (BuySellItem)comboBoxSpotBuy.SelectedItem;
-            BuySellItem spotSellItem = (BuySellItem)comboBoxSpotSell.SelectedItem;
-            BuySellItem futureBuyItem = (BuySellItem)comboBoxFutureBuy.SelectedItem;
-            BuySellItem futureSellItem = (BuySellItem)comboBoxFutureSell.SelectedItem;
+            ComboOptionItem spotBuyItem = (ComboOptionItem)comboBoxSpotBuy.SelectedItem;
+            ComboOptionItem spotSellItem = (ComboOptionItem)comboBoxSpotSell.SelectedItem;
+            ComboOptionItem futureBuyItem = (ComboOptionItem)comboBoxFutureBuy.SelectedItem;
+            ComboOptionItem futureSellItem = (ComboOptionItem)comboBoxFutureSell.SelectedItem;
 
             Console.WriteLine(spotBuyItem);
 

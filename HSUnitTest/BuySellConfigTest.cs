@@ -14,7 +14,7 @@ namespace HSUnitTest
         [TestMethod]
         public void TestBuySellConfig()
         {
-            BuySellConfig config = new BuySellConfig();
+            ComboConfig config = new ComboConfig();
             try
             {
                 config.Init();

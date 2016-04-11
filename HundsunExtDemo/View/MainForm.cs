@@ -71,32 +71,28 @@ namespace HundsunExtDemo.View
 
         private void InitializeControl()
         {
-            //SetDataGridVieweReadOnly(this.dataGridViewCmdTrading, new List<DataGridViewColumn> { this.tc_selection });
-            //SetDataGridVieweReadOnly(this.dataGridViewDealFlow, new List<DataGridViewColumn>());
-            //SetDataGridVieweReadOnly(this.dataGridViewBuySell, new List<DataGridViewColumn> { this.bs_selection, this.bs_copies });
-
             InitializeCombobox();
         }
 
         #region combobox
         private void InitializeCombobox()
         {
-            var spotBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotBuy;
+            var spotBuy = ConfigManager.Instance.GetComboConfig().GetComboOption("spotbuy");
             SetComboBox(this.comboBoxSpotBuy, spotBuy);
 
-            var spotSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotSell;
+            var spotSell = ConfigManager.Instance.GetComboConfig().GetComboOption("spotsell");
             SetComboBox(this.comboBoxSpotSell, spotSell);
 
-            var futureBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureBuy;
+            var futureBuy = ConfigManager.Instance.GetComboConfig().GetComboOption("futurebuy");
             SetComboBox(this.comboBoxFutureBuy, futureBuy);
 
-            var futureSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureSell;
+            var futureSell = ConfigManager.Instance.GetComboConfig().GetComboOption("futuresell");
             SetComboBox(this.comboBoxFutureSell, futureSell);
         }
 
-        private void SetComboBox(ComboBox comboBox, List<BuySellItem> items)
+        private void SetComboBox(ComboBox comboBox, ComboOption comboOption)
         {
-            foreach (var item in items)
+            foreach (var item in comboOption.Items)
             {
                 comboBox.Items.Add(item);
             }
@@ -104,13 +100,14 @@ namespace HundsunExtDemo.View
             comboBox.SelectedIndex = 0;
         }
 
+
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = sender as ComboBox;
             if (comboBox == null)
                 return;
 
-            BuySellItem selectedItem = comboBox.SelectedItem as BuySellItem;
+            ComboOptionItem selectedItem = comboBox.SelectedItem as ComboOptionItem;
             if (selectedItem == null)
                 return;
 
@@ -840,6 +837,7 @@ namespace HundsunExtDemo.View
             else
             {
                 Console.WriteLine("输入无效值！");
+                //取消事件响应
                 e.Handled = true;
             }
         }
@@ -945,10 +943,10 @@ namespace HundsunExtDemo.View
 
         private void ButtonEntrusting_Click(object sender, EventArgs e)
         {
-            BuySellItem spotBuyItem = (BuySellItem)comboBoxSpotBuy.SelectedItem;
-            BuySellItem spotSellItem = (BuySellItem)comboBoxSpotSell.SelectedItem;
-            BuySellItem futureBuyItem = (BuySellItem)comboBoxFutureBuy.SelectedItem;
-            BuySellItem futureSellItem = (BuySellItem)comboBoxFutureSell.SelectedItem;
+            ComboOptionItem spotBuyItem = (ComboOptionItem)comboBoxSpotBuy.SelectedItem;
+            ComboOptionItem spotSellItem = (ComboOptionItem)comboBoxSpotSell.SelectedItem;
+            ComboOptionItem futureBuyItem = (ComboOptionItem)comboBoxFutureBuy.SelectedItem;
+            ComboOptionItem futureSellItem = (ComboOptionItem)comboBoxFutureSell.SelectedItem;
 
             Console.WriteLine(spotBuyItem);
 
@@ -1075,7 +1073,7 @@ namespace HundsunExtDemo.View
 
         private void ToolStripButton_CmdCancelRedo_Click(object sender, System.EventArgs e)
         {
-            CancelRedoForm cancelRedoForm = new CancelRedoForm();
+            CancelRedoForm cancelRedoForm = new CancelRedoForm(this._gridConfig);
             cancelRedoForm.Owner = this;
             cancelRedoForm.ShowDialog();
             if (cancelRedoForm.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -1089,6 +1087,21 @@ namespace HundsunExtDemo.View
         private void ToolStripButton_CmdUndo_Click(object sender, System.EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+        #endregion
+
+        #region TextBox
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
         }
         #endregion
     }

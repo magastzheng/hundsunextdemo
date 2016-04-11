@@ -939,6 +939,7 @@ namespace HundsunExtDemo.View
             this.txtBoxAddCopies.Name = "txtBoxAddCopies";
             this.txtBoxAddCopies.Size = new System.Drawing.Size(100, 21);
             this.txtBoxAddCopies.TabIndex = 1;
+            this.txtBoxAddCopies.KeyPress += new System.Windows.Forms.KeyPressEventHandler(TextBox_KeyPress);
             // 
             // lblCopyUnit
             // 

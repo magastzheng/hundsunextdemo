@@ -32,22 +32,22 @@ namespace HundsunExtDemo
         #region combobox
         private void InitializeCombobox()
         {
-            var spotBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotBuy;
+            var spotBuy = ConfigManager.Instance.GetComboConfig().GetComboOption("spotbuy"); 
             SetComboBox(this.comboBoxSpotBuy, spotBuy);
 
-            var spotSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.SpotSell;
+            var spotSell = ConfigManager.Instance.GetComboConfig().GetComboOption("spotsell"); 
             SetComboBox(this.comboBoxSpotSell, spotSell);
 
-            var futureBuy = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureBuy;
+            var futureBuy = ConfigManager.Instance.GetComboConfig().GetComboOption("futurebuy"); 
             SetComboBox(this.comboBoxFutureBuy, futureBuy);
 
-            var futureSell = ConfigManager.Instance.GetBuySellConfig().BuySellOption.FutureSell;
+            var futureSell = ConfigManager.Instance.GetComboConfig().GetComboOption("futuresell"); 
             SetComboBox(this.comboBoxFutureSell, futureSell);
         }
 
-        private void SetComboBox(ComboBox comboBox, List<BuySellItem> items)
+        private void SetComboBox(ComboBox comboBox, ComboOption comboOption)
         {
-            foreach (var item in items)
+            foreach (var item in comboOption.Items)
             {
                 comboBox.Items.Add(item);
             }
@@ -61,7 +61,7 @@ namespace HundsunExtDemo
             if (comboBox == null)
                 return;
 
-            BuySellItem selectedItem = comboBox.SelectedItem as BuySellItem;
+            ComboOptionItem selectedItem = comboBox.SelectedItem as ComboOptionItem;
             if (selectedItem == null)
                 return;
 
