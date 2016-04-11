@@ -611,7 +611,7 @@
 		},{
 		"name": "bs_commandno",
 		"text": "指令序号",
-		"width": 60,
+		"width": 80,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -619,7 +619,7 @@
 		},{
 		"name": "bs_add",
 		"text": "增加",
-		"width": 30,
+		"width": 40,
 		"columntype": 2,
 		"valuetype": 3,
 		"visible": 1,
@@ -628,7 +628,7 @@
 		},{
 		"name": "bs_copies",
 		"text": "份数",
-		"width": 30,
+		"width": 40,
 		"columntype": 0,
 		"valuetype": 0,
 		"visible": 1,
@@ -636,7 +636,7 @@
 		},{
 		"name": "bs_minus",
 		"text": "减少",
-		"width": 30,
+		"width": 40,
 		"columntype": 2,
 		"valuetype": 3,
 		"visible": 1,
