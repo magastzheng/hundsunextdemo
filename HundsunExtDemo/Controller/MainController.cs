@@ -13,6 +13,8 @@ namespace HundsunExtDemo.Controller
     {
         private MainForm _mainForm;
         private StrategyBLL2 _strategyBLL;
+        private SecurityBLL _securityBLL;
+        private ArbitrageBLL _arbitrageBLL;
         private T2SDKWrap _t2SDKWrap;
         public MainForm MainForm
         {
@@ -24,19 +26,30 @@ namespace HundsunExtDemo.Controller
             get { return _strategyBLL; }
         }
 
+        public SecurityBLL SecurityBLL
+        {
+            get { return _securityBLL; }
+        }
+
+        public ArbitrageBLL ArbitrageBLL
+        {
+            get { return _arbitrageBLL; }
+        }
+
         public MainController(MainForm mainForm, T2SDKWrap t2SDKWrap)
         {
             this._t2SDKWrap = t2SDKWrap;
             this._strategyBLL = new StrategyBLL2(this._t2SDKWrap);
-
-            ArbitrageBLL _arbBLL = new ArbitrageBLL(_t2SDKWrap);
+            this._securityBLL = new SecurityBLL(this._t2SDKWrap);
+            this._arbitrageBLL = new ArbitrageBLL(this._t2SDKWrap);
 
             var accounts = LoginManager.Instance.Accounts;
             foreach (var account in accounts)
             {
-                _arbBLL.QueryInstance(account);
+                _arbitrageBLL.QueryInstance(account);
             }
 
+            _arbitrageBLL.QueryMonitorItem();
             this._mainForm = mainForm;
             this._mainForm.MainController = this;
         }

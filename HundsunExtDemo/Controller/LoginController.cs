@@ -1,6 +1,8 @@
 ﻿using BLL;
+using Config;
 using HundsunExtDemo.View;
 using Model;
+using Model.strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace HundsunExtDemo.Controller
         private LoginForm _loginForm;
         private T2SDKWrap _t2SDKWrap;
         private LoginBLL2 _loginBLL;
+        
         public LoginForm LoginForm
         {
             get { return _loginForm; }
@@ -45,7 +48,7 @@ namespace HundsunExtDemo.Controller
             int retCode = (int)_loginBLL.Login(user);
             if (retCode == (int)ConnectionCode.Success)
             {
-                _loginBLL.QueryAccount();
+                _loginBLL.QueryAccount(new DataHandlerCallback(ParseAccount));
                 
                 //_loginBLL.QueryPortfolio();
                 //_loginBLL.QueryHolder();
@@ -53,6 +56,24 @@ namespace HundsunExtDemo.Controller
             }
 
             return retCode;
+        }
+
+        private void ParseAccount(DataParser parser)
+        {
+            for (int i = 1, count = parser.DataSets.Count; i < count; i++)
+            {
+                var dataSet = parser.DataSets[i];
+                foreach (var dataRow in dataSet.Rows)
+                {
+                    AccountItem acc = new AccountItem();
+                    acc.AccountCode = dataRow.Columns["account_code"].GetStr();
+                    acc.AccountName = dataRow.Columns["account_name"].GetStr();
+                    acc.AccountType = dataRow.Columns["account_type"].GetStr();
+
+                    LoginManager.Instance.AddAccount(acc);
+                }
+                break;
+            }
         }
     }
 }

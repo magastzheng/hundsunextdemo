@@ -59,6 +59,9 @@ namespace Model
         //策略 现货模板成份股信息查询
         QuerySpotTemplateStock = 70007,
 
+        //监控单元查询
+        QueryMonitorItem = 70014,
+
         //策略 交易实例查询
         QueryTradingInstance = 71002,
 

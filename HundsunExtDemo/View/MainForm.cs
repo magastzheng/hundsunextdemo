@@ -818,7 +818,7 @@ namespace HundsunExtDemo.View
                     preValue = int.Parse(dgvTxt.Text);
                 }
                 int curValue = int.Parse(e.KeyChar.ToString());
-                if (preValue * 10 + curValue < MAX_ENTRUST_AMOUNT)
+                if (preValue * 10 + curValue <= MAX_ENTRUST_AMOUNT)
                 {
                     //让操作失效
                     e.Handled = false;

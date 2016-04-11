@@ -18,6 +18,7 @@ namespace BLL
 
         private T2SDKWrap _t2SDKWrap;
         private ReceivedBizMsg _receivedBizMsg;
+        private Dictionary<FunctionCode, DataHandlerCallback> _dataHandlerMap = new Dictionary<FunctionCode, DataHandlerCallback>();
 
         public LoginBLL2(T2SDKWrap t2SDKWrap)
         {
@@ -236,7 +237,7 @@ namespace BLL
             return ConnectionCode.Success;
         }
 
-        public ConnectionCode HeartMemoryData()
+        public ConnectionCode QueryMemoryData()
         {
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QuerymemoryData);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
@@ -293,13 +294,15 @@ namespace BLL
             return ConnectionCode.Success;
         }
 
-        public ConnectionCode QueryAccount()
+        public ConnectionCode QueryAccount(DataHandlerCallback callback)
         {
             FunctionItem functionItem = ConfigManager.Instance.GetFunctionConfig().GetFunctionItem(FunctionCode.QueryAccount);
             if (functionItem == null || functionItem.RequestFields == null || functionItem.RequestFields.Count == 0)
             {
                 return ConnectionCode.ErrorLogin;
             }
+
+            AddDataHandler(FunctionCode.QueryAccount, callback);
 
             CT2BizMessage bizMessage = new CT2BizMessage();
             //初始化
@@ -692,20 +695,9 @@ namespace BLL
                         break;
                     case FunctionCode.QueryAccount:
                         {
-
-                            for (int i = 1, count = parser.DataSets.Count; i < count; i++ )
+                            if (_dataHandlerMap.ContainsKey(FunctionCode.QueryAccount))
                             {
-                                var dataSet = parser.DataSets[i];
-                                foreach (var dataRow in dataSet.Rows)
-                                {
-                                    AccountItem acc = new AccountItem();
-                                    acc.AccountCode = dataRow.Columns["account_code"].GetStr();
-                                    acc.AccountName = dataRow.Columns["account_name"].GetStr();
-                                    acc.AccountType = dataRow.Columns["account_type"].GetStr();
-
-                                    LoginManager.Instance.AddAccount(acc);
-                                }
-                                break;
+                                _dataHandlerMap[FunctionCode.QueryAccount](parser);
                             }
                         }
                         break;
@@ -725,5 +717,21 @@ namespace BLL
 
             return (int)ConnectionCode.Success;
         }
+
+        #region private method
+
+        private void AddDataHandler(FunctionCode functionCode, DataHandlerCallback callback)
+        {
+            if (!_dataHandlerMap.ContainsKey(functionCode))
+            {
+                _dataHandlerMap.Add(functionCode, callback);
+            }
+            else
+            {
+                _dataHandlerMap[functionCode] = callback;
+            }
+        }
+
+        #endregion
     }
 }

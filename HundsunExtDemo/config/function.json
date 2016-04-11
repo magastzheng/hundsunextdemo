@@ -600,6 +600,86 @@
 				"type": "N16.8"
 			}
 			]
+	},{
+		"code": 70014,
+		"name_en": "func_am_monitoritem_qry",
+		"name_zh": "监控单元查询",
+		"param": [{
+			"name": "user_token",
+			"type": "C512",
+			"require": "Y"
+		},{
+			"name": "instance_type",
+			"type": "C1",
+			"require": "N"
+		},{
+			"name": "monitoritem_no",
+			"type": "N8",
+			"require": "N"
+		}],
+		"response":[
+			{
+				"name": "monitoritem_no",
+				"type": "N8"
+			},{
+				"name": "monitoritem_name",
+				"type": "C512"
+			},{
+				"name": "instance_type",
+				"type": "C1"
+			},{
+				"name": "template_no",
+				"type": "N8"
+			},{
+				"name": "long_market_no",
+				"type": "C3"
+			},{
+				"name": "long_report_code",
+				"type": "C16"
+			},{
+				"name": "short_market_no",
+				"type": "C3"
+			},{
+				"name": "short_report_code",
+				"type": "C16"
+			},{
+				"name": "account_code",
+				"type": "C32"
+			},{
+				"name": "combi_no",
+				"type": "C8"
+			},{
+				"name": "operator_no",
+				"type": "C16"
+			},{
+				"name": "total_balance_limit",
+				"type": "N16.2"
+			},{
+				"name": "stock_balance_limit",
+				"type": "N16.2"
+			},{
+				"name": "future_amount_limit",
+				"type": "N8"
+			},{
+				"name": "single_stock_limit",
+				"type": "N16.2"
+			},{
+				"name": "loss_limit",
+				"type": "N16.4"
+			},{
+				"name": "valid_date",
+				"type": "N8"
+			},{
+				"name": "edit_operator_list",
+				"type": "C512"
+			},{
+				"name": "view_operator_list",
+				"type": "C512"
+			},{
+				"name": "remark",
+				"type": "C256"
+			}
+			]
 	},
 	{
 		"code": 71002,
@@ -1349,8 +1429,8 @@
 	},
 	{
 		"code": 91102,
-		"name_en": "",
-		"name_zh": "",
+		"name_en": "func_am_entrust_batch_no_withdraw",
+		"name_zh": "委托撤单（按委托批号撤单）",
 		"param": [{
 			"name": "user_token",
 			"type": "C512",
