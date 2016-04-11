@@ -60,6 +60,9 @@ namespace HundsunExtDemo.View
             this.tsbCmdUndo = new System.Windows.Forms.ToolStripButton();
             this.tsbCmdCancelRedo = new System.Windows.Forms.ToolStripButton();
             this.tsbCmdCancelAdd = new System.Windows.Forms.ToolStripButton();
+            this.panelCmdTradingBottom = new System.Windows.Forms.Panel();
+            this.btnCmdUnSelectAll = new System.Windows.Forms.Button();
+            this.btnCmdSelectAll = new System.Windows.Forms.Button();
             this.tabControlCmdDetail = new System.Windows.Forms.TabControl();
             this.tabChildCmdSecurity = new System.Windows.Forms.TabPage();
             this.tlPanelChildCmdSecurity = new System.Windows.Forms.TableLayoutPanel();
@@ -82,10 +85,10 @@ namespace HundsunExtDemo.View
             this.lblFuturesBuyPrice = new System.Windows.Forms.Label();
             this.lblSpotSellPrice = new System.Windows.Forms.Label();
             this.lblSpotBuyPrice = new System.Windows.Forms.Label();
+            //this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
             this.panelEntrust = new System.Windows.Forms.Panel();
             this.btnEntrusting = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
-            //this.dataGridViewBuySell = new System.Windows.Forms.DataGridView();
             this.tabParentEntrustFlow = new System.Windows.Forms.TabPage();
             this.tlPanelParentEntrustFlow = new System.Windows.Forms.TableLayoutPanel();
             this.toolStripEntrustFlow = new System.Windows.Forms.ToolStrip();
@@ -103,6 +106,13 @@ namespace HundsunExtDemo.View
             this.toolStripDealFlow = new System.Windows.Forms.ToolStrip();
             this.tsbDFRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.panelAddCopies = new System.Windows.Forms.Panel();
+            this.labelAddCopies = new System.Windows.Forms.Label();
+            this.txtBoxAddCopies = new System.Windows.Forms.TextBox();
+            this.lblCopyUnit = new System.Windows.Forms.Label();
+            this.panelChildCmdSecurity = new System.Windows.Forms.Panel();
+            this.btnCmdSecuritySelectAll = new System.Windows.Forms.Button();
+            this.btnCmdSecurityUnSelectAll = new System.Windows.Forms.Button();
 
             //
             //GridView
@@ -129,6 +139,7 @@ namespace HundsunExtDemo.View
             this.tlPanelParentCommand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).BeginInit();
             this.toolStripCmdTrading.SuspendLayout();
+            this.panelCmdTradingBottom.SuspendLayout();
             this.tabControlCmdDetail.SuspendLayout();
             this.tabChildCmdSecurity.SuspendLayout();
             this.tlPanelChildCmdSecurity.SuspendLayout();
@@ -143,8 +154,8 @@ namespace HundsunExtDemo.View
             this.splitContainerChildEntrust.SuspendLayout();
             this.tlPanelCalcEntrust.SuspendLayout();
             this.buysellPanel.SuspendLayout();
-            this.panelEntrust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).BeginInit();
+            this.panelEntrust.SuspendLayout();
             this.tabParentEntrustFlow.SuspendLayout();
             this.tlPanelParentEntrustFlow.SuspendLayout();
             this.toolStripEntrustFlow.SuspendLayout();
@@ -154,6 +165,8 @@ namespace HundsunExtDemo.View
             this.tlPanelParentDealFlow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).BeginInit();
             this.toolStripDealFlow.SuspendLayout();
+            this.panelAddCopies.SuspendLayout();
+            this.panelChildCmdSecurity.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlPanelMain
@@ -326,13 +339,14 @@ namespace HundsunExtDemo.View
             this.tlPanelParentCommand.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPanelParentCommand.Controls.Add(this.dataGridViewCmdTrading, 0, 1);
             this.tlPanelParentCommand.Controls.Add(this.toolStripCmdTrading, 0, 0);
+            this.tlPanelParentCommand.Controls.Add(this.panelCmdTradingBottom, 0, 2);
             this.tlPanelParentCommand.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPanelParentCommand.Location = new System.Drawing.Point(0, 0);
             this.tlPanelParentCommand.Name = "tlPanelParentCommand";
             this.tlPanelParentCommand.RowCount = 3;
-            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelParentCommand.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelParentCommand.Size = new System.Drawing.Size(774, 263);
             this.tlPanelParentCommand.TabIndex = 0;
             // 
@@ -340,10 +354,10 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewCmdTrading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCmdTrading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewCmdTrading.Location = new System.Drawing.Point(3, 29);
+            this.dataGridViewCmdTrading.Location = new System.Drawing.Point(3, 33);
             this.dataGridViewCmdTrading.Name = "dataGridViewCmdTrading";
             this.dataGridViewCmdTrading.RowTemplate.Height = 23;
-            this.dataGridViewCmdTrading.Size = new System.Drawing.Size(768, 204);
+            this.dataGridViewCmdTrading.Size = new System.Drawing.Size(768, 197);
             this.dataGridViewCmdTrading.TabIndex = 0;
             // 
             // toolStripCmdTrading
@@ -366,7 +380,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdRefresh.Name = "tsbCmdRefresh";
             this.tsbCmdRefresh.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdRefresh.Text = "刷新";
-            this.tsbCmdRefresh.Click += new System.EventHandler(ToolStripButton_CmdRefresh_Click);
+            this.tsbCmdRefresh.Click += new System.EventHandler(this.ToolStripButton_CmdRefresh_Click);
             // 
             // tsbCmdUndo
             // 
@@ -375,7 +389,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdUndo.Name = "tsbCmdUndo";
             this.tsbCmdUndo.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdUndo.Text = "撤单";
-            this.tsbCmdUndo.Click += new System.EventHandler(ToolStripButton_CmdUndo_Click);
+            this.tsbCmdUndo.Click += new System.EventHandler(this.ToolStripButton_CmdUndo_Click);
             // 
             // tsbCmdCancelRedo
             // 
@@ -384,7 +398,7 @@ namespace HundsunExtDemo.View
             this.tsbCmdCancelRedo.Name = "tsbCmdCancelRedo";
             this.tsbCmdCancelRedo.Size = new System.Drawing.Size(52, 22);
             this.tsbCmdCancelRedo.Text = "撤补";
-            this.tsbCmdCancelRedo.Click += new System.EventHandler(ToolStripButton_CmdCancelRedo_Click);
+            this.tsbCmdCancelRedo.Click += new System.EventHandler(this.ToolStripButton_CmdCancelRedo_Click);
             // 
             // tsbCmdCancelAdd
             // 
@@ -393,6 +407,34 @@ namespace HundsunExtDemo.View
             this.tsbCmdCancelAdd.Name = "tsbCmdCancelAdd";
             this.tsbCmdCancelAdd.Size = new System.Drawing.Size(76, 22);
             this.tsbCmdCancelAdd.Text = "撤销追加";
+            // 
+            // panelCmdTradingBottom
+            // 
+            this.panelCmdTradingBottom.Controls.Add(this.btnCmdUnSelectAll);
+            this.panelCmdTradingBottom.Controls.Add(this.btnCmdSelectAll);
+            this.panelCmdTradingBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCmdTradingBottom.Location = new System.Drawing.Point(3, 236);
+            this.panelCmdTradingBottom.Name = "panelCmdTradingBottom";
+            this.panelCmdTradingBottom.Size = new System.Drawing.Size(768, 24);
+            this.panelCmdTradingBottom.TabIndex = 2;
+            // 
+            // btnCmdUnSelectAll
+            // 
+            this.btnCmdUnSelectAll.Location = new System.Drawing.Point(99, 2);
+            this.btnCmdUnSelectAll.Name = "btnCmdUnSelectAll";
+            this.btnCmdUnSelectAll.Size = new System.Drawing.Size(75, 21);
+            this.btnCmdUnSelectAll.TabIndex = 1;
+            this.btnCmdUnSelectAll.Text = "反选";
+            this.btnCmdUnSelectAll.UseVisualStyleBackColor = true;
+            // 
+            // btnCmdSelectAll
+            // 
+            this.btnCmdSelectAll.Location = new System.Drawing.Point(7, 2);
+            this.btnCmdSelectAll.Name = "btnCmdSelectAll";
+            this.btnCmdSelectAll.Size = new System.Drawing.Size(75, 21);
+            this.btnCmdSelectAll.TabIndex = 0;
+            this.btnCmdSelectAll.Text = "全选";
+            this.btnCmdSelectAll.UseVisualStyleBackColor = true;
             // 
             // tabControlCmdDetail
             // 
@@ -422,14 +464,14 @@ namespace HundsunExtDemo.View
             // 
             this.tlPanelChildCmdSecurity.ColumnCount = 1;
             this.tlPanelChildCmdSecurity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanelChildCmdSecurity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlPanelChildCmdSecurity.Controls.Add(this.dataGridViewCmdSecurity, 0, 0);
+            this.tlPanelChildCmdSecurity.Controls.Add(this.panelChildCmdSecurity, 0, 1);
             this.tlPanelChildCmdSecurity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPanelChildCmdSecurity.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildCmdSecurity.Name = "tlPanelChildCmdSecurity";
             this.tlPanelChildCmdSecurity.RowCount = 2;
-            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelChildCmdSecurity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelChildCmdSecurity.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildCmdSecurity.TabIndex = 0;
             // 
@@ -440,7 +482,7 @@ namespace HundsunExtDemo.View
             this.dataGridViewCmdSecurity.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCmdSecurity.Name = "dataGridViewCmdSecurity";
             this.dataGridViewCmdSecurity.RowTemplate.Height = 23;
-            this.dataGridViewCmdSecurity.Size = new System.Drawing.Size(754, 87);
+            this.dataGridViewCmdSecurity.Size = new System.Drawing.Size(754, 74);
             this.dataGridViewCmdSecurity.TabIndex = 0;
             // 
             // tabChildEntrustFlow
@@ -458,13 +500,12 @@ namespace HundsunExtDemo.View
             // 
             this.tlPanelChildEntrustFlow.ColumnCount = 1;
             this.tlPanelChildEntrustFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanelChildEntrustFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlPanelChildEntrustFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPanelChildEntrustFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildEntrustFlow.Name = "tlPanelChildEntrustFlow";
             this.tlPanelChildEntrustFlow.RowCount = 2;
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelChildEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelChildEntrustFlow.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildEntrustFlow.TabIndex = 0;
             // 
@@ -483,13 +524,12 @@ namespace HundsunExtDemo.View
             // 
             this.tlPanelChildDealFlow.ColumnCount = 1;
             this.tlPanelChildDealFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanelChildDealFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlPanelChildDealFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPanelChildDealFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelChildDealFlow.Name = "tlPanelChildDealFlow";
             this.tlPanelChildDealFlow.RowCount = 2;
-            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelChildDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelChildDealFlow.Size = new System.Drawing.Size(760, 110);
             this.tlPanelChildDealFlow.TabIndex = 0;
             // 
@@ -526,15 +566,17 @@ namespace HundsunExtDemo.View
             this.tlPanelCalcEntrust.ColumnCount = 1;
             this.tlPanelCalcEntrust.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPanelCalcEntrust.Controls.Add(this.buysellPanel, 0, 0);
-            this.tlPanelCalcEntrust.Controls.Add(this.panelEntrust, 0, 2);
             this.tlPanelCalcEntrust.Controls.Add(this.dataGridViewBuySell, 0, 1);
+            this.tlPanelCalcEntrust.Controls.Add(this.panelEntrust, 0, 3);
+            this.tlPanelCalcEntrust.Controls.Add(this.panelAddCopies, 0, 2);
             this.tlPanelCalcEntrust.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPanelCalcEntrust.Location = new System.Drawing.Point(0, 0);
             this.tlPanelCalcEntrust.Name = "tlPanelCalcEntrust";
-            this.tlPanelCalcEntrust.RowCount = 3;
-            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
-            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tlPanelCalcEntrust.RowCount = 4;
+            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlPanelCalcEntrust.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlPanelCalcEntrust.Size = new System.Drawing.Size(227, 290);
             this.tlPanelCalcEntrust.TabIndex = 0;
             // 
@@ -554,7 +596,7 @@ namespace HundsunExtDemo.View
             this.buysellPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buysellPanel.Location = new System.Drawing.Point(3, 3);
             this.buysellPanel.Name = "buysellPanel";
-            this.buysellPanel.Size = new System.Drawing.Size(221, 110);
+            this.buysellPanel.Size = new System.Drawing.Size(221, 114);
             this.buysellPanel.TabIndex = 3;
             // 
             // btnEntrust
@@ -647,20 +689,32 @@ namespace HundsunExtDemo.View
             this.lblSpotBuyPrice.TabIndex = 0;
             this.lblSpotBuyPrice.Text = "现货委买价";
             // 
+            // dataGridViewBuySell
+            // 
+            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 123);
+            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
+            this.dataGridViewBuySell.RowTemplate.Height = 23;
+            this.dataGridViewBuySell.Size = new System.Drawing.Size(221, 84);
+            this.dataGridViewBuySell.TabIndex = 12;
+            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewBuySell_CellMouseClick);
+            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
+            // 
             // panelEntrust
             // 
             this.panelEntrust.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelEntrust.Controls.Add(this.btnEntrusting);
             this.panelEntrust.Controls.Add(this.btnCalc);
             this.panelEntrust.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEntrust.Location = new System.Drawing.Point(3, 258);
+            this.panelEntrust.Location = new System.Drawing.Point(3, 253);
             this.panelEntrust.Name = "panelEntrust";
-            this.panelEntrust.Size = new System.Drawing.Size(221, 29);
+            this.panelEntrust.Size = new System.Drawing.Size(221, 34);
             this.panelEntrust.TabIndex = 11;
             // 
             // btnEntrusting
             // 
-            this.btnEntrusting.Location = new System.Drawing.Point(148, 10);
+            this.btnEntrusting.Location = new System.Drawing.Point(128, 6);
             this.btnEntrusting.Name = "btnEntrusting";
             this.btnEntrusting.Size = new System.Drawing.Size(75, 23);
             this.btnEntrusting.TabIndex = 1;
@@ -670,25 +724,13 @@ namespace HundsunExtDemo.View
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(42, 10);
+            this.btnCalc.Location = new System.Drawing.Point(33, 6);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(75, 23);
             this.btnCalc.TabIndex = 0;
             this.btnCalc.Text = "计算";
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.ButtonCalc_Click);
-            // 
-            // dataGridViewBuySell
-            // 
-            this.dataGridViewBuySell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBuySell.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBuySell.Location = new System.Drawing.Point(3, 119);
-            this.dataGridViewBuySell.Name = "dataGridViewBuySell";
-            this.dataGridViewBuySell.RowTemplate.Height = 23;
-            this.dataGridViewBuySell.Size = new System.Drawing.Size(221, 133);
-            this.dataGridViewBuySell.TabIndex = 12;
-            this.dataGridViewBuySell.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewBuySell_CellMouseClick);
-            this.dataGridViewBuySell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataGridViewBuySell_EditingControlShowing);
             // 
             // tabParentEntrustFlow
             // 
@@ -705,7 +747,6 @@ namespace HundsunExtDemo.View
             // 
             this.tlPanelParentEntrustFlow.ColumnCount = 1;
             this.tlPanelParentEntrustFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanelParentEntrustFlow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlPanelParentEntrustFlow.Controls.Add(this.toolStripEntrustFlow, 0, 0);
             this.tlPanelParentEntrustFlow.Controls.Add(this.dataGridViewEntrustFlow, 0, 1);
             this.tlPanelParentEntrustFlow.Controls.Add(this.panelParentEntrustFlow, 0, 2);
@@ -713,9 +754,9 @@ namespace HundsunExtDemo.View
             this.tlPanelParentEntrustFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelParentEntrustFlow.Name = "tlPanelParentEntrustFlow";
             this.tlPanelParentEntrustFlow.RowCount = 3;
-            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
-            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelParentEntrustFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelParentEntrustFlow.Size = new System.Drawing.Size(1013, 417);
             this.tlPanelParentEntrustFlow.TabIndex = 0;
             // 
@@ -751,10 +792,10 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewEntrustFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEntrustFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEntrustFlow.Location = new System.Drawing.Point(3, 28);
+            this.dataGridViewEntrustFlow.Location = new System.Drawing.Point(3, 33);
             this.dataGridViewEntrustFlow.Name = "dataGridViewEntrustFlow";
             this.dataGridViewEntrustFlow.RowTemplate.Height = 23;
-            this.dataGridViewEntrustFlow.Size = new System.Drawing.Size(1007, 360);
+            this.dataGridViewEntrustFlow.Size = new System.Drawing.Size(1007, 351);
             this.dataGridViewEntrustFlow.TabIndex = 0;
             // 
             // panelParentEntrustFlow
@@ -764,9 +805,9 @@ namespace HundsunExtDemo.View
             this.panelParentEntrustFlow.Controls.Add(this.btnUnselectAll);
             this.panelParentEntrustFlow.Controls.Add(this.btnSelectAll);
             this.panelParentEntrustFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelParentEntrustFlow.Location = new System.Drawing.Point(3, 394);
+            this.panelParentEntrustFlow.Location = new System.Drawing.Point(3, 390);
             this.panelParentEntrustFlow.Name = "panelParentEntrustFlow";
-            this.panelParentEntrustFlow.Size = new System.Drawing.Size(1007, 20);
+            this.panelParentEntrustFlow.Size = new System.Drawing.Size(1007, 24);
             this.panelParentEntrustFlow.TabIndex = 2;
             // 
             // btnCancelAdd
@@ -795,7 +836,7 @@ namespace HundsunExtDemo.View
             this.btnUnselectAll.TabIndex = 1;
             this.btnUnselectAll.Text = "反选";
             this.btnUnselectAll.UseVisualStyleBackColor = true;
-            this.btnUnselectAll.Click += new System.EventHandler(ButtonUnSelectAll_Click);
+            this.btnUnselectAll.Click += new System.EventHandler(this.ButtonUnSelectAll_Click);
             // 
             // btnSelectAll
             // 
@@ -805,7 +846,7 @@ namespace HundsunExtDemo.View
             this.btnSelectAll.TabIndex = 0;
             this.btnSelectAll.Text = "全选";
             this.btnSelectAll.UseVisualStyleBackColor = true;
-            this.btnSelectAll.Click += new System.EventHandler(ButtonSelectAll_Click);
+            this.btnSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
             // 
             // tabParentDealFlow
             // 
@@ -828,9 +869,9 @@ namespace HundsunExtDemo.View
             this.tlPanelParentDealFlow.Location = new System.Drawing.Point(3, 3);
             this.tlPanelParentDealFlow.Name = "tlPanelParentDealFlow";
             this.tlPanelParentDealFlow.RowCount = 3;
-            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
-            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPanelParentDealFlow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlPanelParentDealFlow.Size = new System.Drawing.Size(1013, 417);
             this.tlPanelParentDealFlow.TabIndex = 0;
             // 
@@ -838,10 +879,10 @@ namespace HundsunExtDemo.View
             // 
             this.dataGridViewDealFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDealFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDealFlow.Location = new System.Drawing.Point(3, 28);
+            this.dataGridViewDealFlow.Location = new System.Drawing.Point(3, 33);
             this.dataGridViewDealFlow.Name = "dataGridViewDealFlow";
             this.dataGridViewDealFlow.RowTemplate.Height = 23;
-            this.dataGridViewDealFlow.Size = new System.Drawing.Size(1007, 360);
+            this.dataGridViewDealFlow.Size = new System.Drawing.Size(1007, 351);
             this.dataGridViewDealFlow.TabIndex = 0;
             // 
             // toolStripDealFlow
@@ -871,6 +912,73 @@ namespace HundsunExtDemo.View
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton11.Text = "toolStripButton11";
+            // 
+            // panelAddCopies
+            // 
+            this.panelAddCopies.Controls.Add(this.lblCopyUnit);
+            this.panelAddCopies.Controls.Add(this.txtBoxAddCopies);
+            this.panelAddCopies.Controls.Add(this.labelAddCopies);
+            this.panelAddCopies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAddCopies.Location = new System.Drawing.Point(3, 213);
+            this.panelAddCopies.Name = "panelAddCopies";
+            this.panelAddCopies.Size = new System.Drawing.Size(221, 34);
+            this.panelAddCopies.TabIndex = 13;
+            // 
+            // labelAddCopies
+            // 
+            this.labelAddCopies.AutoSize = true;
+            this.labelAddCopies.Location = new System.Drawing.Point(4, 7);
+            this.labelAddCopies.Name = "labelAddCopies";
+            this.labelAddCopies.Size = new System.Drawing.Size(53, 12);
+            this.labelAddCopies.TabIndex = 0;
+            this.labelAddCopies.Text = "追加份数";
+            // 
+            // txtBoxAddCopies
+            // 
+            this.txtBoxAddCopies.Location = new System.Drawing.Point(64, 5);
+            this.txtBoxAddCopies.Name = "txtBoxAddCopies";
+            this.txtBoxAddCopies.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxAddCopies.TabIndex = 1;
+            // 
+            // lblCopyUnit
+            // 
+            this.lblCopyUnit.AutoSize = true;
+            this.lblCopyUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCopyUnit.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblCopyUnit.Location = new System.Drawing.Point(171, 6);
+            this.lblCopyUnit.Name = "lblCopyUnit";
+            this.lblCopyUnit.Padding = new System.Windows.Forms.Padding(3);
+            this.lblCopyUnit.Size = new System.Drawing.Size(37, 20);
+            this.lblCopyUnit.TabIndex = 2;
+            this.lblCopyUnit.Text = "套手";
+            // 
+            // panelChildCmdSecurity
+            // 
+            this.panelChildCmdSecurity.Controls.Add(this.btnCmdSecurityUnSelectAll);
+            this.panelChildCmdSecurity.Controls.Add(this.btnCmdSecuritySelectAll);
+            this.panelChildCmdSecurity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildCmdSecurity.Location = new System.Drawing.Point(3, 83);
+            this.panelChildCmdSecurity.Name = "panelChildCmdSecurity";
+            this.panelChildCmdSecurity.Size = new System.Drawing.Size(754, 24);
+            this.panelChildCmdSecurity.TabIndex = 1;
+            // 
+            // btnCmdSecuritySelectAll
+            // 
+            this.btnCmdSecuritySelectAll.Location = new System.Drawing.Point(4, 0);
+            this.btnCmdSecuritySelectAll.Name = "btnCmdSecuritySelectAll";
+            this.btnCmdSecuritySelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnCmdSecuritySelectAll.TabIndex = 0;
+            this.btnCmdSecuritySelectAll.Text = "全选";
+            this.btnCmdSecuritySelectAll.UseVisualStyleBackColor = true;
+            // 
+            // btnCmdSecurityUnSelectAll
+            // 
+            this.btnCmdSecurityUnSelectAll.Location = new System.Drawing.Point(92, 0);
+            this.btnCmdSecurityUnSelectAll.Name = "btnCmdSecurityUnSelectAll";
+            this.btnCmdSecurityUnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnCmdSecurityUnSelectAll.TabIndex = 1;
+            this.btnCmdSecurityUnSelectAll.Text = "反选";
+            this.btnCmdSecurityUnSelectAll.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -903,6 +1011,7 @@ namespace HundsunExtDemo.View
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCmdTrading)).EndInit();
             this.toolStripCmdTrading.ResumeLayout(false);
             this.toolStripCmdTrading.PerformLayout();
+            this.panelCmdTradingBottom.ResumeLayout(false);
             this.tabControlCmdDetail.ResumeLayout(false);
             this.tabChildCmdSecurity.ResumeLayout(false);
             this.tlPanelChildCmdSecurity.ResumeLayout(false);
@@ -918,8 +1027,8 @@ namespace HundsunExtDemo.View
             this.tlPanelCalcEntrust.ResumeLayout(false);
             this.buysellPanel.ResumeLayout(false);
             this.buysellPanel.PerformLayout();
-            this.panelEntrust.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuySell)).EndInit();
+            this.panelEntrust.ResumeLayout(false);
             this.tabParentEntrustFlow.ResumeLayout(false);
             this.tlPanelParentEntrustFlow.ResumeLayout(false);
             this.tlPanelParentEntrustFlow.PerformLayout();
@@ -933,6 +1042,9 @@ namespace HundsunExtDemo.View
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDealFlow)).EndInit();
             this.toolStripDealFlow.ResumeLayout(false);
             this.toolStripDealFlow.PerformLayout();
+            this.panelAddCopies.ResumeLayout(false);
+            this.panelAddCopies.PerformLayout();
+            this.panelChildCmdSecurity.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1012,5 +1124,15 @@ namespace HundsunExtDemo.View
         private System.Windows.Forms.TableLayoutPanel tlPanelChildEntrustFlow;
         private System.Windows.Forms.TableLayoutPanel tlPanelChildDealFlow;
         private System.Windows.Forms.ToolStripButton tsbCmdCancelAdd;
+        private System.Windows.Forms.Panel panelCmdTradingBottom;
+        private System.Windows.Forms.Button btnCmdUnSelectAll;
+        private System.Windows.Forms.Button btnCmdSelectAll;
+        private System.Windows.Forms.Panel panelAddCopies;
+        private System.Windows.Forms.Label lblCopyUnit;
+        private System.Windows.Forms.TextBox txtBoxAddCopies;
+        private System.Windows.Forms.Label labelAddCopies;
+        private System.Windows.Forms.Panel panelChildCmdSecurity;
+        private System.Windows.Forms.Button btnCmdSecurityUnSelectAll;
+        private System.Windows.Forms.Button btnCmdSecuritySelectAll;
     }
 }
