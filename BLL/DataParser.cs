@@ -20,9 +20,6 @@ namespace BLL
 
         public void Parse(CT2UnPacker lpUnPack)
         {
-            Console.WriteLine("记录行数： {0}", lpUnPack.GetRowCount());
-            Console.WriteLine("列行数：{0}", lpUnPack.GetColCount());
-
             for (int i = 0; i < lpUnPack.GetDatasetCount(); i++)
             {
                 DataSet dataSet = new DataSet();
@@ -36,8 +33,6 @@ namespace BLL
                 {
                     columnDic.Add(j, lpUnPack.GetColName(j));
                 }
-
-                Console.WriteLine();
 
                 //打印所有记录
                 for (int k = 0; k < lpUnPack.GetRowCount(); k++)
@@ -118,9 +113,6 @@ namespace BLL
                 _dataSets.Add(dataSet);
             }
 
-            Console.WriteLine();
-
-
             /*
             while (lpUnPack.IsEOF() != 1)
             {
@@ -147,6 +139,59 @@ namespace BLL
             }
             */
 
+        }
+
+        public void Output()
+        {
+            for(int k = 0; k < 1; k++)
+            {
+                var dataSet = _dataSets[k];
+                if (dataSet == null || dataSet.Rows == null || dataSet.Rows.Count == 0)
+                    return;
+
+                for (int i = 0; i < 1; i++)
+                {
+                    var header = dataSet.Rows[0];
+                    string strName = string.Empty, strValue = string.Empty;
+                    foreach (var kv in header.Columns)
+                    {
+                        strName += kv.Key;
+                        strName += "\t";
+                        strValue += kv.Value.Value.ToString();
+                        strValue += "\t";
+                    }
+                    Console.WriteLine(strName);
+                    Console.WriteLine(strValue);
+                }
+            }
+
+            for(int k = 1; k < _dataSets.Count; k++)
+            {
+                var dataSet = _dataSets[k];
+                string strDataName = string.Empty;
+                for (int i = 0; i < dataSet.Rows.Count; i++)
+                {
+                    var row = dataSet.Rows[i];
+                    string strDataValue = string.Empty;
+                    foreach (var kv in row.Columns)
+                    {
+                        if (i == 0)
+                        {
+                            strDataName += kv.Key;
+                            strDataName += "\t";
+                        }
+                        
+                        strDataValue += kv.Value.Value.ToString();
+                        strDataValue += "\t";
+                    }
+                    if (i == 0)
+                    {
+                        Console.WriteLine(strDataName);
+                    }
+                    
+                    Console.WriteLine(strDataValue);
+                }
+            }
         }
     }
 }

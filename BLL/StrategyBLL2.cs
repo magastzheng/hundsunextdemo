@@ -89,18 +89,18 @@ namespace BLL
                         }
                         break;
                     default:
-                        if (item.Type == PackFieldType.IntType)
-                        {
-                            packer.AddInt(-1);
-                        }
-                        else if (item.Type == PackFieldType.StringType || item.Type == PackFieldType.CharType)
-                        {
-                            packer.AddStr(item.Name);
-                        }
-                        else
-                        {
-                            packer.AddStr(item.Name);
-                        }
+                        //if (item.Type == PackFieldType.IntType)
+                        //{
+                        //    packer.AddInt(-1);
+                        //}
+                        //else if (item.Type == PackFieldType.StringType || item.Type == PackFieldType.CharType)
+                        //{
+                        //    packer.AddStr(item.Name);
+                        //}
+                        //else
+                        //{
+                        //    packer.AddStr(item.Name);
+                        //}
                         break;
                 }
             }

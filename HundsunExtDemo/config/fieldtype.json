@@ -30,6 +30,12 @@
 		"scale": "4"
 	},
 	{
+		"name": "C20",
+		"type": "S",
+		"width": "20",
+		"scale": "4"
+	},
+	{
 		"name": "C32",
 		"type": "S",
 		"width": "32",
@@ -51,6 +57,11 @@
 		"name": "C255",
 		"type": "S",
 		"width": "255",
+		"scale": "4"
+	},{
+		"name": "C256",
+		"type": "S",
+		"width": "256",
 		"scale": "4"
 	},
 	{

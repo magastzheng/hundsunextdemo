@@ -49,7 +49,7 @@ namespace HundsunExtDemo.Controller
             if (retCode == (int)ConnectionCode.Success)
             {
                 _loginBLL.QueryAccount(new DataHandlerCallback(ParseAccount));
-                
+                _loginBLL.QueryAssetUnit();
                 //_loginBLL.QueryPortfolio();
                 //_loginBLL.QueryHolder();
                 //_loginBLL.QueryTrading();

@@ -32,6 +32,9 @@ namespace Model
         //交易股东查询
         QueryHolder = 30004,
 
+        //证券委托查询
+        QuerySecurityEntrust = 32001,
+
         //组合持仓查询
         QueryHolding = 35001,
 

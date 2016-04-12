@@ -43,13 +43,20 @@ namespace HundsunExtDemo.Controller
             this._securityBLL = new SecurityBLL(this._t2SDKWrap);
             this._arbitrageBLL = new ArbitrageBLL(this._t2SDKWrap);
 
-            var accounts = LoginManager.Instance.Accounts;
-            foreach (var account in accounts)
-            {
-                _arbitrageBLL.QueryInstance(account);
-            }
+            //var accounts = LoginManager.Instance.Accounts;
+            //foreach (var account in accounts)
+            //{
+            //    _arbitrageBLL.QueryInstance(account);
+            //}
 
-            _arbitrageBLL.QueryMonitorItem();
+            //_arbitrageBLL.QueryMonitorItem();
+
+            //Console.WriteLine("===========查询委托证券 开始==============");
+            //_securityBLL.QueryEntrust();
+            //Console.WriteLine("===========查询委托证券 结束==============");
+
+            _strategyBLL.QueryTrading();
+
             this._mainForm = mainForm;
             this._mainForm.MainController = this;
         }

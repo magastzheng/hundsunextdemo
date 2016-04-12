@@ -672,6 +672,7 @@ namespace BLL
                 //_t2SDKWrap.PrintUnPack(unpacker);
                 DataParser parser = new DataParser();
                 parser.Parse(unpacker);
+                parser.Output();
                 switch ((FunctionCode)iFunction)
                 {
                     case FunctionCode.Login:

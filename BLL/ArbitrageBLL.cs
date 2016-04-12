@@ -279,6 +279,11 @@ namespace BLL
 
                         }
                         break;
+                    case FunctionCode.QueryMonitorItem:
+                        { 
+                            
+                        }
+                        break;
                     //case FunctionCode.EntrustInstanceBasket:
                     //    {
 
