@@ -30,4 +30,21 @@ namespace Quote
             return dataMap;
         }
     }
+
+    public class QuoteCenter
+    {
+        private readonly static QuoteCenter _instance = new QuoteCenter();
+        private Quote _quote = new Quote();
+        public Quote Quote
+        {
+            get { return _quote; }
+        }
+
+        private QuoteCenter()
+        { 
+        
+        }
+
+        public static QuoteCenter Instance { get { return _instance; } }
+    }
 }

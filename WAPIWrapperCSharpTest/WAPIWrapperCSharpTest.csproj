@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F5FDD7A-7491-4FA7-9349-47A4289C711A}</ProjectGuid>
+    <ProjectGuid>{080D6CDD-50DE-4AE8-94B6-00F1A3FB4A4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Quote</RootNamespace>
-    <AssemblyName>Quote</AssemblyName>
+    <RootNamespace>WAPIWrapperCSharpTest</RootNamespace>
+    <AssemblyName>WAPIWrapperCSharpTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPublisher.cs" />
-    <Compile Include="ISubscriber.cs" />
-    <Compile Include="MarketData.cs" />
+    <Compile Include="WindAPIWrapTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublishEvent.cs" />
-    <Compile Include="Quote.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WAPIWrapperCSharp\WAPIWrapperCSharp.csproj">
+      <Project>{7b9116b3-dcf4-4c50-953e-3457a77ea99b}</Project>
+      <Name>WAPIWrapperCSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -18,7 +18,7 @@ namespace Config
             }
             catch(Exception e)
             {
-                Console.WriteLine("Fail to read file: {0}", filePath);
+                Console.WriteLine("Fail to read file: {0}, {1}", filePath, e.Message);
             }
             finally
             { 
