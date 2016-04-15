@@ -32,7 +32,7 @@ namespace WAPIWrapperCSharp
             Console.WriteLine(reqId);
         }
 
-        public void GetData(List<string> secuCodes, List<string> fields, Dictionary<string, string> options, bool updateAll)
+        public ulong RequestData(ref int errCode, List<string> secuCodes, List<string> fields, Dictionary<string, string> options, bool updateAll, WindCallback cb)
         { 
             string strCodes = string.Join(",", secuCodes);
             string strFields = string.Join(",", fields);
@@ -48,9 +48,17 @@ namespace WAPIWrapperCSharp
             }
             strOptions = sb.ToString();
 
-            WindCallback cb = new WindCallback(Callback);
-            int errCode = -1;
-            _windAPI.wsq(ref errCode, strCodes, strFields, strOptions, cb, updateAll);
+            if (cb == null)
+            {
+                cb = new WindCallback(Callback);
+            }
+
+            return _windAPI.wsq(ref errCode, strCodes, strFields, strOptions, cb, updateAll);
+        }
+
+        public void CancelRequest(ulong reqId)
+        {
+            _windAPI.cancelRequest(reqId);
         }
 
         public void Dispose()
