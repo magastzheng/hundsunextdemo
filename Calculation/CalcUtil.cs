@@ -70,6 +70,7 @@ namespace Calculation
         //计算每份个股数量
         //每份个股数量=每份总金额*个股权重/个股最价格
         //每次获取100股倍数之后，使用剩余部分重算余下股票数量
+        //价格按从高到低排序后，计算后权重偏差较小
         public static int[] CalcStockAmountPerCopyAdjust(double totalMoney, double[] weights, double[] prices)
         {
             if (double.IsNaN(totalMoney))
@@ -91,7 +92,7 @@ namespace Calculation
             for (int i = 0, count = weights.Length; i < count && restWeight > 0.000001; i++)
             {
                 double dValue = restMoney * weights[i] / (prices[i] * restWeight);
-                int iValue = (int)Math.Ceiling(dValue / 100) * 100;
+                int iValue = (int)Math.Round(dValue / 100) * 100;
                 amounts[i] = iValue;
                 restMoney = restMoney - iValue * prices[i];
                 restWeight = restWeight - weights[i];

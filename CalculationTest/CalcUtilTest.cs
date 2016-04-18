@@ -15,8 +15,9 @@ namespace CalculationTest
         public void Test_CalcStockAmountPerCopy()
         {
             double totalMoney = 120000.0;
-            double[] weights = new double[10] { 12.0, 15.0, 18.0, 5.7, 4.3, 6.4, 3.6, 14.2, 13.8, 7.0};
-            double[] prices = new double[10] { 21.35, 1.56, 4.5, 3.27, 1.97, 33.24, 18.30, 54.2, 12.31, 7.25 };
+            double[] weights = new double[10] { 12.0, 15.0, 18.0, 5.7, 4.3, 6.4, 3.6, 14.2, 13.8, 7.0 };
+            //double[] prices = new double[10] { 21.35, 1.56, 4.5, 3.27, 1.97, 33.24, 18.30, 54.2, 12.31, 7.25 };
+            double[] prices = new double[10] { 54.2, 33.24, 21.35, 18.30, 12.31, 7.25, 4.5, 3.27,1.97, 1.56 };
             for (int i = 0, count = weights.Length; i < count; i++)
             {
                 weights[i] = weights[i] / 100.0;
