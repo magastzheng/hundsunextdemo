@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace DBAccess
 {
+    public delegate void DbReaderCallback(DbDataReader reader);
+
     public class DbHelper
     {
         private static ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -168,6 +170,22 @@ namespace DBAccess
                 }
             }
         }
+
+        public void Close(DbConnection conn)
+        {
+            if (conn != null && conn.State == ConnectionState.Open)
+            {
+                try
+                {
+                    conn.Close();
+                }
+                catch
+                {
+                    logger.Error("Fail to close the database connection: " + conn.ConnectionString);
+                    throw;
+                }
+            }
+        }   
         #endregion
     }
 }
