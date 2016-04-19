@@ -46,6 +46,7 @@
     <Compile Include="config\ComboOption.cs" />
     <Compile Include="config\BuySellOption.cs" />
     <Compile Include="config\FunctionItem.cs" />
+    <Compile Include="config\Label.cs" />
     <Compile Include="ConnectionCode.cs" />
     <Compile Include="Data\DataValue.cs" />
     <Compile Include="Data\DataValueType.cs" />

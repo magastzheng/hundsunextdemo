@@ -52,6 +52,7 @@
     <Compile Include="FunctionConfig.cs" />
     <Compile Include="GridConfig.cs" />
     <Compile Include="IniFile.cs" />
+    <Compile Include="LabelConfig.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="TerminalConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

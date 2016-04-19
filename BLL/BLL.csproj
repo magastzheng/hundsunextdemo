@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArbitrageBLL.cs" />
+    <Compile Include="CallbackDataReady.cs" />
     <Compile Include="DataParser.cs" />
     <Compile Include="IDataHandler.cs" />
     <Compile Include="IDataReceiver.cs" />
@@ -65,10 +66,12 @@
     <Compile Include="StrategyBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StrategyBLL2.cs" />
+    <Compile Include="Subscriber.cs" />
     <Compile Include="T2SDKCallbackImpl.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="T2SDKBase.cs" />
     <Compile Include="T2SDKWrap.cs" />
+    <Compile Include="T2SubCallback.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Config\Config.csproj">

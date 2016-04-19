@@ -51,15 +51,22 @@ namespace HundsunExtDemo.View
             Console.WriteLine("user: " + userName + " " + "Password: " + password);
 
             var retCode = _loginController.Login(userName, password);
-            if(retCode == (int)ConnectionCode.Success)
+            if (retCode == (int)ConnectionCode.Success)
             {
                 var gridConfig = ConfigManager.Instance.GetGridConfig();
                 MainForm mainForm = new MainForm(gridConfig);
                 MainController mainController = new MainController(mainForm, _loginController.T2SDKWrap);
                 Program._s_mainfrmController = mainController;
-            
+
                 this._isExit = false;
                 this.Close();
+            }
+            else
+            {
+                WarnForm warnForm = new WarnForm();
+                warnForm.UpdateText(ConfigManager.Instance.GetLabelConfig().GetErrorMessage(retCode));
+                warnForm.Owner = this;
+                warnForm.ShowDialog();
             }
         }
 
